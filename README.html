@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>README</title>
+    </head>
+    <body>
+        <!-- Este documento tendra la recompilación de los pasos de mi libreria de github ademas de los cambios a mi repositorio. -->
+        <br>
+        <h3> Pasos de mi repositorio de GIT (LOCAL). </h3>
+        <p> 1. Nos situamos en git con el comando cd en: //C:/Users/"PC-NAME"|"Donde quiera en mi caso documentos" </p>
+        <p> 2. Creamos nuestra carpeta para nuestro repositorio: mkdir "Nombre de la carpeta" (La llamas 2 DAW y dentro de ella crearemos ramas o otras carpetas)</p>
+        <p> 3. Creamos un html (este documento) en el que usaremos para recapitular los pasos de este repositorio con el nombre del READMED.html: touch readme.html junto con el estilo css readme.css </p>        
+        <p> 4. Utilizamos el comando git init </p>
+        <p> 5. Depués de haber inicializado el repositorio con el git init, mediante con el git add le diremos a nuestro repositorio que archivos queremos que esten o formen parte de nuestro repositorio. Podemos hacer: "git add ." y así nos guardara todos los archivos creados o modificados </p>
+        <p> 6. Una vez hecho el comando add para hacer que el repositorio lo guarde correctamente, haremos un commit: git commit -m "mensaje" (Aqui marcamos los cambios realizados en el repositorio) </p>
+
+        <h3> Pasos para conectar nuestro repositorio local a GITHUB (CLOUD)</h3>
+        <p> 1. Creamos un readme.md: echo "DWEC2425" >> README.md</p>
+        <p> 2. Teniendo el git ya inicializado, escribimos un commit para añadir el commit: git commit -m "First commit"</p>
+        <p> 3. hacemos que nuestro repositorio sea el principal: git branch -M main </p>
+        <p> 4. git remote add origin "Enlace del repositorio" </p>
+        <p> 5. Por ultimo subimos nuestros archivos: git push -u origin main </p>
+    </body>
+</html>
