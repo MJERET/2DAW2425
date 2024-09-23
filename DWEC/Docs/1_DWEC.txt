@@ -1,0 +1,37 @@
+JavaScript. Está regulado por ECMA. 
+Para buscar cualquier cosa se busca en ECMA. 
+
+Trabajaremos en la versión: 
+
+Lenguaje de programación escritura del código.
+Libreria Dependencia externa para añadir funcionalidades
+Framework Caja de herramientas para construir una arquitectura. 
+
+JQuery Libreria escrita JS nativo "write less do more"
+Java Lenguaje de Back-end.
+
+Front-end = Client site, parte cliente.
+Back-end = Server side, parrte server.
+JS, Angular, Vue Frameworks.
+Node
+
+Que es JavaScript?
+
+Lenguaje de programación del lado cliente: se ejecuta en el navegador del cliente (salvo excepciones), No en el servidor.
+
+- Interpretado(¿?) No hay compilación. Líinea a línea (Pero...Hosting = "Early errors" que define ECMA). No genera un exe pero es COMPILADO JIT.
+- Orientado a objetos (basado en prototipos = clonar y no necesariamente instanciar)
+- Basado en objetos con funciones, ventanas ... que se pueden reutilizar.
+- Imperativo. Instrucciones explícitas mediante órdenes.
+- Estructurado. Utiliza las estructuras básicas del lenguaje estructurado: secuencia, selección, e iteración. 
+- Tipificación débil. No necesita indicación del tipo de variable (MS. TypeScript) [está rayado]
+- Tipificación dinámica. Ese tipo puede cambiar a lo largo de la ejecución. 
+
+La mayoria de los motores de JavaScript modernos utilizan la técnica Compilation Just in Time, que consiste en compilar fragmentos de código durante la ejecución del programa (más de una sola instrucción) y permite aumentar su rendimiento.
+
+Hoy en día, JavaScript es el único lenguaje compatible con todos los principales navegadores web.
+
+Los navegadores, por razones de seguridad ejecutan código de secuencia de comando en un entorno sandbox que no permite acceso a archivos y recursos locales.
+Como el código no está compilado, entra en el navegador como texto plano por lo que cualquiera puede ver el comdigo de una forma fácil de leer y reutilizarlo sin permiso. 
+Se utiliza la ofiscación del código, que consiste en transformar un script listo en una foma un poco menos legible (por ejem. generando nombres aleatorios cortos de variables y funciones, eliminando los signos de final de línea, etc.) pero no es excesivamente eficaz. 
+xd 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>    
+    <head>
+        <title>HTML Tutorial</title>
+        <meta chartse ="UTF-8">
+        
+        <script src ="javascript1.js"> </script> <!-- Con la etiqueta script marcamos donde esta nuestra parte del código. -->        
+    
+    
+    </head>
+    <body>
+       <h1> Clase 23-09-2024. </h1> <!--Correo de Juanjo: jjgarcialazo@educa.madrid.es-->
+       
+        <p> Si la ubicación está en head se empieza a descarga el script antes de que dibuje la pagina. </p>
+        <p> Si lo hacemos en el body se descarga el js mientras dibuja la página. </p>
+        <p> </p>    
+        
+        <p id="frase"> Frase de prueba </p> 
+        <p id="miParrafo"> 5 entre 7 </p>
+
+        <script> 
+            window.alert(hiMessage());
+            Mathdosmastres();
+
+        </script> <!-- Con la etiqueta script marcamos donde esta nuestra parte del código. -->
+            <script> // Siempre que pongamos la etiqueta script tienen que estar antes de la etiquera del cuerpo/body.
+                     // Si escribimos en el head el script, se descarga antes de que empieze a dibujar la página. 
+                     //window.alert (2+3);
+                     window.alert ("Atención"); // Mensaje emergente método de objeto predefinido.
+                     document.write("<h2>¿Qué tal?</h2>"); // Solo para testear... Pueden utilizarse etiquetas html.
+                     document.getElementById("frase").innerHTML = "He cambiado la frase"; // Hay que referirse al id del texto que vamos a cambiar. 
+                     // Document hace referencia a todo lo que puede hacer el ordenador. Si escribimos document. Nos saldra todas la posiblidades que tiene.
+                     console.log("Holacaracola"); // Con este mensaje podemos hacer un log en la consola. 
+            </script> <!-- Con el / marcamos el final del mismo. -->
+        <script> // Podemos insertar CSS en nuestro html/javascript
+                 // Como también tenemos opciones de consola. 
+        document.getElementById("miParrafo").innerHTML = 5/7; 
+                                // # No sirve par hacer comentario.
+        console.log(miParrafo); // Podemos ver los valores que le implementamos a nuestros parrafos.
+        console.warn("esto no es un numero"); //Depende de lo que nosostros queramos escribimos en log un control que nos diga que ocurre.
+        console.info("Accediendo");
+        console.error("Algo ha fallado en la pagina"); // Nos marcara dependiendo de lo que queramos un fallo. 
+        // console.clear("");   //Limpia la consola, equivalente a pulsar ctrl + L o escribir clear() Siempre limpiara la consola. 
+                                // debugger detiene la ejecución. 
+        </script>
+            <script>
+                // var o let declaran las variables. No es imprescindible.
+                // Operador de asignación es =. El resto: +,-,*,/,%.. En versiones posteriores ++. También ++ y -- (delante y detrás ... operadores pre y post incremento).
+                // Los bloques (funciones, bucles...) de código se limitan con {}
+                // Recomendado camelCase para definición de variables. Pueden empezar con "_" y "$" ejemplo. primoNumber.
+                //Palabras reservadas de javascript como: break; continue; switch; for; do... while; if...else; debugger; try...catch; var; fuction; return;.
+            </script>
+
+
+
+
+
+    </body>
+</html>

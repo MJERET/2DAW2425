@@ -1,0 +1,64 @@
+
+@charset "UTF-8";
+
+body {
+    background-color:antiquewhite;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    margin-left: 40px;
+    margin-right: 950px;
+}
+
+h3 {
+    color: lightseagreen;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+}
+
+h2 {
+    color: lightseagreen;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+}
+
+p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 19px;
+    text-align: justify;
+    margin-right: 100px;
+    margin-left: 80px;
+}
+
+.Dia {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+ol {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 19px;
+    text-align: justify;
+    margin-right: 80px;
+    margin-left: 80px;
+}
+
+li {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 19px;
+    text-align: justify;
+    font-style: strong;
+}
+
+.DEFINICION {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    margin-right: 80px;
+    margin-left: 60px;
+}
