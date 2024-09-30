@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+        <script>
+                var nombre ="Mariano José",
+                    apellido ="Eret";      
+                var x = 17; //typeoff
+
+                //Operador de igualdad (==)
+                alert("x==8 es "+(x==8));           // False. No porque X es 17
+                alert("x==17 es "+(x==17));         // True. Porque x es 17
+                alert("x=='17' es "+(x=='17'));     // False. Porque x es 17 y no "17"
+
+                //Operador de igualdad estricta (===)
+                alert("x===8 es "+(x===8));         // True. Porque ambos son numeros
+                alert("x===17 es "+(x===17));       // True. Porque ambos son numeros y iguales.
+                alert("x==='17' es "+(x==='17'));   // False. Poruqe son de distinto tipo de dato. String y el otro number.
+    
+                //Operador de desigualdad (!=)
+                alert("x!=8 es "+(x!=8));           // True. Porque x es 17 y no 8
+                alert("x!=17 es "+(x!=17));         // False. Porque x es 17 y lo igualamos a 17
+                alert("x!='17' es "+(x!='17'));     // False. Porque x es 17 y no "17"
+    
+                //Operador de desigualdad estricta (!==)
+                alert("x!==8 es "+(x!==8));         // True. No son de distinto tipo de dato.
+                alert("x!==17 es "+(x!==17));       // False. Porque x es 17 y lo igualamos a 17 con el mismo tipo de dato.
+                alert("x!=='17' es "+(x!=='17'));   // True porque son de distinto tipo de dato.
+    
+                //Operador de mayor que (>)
+                alert("x>8 es "+(x>8));             // True porque x es 17 y es mayor que 8.
+    
+                //Operador de menor que (<)
+                alert("x<8 es "+(x<8));             // False porque x es 17 y no es menor que 8.
+    
+                //Operador de mayor o igual que (>=)
+                alert("x>=8 es "+(x>=8));           // True porque x es 17 y es mayor o igual que 8.
+    
+                //Operador de menor o igual que (<=)
+                alert("x<=8 es "+(x<=8));           // False porque x es 17 y no es menor o igual que 8.
+    
+    
+            
+    </script>
+</html>
