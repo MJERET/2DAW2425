@@ -1,0 +1,7 @@
+archivo_o_directorio_a_ignorar
+# Carpeta de todas las clases menos DWEC. 
+DAW/
+LOG/
+DWES/
+DIW/
+
