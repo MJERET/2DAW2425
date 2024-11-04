@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Ejercicio 3.4 - Reproductor de Música</title>
+    <meta charset="UTF-8">
+    <meta author="Eret Torres Mariano">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    
+    <style>
+        body {
+            background-color: #333;
+        }
+        audio {
+            display: block;
+            margin: 0 auto;
+            width: 50%;
+            height: 50px;
+        }
+        p {
+            
+            font-family: 'Courier New';
+            font-size: 20px;
+            color: white;
+            margin-left: 28%;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reproductor de Música</h1>
+    
+    <!-- Lista de pistas de audio -->
+    <p>Primera pista de audio</p>
+    <audio id="audio1" controls>
+        <source src="Daft punk Motherboard.mp3" type="audio/mp3">
+    </audio>
+    <p>Segunda pista de audio</p>
+    <audio id="audio2" controls>
+        <source src="Daft Punk  One More Time.mp3" type="audio/mp3">
+    </audio>
+    <p>Tercera pista de audio</p>
+    <audio id="audio3" controls>
+        <source src="Daft Punk  Infinity Repeating.mp3" type="audio/mp3">
+    </audio>
+    <p>Cuarta pista de audio</p>
+    <audio id="audio4" controls>
+        <source src="Daft punk Short circuit.mp3" type="audio/mp3">
+    </audio>
+    <p>Quinta pista de audio</p>
+    <audio id="audio5" controls>
+        <source src="Ori - In Wonderment of Winter.mp3" type="audio/mp3">
+    </audio>
+    
+    <!-- Controles de Reproducción -->
+    <div class="button-container">
+        <button onclick="pauseAll()" class="btn btn-warning">
+            Pause <i class="glyphicon glyphicon-pause"></i>
+        </button>
+        <button onclick="stopAll()" class="btn btn-danger">
+            Stop <i class="glyphicon glyphicon-stop"></i>
+        </button>
+        <button onclick="rewindAll()" class="btn btn-info">
+            Rewind <i class="glyphicon glyphicon-fast-backward"></i>
+        </button>
+    </div>
+
+    <script>
+        // Seleccionar todos los elementos de audio
+        const audioElements = document.querySelectorAll("audio");
+
+        // Función para pausar todos los audios
+        function pauseAll() {
+            audioElements.forEach(audio => audio.pause());
+        }
+
+        // Función para detener y reiniciar todos los audios
+        function stopAll() {
+            audioElements.forEach(audio => {
+                audio.pause();
+                audio.currentTime = 0;
+            });
+        }
+
+        // Función para rebobinar todos los audios
+        function rewindAll() {
+            audioElements.forEach(audio => {
+                audio.currentTime = 0;
+                audio.play();
+            });
+        }
+    </script>
+</body>
+</html>
