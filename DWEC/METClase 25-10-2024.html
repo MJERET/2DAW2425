@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+    <head>
+        <title> Clase del 25-10-2024 </title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            /*
+            En está clase veremos más cosas sobre los arrays. 
+            Formas de declarar un array. 
+
+            - pop y shift Extraen el último y primer elemento del array respectivamente.
+            - delete elimina el elemento (pero mantiene la posición)
+            - push y unshift Añaden elementos al final y al principio del array respectivamente.
+            !!!- splice Permite insertar y borrar elementoss en diferentes posiciones.
+            !!!- slice Permite extrar un subarray.
+            - concat. Une un array con otro.
+            - copyWithin. Copia elementos dentro del array y los sustituye por otros elementos del array.
+            - fill Sustituye los elementos del array por uno indicado0.
+
+            Métodos de los arrays:
+            - IndexOF.           Devuelve la posición de un elemento en el array.
+            - lastIndexOf.       Devuelve la última posición de un elemento en el array.
+            - reverse            Invierte el orden de un array.
+            - Sort               Ordena el array.
+
+            Hay diferencia entre usuar delete y pop o shift en un array. Los tres eliminan elementos pero.
+            delete elimina el elemento pero mantiene la posición. Pop y shift eliminan el elemento y reorganizan el array.
+
+            push y unshift añaden elementos al final y al principio del array respectivamente.
+
+            */
+            //let miArray = [];
+            //miarray = new Array();
+
+            //push y unshift añaden elementos al final y al principio del array respectivamente.
+            const numero = [1,2,3,4,5];  // o new Array (1,2,3,4,5);
+            numero.push(6);
+            console.log(numero);
+            console.log(numero[0]);
+
+            //pop y shift Extraen el último y primer elemento del array respectivamente.
+
+            numero.pop(); // se elemina el último eleemnto porque no se le pasa ningún parámetro.
+            console.log(numero);
+
+
+            //array.splice(posicion a insertar / borrar, número de elementos a eliminar, [1º elemento a insertar, 2º elemento a insertar, 3...]);
+
+            numero.splice(2, 0, 3.5) // añadimos en una posición concreta.
+            console.log(numero);
+          
+            numero.splice(2, 1); // eliminamos en una posición concreta.
+            console.log(numero);
+
+        </script>
+    </body>
+</html>

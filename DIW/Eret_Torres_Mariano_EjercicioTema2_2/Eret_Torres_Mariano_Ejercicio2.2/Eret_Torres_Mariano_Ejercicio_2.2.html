@@ -1,0 +1,125 @@
+<DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta author="Eret Torres Mariano">
+        <title>Eret Torres Mariano Ejercicio 2.2</title>    
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Para poner el color marron con el fondo marron, hemos creado las siguientes lineas de estilo. -->
+        <style>
+            /* Ajuste personalizado de colores para fondo y texto */
+            .bg-custom {
+                background-color: #fcf8e3 !important;
+            }
+            .text-custom {
+                color: #8c6f3b !important;
+            }
+            .bg-custom {
+                background-color: #fcf8e3 !important;
+            }
+        </style>
+    </head>
+    <body>
+        <!--Crea una página web aplicando Bootstrap con una 
+        tabla y botones con estas características. 
+        Una tabla con cabecera y 6 columnas: 
+        1. Id 
+        2. Name 
+        3. Price 
+        4. Columna para el botón Detail 
+        5. Columna para el botón Update 
+        6. Columna para el botón Delete 
+        Además, la tabla debe tener un pie que ocupe todo 
+        el ancho de la tabla indicando el número de filas. 
+        La tabla y los botones no tienen que hacer ninguna acción. -->
+        
+        <!-- TABLA -->
+        <div class="container mt-4">
+            <div class="p-4 bg-custom text-custom border-custom">
+                <caption> <h2> Products </h2> </caption>
+            </div>
+            <table class="table table-bordered text-justify">
+                    <thead class="thead-dark"></thead>
+                        <tr>
+                            <td><p> Id </p> </td>
+                            <td><p> Name </p></td>
+                            <td><p> Price </p></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-light">
+                            <td><p> 42 </p></td>
+                            <td><p> WebStorm editor </p></td>
+                            <td><p> 53.3€ </p></td>
+                            <td><button class="btn btn-success btn-sm">Detail</button></td>
+                            <td><button class="btn btn-warning btn-sm">Update</button></td>
+                            <td><button class="btn btn-danger btn-sm">Delete</button></td>
+                        </tr>
+                        <tr> 
+                            <td><p> 15 </p></td>
+                            <td><p> Sciteeditor </p></td>
+                            <td><p> 0.5€ </p></td>
+                            <td><button class="btn btn-success btn-sm">Detail</button></td>
+                            <td><button class="btn btn-warning btn-sm">Update</button></td>
+                            <td><button class="btn btn-danger btn-sm">Delete</button></td>
+                        </tr>
+                        <tr class="bg-light">
+                            <td><p> 665 </p></td>
+                            <td><p> Visual Studio Enterprise </p></td>
+                            <td><p> 533.5€ </p></td>
+                            <td><button class="btn btn-success btn-sm">Detail</button></td>
+                            <td><button class="btn btn-warning btn-sm">Update</button></td>
+                            <td><button class="btn btn-danger btn-sm">Delete</button></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="bg-light">
+                            <td colspan="6">Total:3 types</td>
+                        </tr>
+                    </tfoot>
+            </table>
+            <nav aria-label="Page navigation" class="mt-3"> <!-- Comienzo botones 1 2 3 4 5 -->
+                <ul class="pagination justify">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <i class="bi bi-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            Next <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav> <!-- Botones 1 2 3 4 5 final -->
+                <div class="btn-toolbar mt-3" role="toolbar" aria-label="Toolbar with button groups">
+                    <!-- Boton de busqueda -->
+                    <div class="btn-group mr-1" role="group" aria-label="First group"> <button type="button" class="btn btn-danger"><i class="bi bi-search"></i></button> </div>
+                    <!-- Boton de añadir-->
+                    <div class="btn-group mr-1" role="group"> <button type="button" class="btn bg-light"><i class="bi bi-plus"></i></button> </div>
+                    <!-- Boton de favoritos-->
+                    <div class="btn-group mr-1" role="group"> <button type="button" class="btn btn-warning"><i class="bi bi-star-fill"></i></button> </div>
+                    <!-- Boton de menos-->
+                    <div class="btn-group mr-1" role="group"> <button type="button" class="btn btn-danger"><i class="bi bi-dash"></i></button> </div>
+                    <!-- Boton de descarga-->
+                    <div class="btn-group mr-5" role="group"> <button type="button" class="btn btn-download bg-light"><i class="bi bi-arrow-down-circle"></i></button> </div>
+                    <!-- Boton de cuadricula por 4-->
+                    <div class="btn-group mr-1" role="group"> <button type="button" class="btn btn-outline-secondary"><i class="bi bi-grid-fill"></i></button> </div>
+                    <!-- Boton de cuadricula por 3 -->
+                    <div class="btn-group mr-1" role="group"> <button type="button" class="btn btn-outline-secondary"><i class="bi bi-grid-3x2-gap-fill"></i> </button></div>
+                    <!-- Boton de cuadricula por 1x2-->
+                    <div class="btn-group" role="group"> <button type="button" class="btn btn-outline-secondary"><i class="bi bi-grid-1x2-fill"></i></button> </div>
+                    </div> <!-- div de los botones inferiores-->
+                </div>
+            </div>
+        
+        </div>
+        <!-- Fin de la tabla -->
+    </body>
+</html>

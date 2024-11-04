@@ -1,0 +1,30 @@
+
+
+.body{
+    color : black;
+    background-color: grey;
+    font-family: "Verdana";
+    font-size: 10pt;
+}
+
+.naranja {
+    color: orange;
+    background-color: blue;
+}
+.consola {
+    color : green;
+    font-family: 'Courier New';
+    background-color: black;
+}
+.importante{
+    text-decoration: none;
+}
+.importante:hover{
+    background-color: yellow;
+    text-decoration: none;   
+}
+#litulo {
+    font-family: "Verdana";
+    font-size: 40pt;
+    color: black+grey;   
+}

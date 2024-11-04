@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Test</title>
+    </head>
+    <body>
+        <script>
+            // Función sin paramentros
+            function saludo () {
+                alert("Hola Mundo");
+            }
+            // Los parentesis son necesarios para llamar a la función
+            // Si no se ponen, no se ejecuta la función
+            var resultado_saludo = saludo();
+            alert (resultado_saludo);
+            // Aparece un segndo alert con "undefined" porque la función no devuelve nada
+
+            // Sin parentesis se puede guardar tdo el código de la función en una variable o mostrarla´
+            var resultado_saludo2 = saludo;
+            alert (resultado_saludo2);
+
+
+            //Función con parámetros
+            function producto (a, b) {
+                return a * b;
+            }
+            // Los parenteisis () invocan a la función
+            var resultado_producto = producto(3, 4);
+            alert (resultado_producto);
+
+            // Podemos introducir en el alert directamente la función
+            alert (producto(5, 6));
+
+            var producto2 = function(a,b) {return a*b;};
+            var resultado2 = producto2(4, 5);
+            alert (resultado2);
+
+            var jjfunction = new Function ("a", "b", "return a+b;");
+            var resultado2 = jjfunction(5, 7);
+            alert (resultado2);
+
+            function suma (a, b) {
+                if (a === undefined) {
+                    a = 0;
+                }
+                return a + b;
+            }
+
+            var diHOLA ($name) {
+                result = "Hola " {
+                    alert (result);
+                }
+            }
+
+
+        </script>
+    </body>
+</html>

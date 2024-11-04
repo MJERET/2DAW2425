@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+    <head>
+        <title> Clase 04-10-2024 </title>
+    </head>
+    <body>
+        <h1 align="center"> Ejercicio 1. </h1>
+        <p> 1. Este ejercicio nos pide dos números y que nos diga cual es el mayor y cual es el menor, o si son iguales. Si no son números o son menores que cero, que lo vuelva a pedir</p>
+        <script>
+            /*Programa que pida dos números y nos diga cuál es el mayor, el menor 
+            o si son iguales. Si no son números o son menores que cero, que lo 
+            vuelva a pedir */
+            window.alert ("Introduce dos números y te diré cuál es mayor, menor o si son iguales");
+            var num1 = parseInt(prompt("Introduce el primer número", 0));
+            var num2 = parseInt(prompt("Introduce el segundo número", 0));
+
+            var Comparar = function (a,b) {
+                if (a > b){
+                    alert (a + " es mayor que " + b);
+                } else if (a < b){
+                    alert (a + " es menor que " + b);
+                } else {
+                    alert (a + " es igual a " + b);
+                }
+            }
+            document.write("Has introducido el :"+ num1 + " y " + num2) ;
+
+            /* Test cases for Comparar function
+                console.log(Comparar(5, 3));
+                console.log(Comparar(2, 4));
+                console.log(Comparar(7, 7));
+                console.log(Comparar(-1, -1));
+                console.log(Comparar(0, 0));
+                console.log("All test cases for Comparar function passed!");*/
+
+            /*2. Media y Sum hasta meter número negativo*/
+            //Necesito que reciba tantos números ocmo quiera el usuario
+            //Hasta que meta un número negativo -0
+            //Mostrar la Sum y la media de los números introducidos y la media.
+            
+            //Recursión 
+
+        </script>
+            <br>
+            <h1 align="center"> Ejercicio 2. </h1>    
+            <p> 2. Media y Sum hasta meter número negativo </p>    
+        <script>
+
+            window.alert("Introduce números y te diré la Sum y la media de los números introducidos"); 
+            
+            function test (Sum=0, contador=0) {
+                var num = Number(prompt("Introduce un número", 0));
+                // Para cerrar el programa.
+                if (num >= 0) {
+                    console.log("Has introducido: " + num);
+                    document.write("Has introducido: " + num + "<br>");
+                    } else {
+                        console.log("Has introducido un número negativo. La Sum de los números introducidos es: " + Sum);
+                        SumNus(Sum, cont);
+                }
+                Sum += num;
+                contador += 1;
+                test (Sum, contador)
+            }
+            test();
+            //Este ejercicio pero con un alert. y mostrar un mensaje con la Sum y la media. y los números introducidos.
+            
+            /*function ObtenerSum(Sum = 0, contador = 0) {
+            let numero = parseFloat(prompt("Introduce un número negativo para salir):"));
+
+            if (numero < 0) {
+                alert("Fin de meter números.");
+                console.log("Sum total:", Sum);
+                console.log("Contador de números:", contador);
+            if (contador > 0) {
+                let media = Sum / contador;
+                console.log("Media aritmética:", media);
+            }
+            } else {
+                Sum += numero;
+                contador++;
+                ObtenerSum(Sum, contador); // Llamamos a la función
+                }
+            }
+
+            // Llamamos a la función inicial
+            ObtenerSum();*/
+
+        function Calculadora(Sum = 0, contador = 0) {
+        let numero = parseFloat(prompt("Introduce un número negativo para salir):"));
+
+        if (numero <= 0) {
+        alert("Fin de meter números.");
+        console.log("Suma total:", Sum );
+        document.write("Contador de números:", contador);
+        //Cuando escribamos un número negativo, nos saldrá la media de los números introducidos.
+        if (contador > 0) {
+            let media = Sum / contador;
+            console.log("<br/> Media aritmética:", media);
+        }
+    } else {
+        Sum += numero;
+        contador++;
+        Calculadora(Sum, contador); // Llamamos a la función
+    }
+}
+    // Llamamos a la función.
+    Calculadora();
+
+
+
+
+        </script>
+    </body>
+
+</html>

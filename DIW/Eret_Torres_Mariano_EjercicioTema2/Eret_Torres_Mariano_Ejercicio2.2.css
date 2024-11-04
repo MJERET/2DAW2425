@@ -1,0 +1,53 @@
+
+                                        /*Mariano José Eret Torres*/
+
+/* Estilos generales del menú */
+body {
+    font-family: Arial, sans-serif;
+    margin: 10;
+    padding: 10;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+/* Menú horizontal */
+.menu {
+    display: flex;
+    
+}
+/* Estilos de li*/
+.menu > li {
+    position: relative;
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: black;
+    background-color: lightblue;
+}
+
+/* Estilos del submenú */
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: lightblue;
+    display: none; /* Escondido por defecto */
+}
+.submenu li a {
+    padding: 10px 20px;
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+
+/* Mostrar el submenú al pasar el ratón */
+.menu > li:hover .submenu {
+    display: block;
+}
+/* Estilo del texto ">" para los elementos con submenú */
+.menu > li > a::after {
+    content: " >";
+}

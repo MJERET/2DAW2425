@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title> Clase 08-10-2024 </title>
+        <meta charset="UTF-8">
+    </head>
+    <body>  
+        <script>
+            const persona = {
+                nombre:"Juan",
+                apellido: "Pérez",
+                consulta: function () {  // Función anónima
+                    return `${this.nombre} ${this.apellido}`;
+                    //Tenemos que poner la comilla francesa.
+                }
+            }
+            consultar: () => { // Función flecha
+                return `${this, nombre} ${this.apellido}`;
+            }
+            console.log(persona.consulta());
+            
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title> Actividad 2 </title>
+        <meta charset="UTF-8">
+        <author name="Mariano Eret Torres">
+    </head>
+    <body>
+        <br>
+        <h1 align="center"> Todos los elementos</h1>
+        <hr size="5" color="black"></hr>
+        <blockquote>
+            <p> En está pagina Vamos a usar todos los elementos de formularios en clase de DIW. </p>
+            <form> 
+                <!-- Formularios de texto. -->
+                <div style="margin:1em;">
+                    <label for="text1">Usuario</label><br />
+                    <input id="text1 name="Text" placeholder="Usuario..." type="text" />
+                </div>
+                <div style="margin:1em;">
+                    <label for="password1">Contraseña</label><br />
+                    <input id="password1" name="password1" placeholder="Contraseña... " type="password"/>
+                </div>
+                <div style="margin:1em;">
+                    <label for="input-1">Input DNI</label><br />
+                    <input id="input-1" name="dniInput" placeholder="Insert DNI" pattern="[0-9]{8}[AZ]{1}" maxlength="9" autofocus="true" required="true" type="text">
+                </div>
+                <!-- Cuadro de texto -->
+                <div style="margin:1em;">
+                    <div>
+                        <label for="textareal">Description</label></div>
+                        <textarea id="textareal" name="Description" placeholder="Insert your description" cols="40" rows="8" maxlength="10"></textarea>
+                    </div>
+                </div>
+                <!-- Buscador -->
+                <div style="margin:1em;">
+                    <label for="search1">Search</label><br/>
+                    <input id="search1" name="search" placeholder="Enter your search term" 
+                   type="search" />
+                </div>
+                <!-- Selección de número -->
+                <div style="margin:1em;">
+                    <label for="numer1">Any number</label><br/>
+                    <input id="numer1" name="number1" placeholder="Enter a number" type="number"/>
+                </div>
+                <!-- Subir archivos al formulario -->
+                <div style="margin:1em;">
+                    <label for="file1">Subir</label><br />
+                    <input id=“file1" name=“file1" placeholder="Select field" type="file"/>
+                </div>
+                <!-- URLS -->
+                <div style="margin:1em">
+                    <label for="url1"> Sitio WEB de referencia (cualquier https://)</label><br />
+                    <input id="utl1" name="url1" placeholder="Enter valid url" type="url"/>
+                </div>
+                <!-- EMAIL -->
+                <div style="margin:1em;">
+                    <label for="email1">Email</label><br />
+                    <input id="email1" name="email1" placeholder="Enter email" type="email"/>
+                </div>
+                <!-- Teléfono -->
+                <div style="margin:1em;">
+                    <label for="telefono"> Teléfono local </label><br />
+                    <input id=" telefono " name=" telefono" placeholder="Enter local pone 948..." pattern="998[0-9]{6}" maxlength="9" required="true" type="tel"/>    
+                </div>
+                <!-- Fecha -->
+                <div style="margin:1em;">
+                    <label for="date1">Fecha del día</label><br />
+                    <input id=“date1" name="date1" placeholder="Poner la fecha del día" type="date"/>
+                </div>
+                <!-- Hora -->
+                <div style="margin:1em;">
+                    <label for="tine1"> Tiempo actual </label><br />
+                    <input id="time1" nane="tine1" placeholder="Tiempo actual" type="time" />
+                </div>
+                <!-- Hora y fecha -->
+                <div style="margin:1em;">
+                    <label for="datetime1">Poner fecha y día</label><br />
+                    <input id="datetime1" name="datetime1" placeholder="Enter datetime" type="datetime" />
+                </div>
+                <!-- Semana -->
+                <div style="margin:1em;">
+                    <label for="week1">Enter week</label><br />
+                    <input id "week1" name="week1" placeholder="Choose week" type='week'>
+                </div>
+                <!-- Mes -->
+                <div style="margin:1em;">
+                    <label for="month2">Choose month</label><br />
+                    <input id="month2" name="month2" placeholder="Choose month" type="month" min="2021-02" max="2021-08"/>
+                </div>
+                <!-- Color -->
+                <div style="margin: 1em;">
+                    <label for="color2"> Color favorito  </label><br />
+                    <input id="color2" name="color" placeholder="Mandatory color" required="true" type="color"/>
+                </div>
+                <div style="margin: 1em;">
+                    <label for="rateFilm"> Puntuación de satisfacción </label>
+                    <input id="rateFilm" name="rate" type="range" min="0" max="100" value="5"  ><br />
+                </div>    
+                <br>
+                    <!-- Botton de enviado y borrado -->
+                    <input type="submit" value="Enviar">
+                    <input type="reset" value="Borrar">
+                </form>
+        </blockquote>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<DOCTYPE html>
+    <head>
+        <title> Ejercicio 29-10-2024 </title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            console.log("Mariano José Eret Torres");
+            
+            /*
+            	Ejercicio Hacer una funcion que ordene las notas de un array pasado como parametro.
+                 Si se le pasa [4,8,3,10,5] debe volver [3,4,5,8,10]. Pruebalo por consola.
+            */
+            //1ero Creo el array.
+            let notas = [];
+             
+            function orden (nota) {         //Función que ordena las notas.
+                /*
+                Mejora planteada del ejecicio.
+                switch (user) {
+                    case 1: break;
+                }*/
+                
+                notas = usuario();          //Llamo a la función usuario para obtener el array de notas.
+                notas.sort((a, b) => a - b);
+                return console.log(notas);
+                console.log("--------------------");
+            } //orden
+
+            function usuario () 
+            {                               // Función para obtener los datos del array.
+                let user = prompt("Introduce una nota");
+                console.log(user);
+                let nota = user.split(" ");
+                return nota;
+            }  //usuario
+            orden();
+
+            //Array de objetos y cada uno de esos objetos tiene nombre y edad.
+
+            //Creación de los arrays.
+            let personas = [
+                {nombre:'Juanjo', edad: 25},
+                {nombre:'Mariano', edad: 19},	
+                {nombre:'Eret', edad: 20}
+            ]
+
+            //Creación de la función.
+            personas.sort((a, b) => a.edad- b.edad);
+            console.log(personas);
+
+            //let personas Ordenado = personas.sort(persona1, persona2) => persona1.nombre.localeCompare(persona2.nombre))
+            let resultado = personas.sort((persona1, persona2) => persona1.nombre.localeCompare(persona2.nombre));
+            console.log(resultado);
+            //Función que me ordena a las personas por nombre haciendo uso del localCompare.
+            function result (persona1, persona2) {
+                return console.log( persona1.nombre.localeCompare(persona2.nombre));
+            }
+
+            
+        </script>
+    </body>
+</html>

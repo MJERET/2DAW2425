@@ -1,0 +1,78 @@
+<html>
+    <head> 
+        <title> Ejercicio 4 </title>
+        <meta charset="UTF-8">
+        <author> Mariano José Eret </author>
+    </head>
+    <body> 
+        <h1 align="center"> Ejercicio 4. </h1>
+        <p> 4. Mostrar todos los impares que estén entre dos números introducidos por el usuario </p>
+        <script>
+            console.log("Mariano José Eret Torres");
+            
+            /*function Impares (contador=0, dividir=0) {
+                // Pedimos los números al usuario un número.
+                var num = Number(prompt("Introduce un número", 0));
+                //Cerramos el programa escribiendo un número negativo.
+                if (num >= 0 ) {
+                    console.log("Has introducido el: " +num);
+                    document.write("Has introducido el:" +num);
+                // Hacemos que acabe el programa y haga el siguiente calculo.
+                } else {
+                    console.log("Fin del programa.")
+                    document.write("Fin del programa");
+                    // Con la variable división, todo número que escribimos tiene que ser divisible entre 
+                    let division = num % 2;
+                    
+                    }   
+                }
+                Impares (dividir, contador)
+            }
+            Impares();*/
+
+            /*for (let i = v2; i <= v1; i++) {
+                if (i % 2 === 1) {
+                    console.log("El número " + i + " es impar");*/
+
+
+
+            var num1 = Number(prompt("Introduce el primer número")); //Número uno introducido por el usuario.
+            var num2 = Number(prompt("Introduce el segundo número")); //Número dos introducido por el usuario. 
+            
+            function Impares (num1, num2) {
+                document.write("Números introducidos: " +num1 + " y " +num2+ "<br>");
+                //Comparamos que los números no son iguales
+                if (num1 === num2) {
+                    console.log("Fin del programa");
+                    document.write("<br>Fin del programa");
+                //Si no son iguales:
+                } else if ( num1 != num2) {
+                    //Comparamos que un número es mayor que otro y le restamos 2 hasta que sea igual que num2
+                    if (num1 >= num2) {
+                        console.log("El primer número es mayor que el segundo."); 
+                        //Marcamos una variable que será igual que el número introducido, con limite el otro número que será mayor que el otro. 
+                        for (let i = num2; i<num1; i++) {
+                            if (i % 2 == 1){
+                                //Imprime los impares
+                                console.log("El número: " + i + " es impar");
+                                document.write("Son impares: " + i +" ");
+                            }
+                        }
+                        }
+                    // Segunda comparación si un número es mayor que otro
+                    } else if (num1 <= num2) {
+                        console.log("El segundo número es mayor que el primero")
+                        for (let i = num1; i<num2; i++) {
+                            if (i % 2 == 1){
+                                console.log("El número: " + i + " es impar")
+                            }
+                    }
+                
+                } 
+            }
+            Impares (num1, num2)
+
+
+        </script>
+    </body>
+</html>

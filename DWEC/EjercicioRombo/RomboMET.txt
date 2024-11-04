@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Rombo</title>
+    <meta author="Mariano José Eret">
+</head>
+<body margin="10px">
+    <br>
+    <script>        
+	//var usuario = Number(prompt("Introduce un número para dibujar un rombo")); //Se puede pedir un numero
+	
+	document.write("<h1>Rombo 1</h1>");
+        function rombo(size) {							     //Comienzo de la función Rombo
+        let rombo = "";
+        // Dibuamos la parte de arriba del rombo
+        for (let fila = 0; fila < size; fila++) {				     //Comienzo de la condición for de la fila del rombo
+            // Añadimos los espacios en blanco con un bucle
+            for (let espacios = 0; espacios < size - fila - 1; espacios++) {	     //Comienzo de los espacios
+                rombo += "&nbsp;&nbsp;";
+            }
+            // Añadimos los asteriscos con un bucle
+            for (let asteriscos = 0; asteriscos < 2 * fila + 1; asteriscos++) {	     //Comienzo de los asteriscos
+                rombo += "*";
+            }
+            // Añadimos un salto de línea					     //Salto de línea
+            rombo += "<br>";
+        }
+        // Dibujamos la parte de abajo del rombo
+        for (let fila = size - 2; fila >= 0; fila--) {				     //
+            // Añadimos los espacios en blanco con un bucle
+            for (let espacios = 0; espacios < size - fila - 1; espacios++) {	     //Comienzo de los espacios
+                rombo += "&nbsp;&nbsp;";
+            }
+            // Añadimos los asteriscos con un bucle
+            for (let asteriscos = 0; asteriscos < 2 * fila + 1; asteriscos++) {	     //Comienzo de los asteriscos
+                rombo += "*";
+            }
+            // Añadimos un salto de línea					     //Salto de línea
+            rombo += "<br>";
+        }
+    // Imprimimos el rombo
+    document.write(rombo);
+}
+	// Llamamos a la función para dibujar el rombo de tamaño 4
+	rombo(4);
+	rombo(usuario);
+    </script>
+    </body>
+</html>

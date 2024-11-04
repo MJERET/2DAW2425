@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+    <head>
+        <title> 14-10-2024 </title>
+        <meta charset="UTF-8">
+        <meta author="Mariano José Eret">
+    </head>
+    <body>
+        <h1> Adivinanza </h1>
+        <p> Adivina el número que estoy pensando entre 1 y 100 </p>
+        
+        <script>
+            //Creamos una función para llamar a la creación del número aleatorio.
+            function random (){
+                let numeroAleatorio = Math.ceil(Math.random() * 100);
+                console.log(numeroAleatorio);
+                return numeroAleatorio;
+            }
+            //Creamos una función para que el usuario introduzca un número.
+            function usuario(){
+                let numero = Number(prompt("Introduce un número entre 1 y 100: "));
+                console.log("Has introducido el número: " + numero);
+                return numero;
+            }
+            //Creamos una función para adivinar el número.
+            function adivina(){
+                let numeroAleatorio = random();
+                let intentos = 0;
+                let numero;
+                do {
+                    numero = usuario();
+                    intentos++;
+                    if (numeroAleatorio === numero){
+                        console.log("¡Correcto! Lo has adivinado en " + intentos + " intentos");
+                    } else if (numeroAleatorio > numero){
+                        console.log("Demasiado bajo, has introducido el número: " + numero);
+                    } else if (numeroAleatorio < numero){
+                        console.log("Demasiado alto, has introducido el número: " + numero);
+                    }
+                } while (numeroAleatorio !== numero);
+            }
+            random();
+            adivina();
+            
+        </script>
+    </body>
+</html>

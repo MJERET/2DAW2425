@@ -1,0 +1,60 @@
+<DOCTYPE>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            /*
+            Solicitar una frase desde teclado, almacenar cada palabra en un elemento de un array y mostrar los siguientes datos:
+                - La primera palabra de la frase.
+                - La última palabra de la frase.
+                - El número de palabras en la frase.
+            
+            //Cambios: Preguntar por una siguiente frase despues de haber mostrado la primera, como también mostrar todas las palabras ademas de las ya introducidas. 
+            */
+           /*
+           console.log("Mariano José Eret Torres");
+            miArray =[];
+            let usuario = prompt("Introduce una frase");
+            const frase = usuario.split(" ");
+
+            miArray = frase;
+            const numeroPalabra = miArray.length;
+            console.log(miArray);
+            window.alert(miArray);
+            //a) Primera palabra de la frase.
+            console.log("Primera palabra de la frase");
+            console.log(miArray.shift());
+
+            //b) Ultima palabra de la frase. 
+            console.log("Ultima palabra de la frase");
+            console.log(miArray.pop());
+            
+            //c) El número de palabras en la frase 
+            console.log("Total de palabras");
+            console.log(numeroPalabra);
+            */
+                        
+            //Arreglado!.
+            //Siempre intentar usar la recursividad, para reutilizar el código. 
+            function user () {  //
+                // let frase = String(prompt("Introduce una frase")); Si solo queremos frases con texto y no con números. 
+                let usuario = String(prompt("Introduce una frase"));
+                let frase = usuario.split(" ");
+                return frase;
+            }   // user
+            
+            function mostrarDatos(fraseArray) {
+                console.log("Primera palabra" + fraseArray[0]);
+                console.log("Ultima palabra" + fraseArray[fraseArray.length - 1]);
+                console.log("Número de palabras" + fraseArray.length);
+            }
+            
+            let fraseArray = user();            // LLamar a la función para obtener el array de frase.
+            mostrarDatos(fraseArray);           // Mostrar los datos de la frase.
+            //console.log(mostrarDatos(fraseArray)); // Mostrar los datos de la frase.
+
+
+        </script>
+    </body>
+</DOCTYPE>
