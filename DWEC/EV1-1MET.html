@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+    <head>
+        <title>Ejercicio Examen 1</title>
+        <meta author="Mariano José Eret">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Ejercicio 1 del examen DWEC</h1>
+        <p>En este programa se nos pide introducir un número que será el tiempo que tenemos para caminar</p>
+        <p id="resultado"></p>
+        <script>
+            //Declaración de variables clave:
+            let opciones = ['n', 's', 'e', 'o'];   //Después le daremos los valores correspondientes para que cada letra tenga el valor de un minuto. 
+
+            //Función que obtenga un número que será equivalente al tiempo que tenemos para caminar. 
+            function usuario() {
+                let text;
+                do {
+                    //Petición del tiempo para el usuario
+                    text = Number(prompt("¿Cuánto tiempo tienes? (entre 8 y 22 minutos, solo números pares)"));
+                    if (text < 8 || text > 22 || text % 2 !== 0) {
+                        console.warn("Tiempo fuera de rango. Introducir número entre 8 y 22.");
+                        window.alert("No se puede caminar menos de 8 minutos y más de 22 (introduce de nuevo el número)");
+                    }
+                } while (text < 8 || text > 22 || text % 2 !== 0);
+                return text;
+            }
+
+            //function para generar el camino a recorrer, como también el eje "x" y "y" y las cardinalidades
+            function generarCaminata(minutos) {
+                let x = 0;  // Eje este-oeste
+                let y = 0;  // Eje norte-sur
+                const direcciones = [];
+                const opciones = ['n', 's', 'e', 'o'];
+
+                function agregarDireccion(dir) {
+                    direcciones.push(dir);
+                    //Para cada direccion nos sumara uno en el eje x o en el eje y
+                    if (dir === 'n') y++;
+                    if (dir === 's') y--;
+                    if (dir === 'e') x++;
+                    if (dir === 'o') x--;
+                }
+
+                //Creación de un bucle for para que nos pille la longitud de el número y lo traduzca a los pasos que vamos a dar:
+                for (let i = 0; i < minutos; i++) {
+                    let dir;
+                    if (i === minutos - 1) {
+                        if (x > 0) dir = 'o';
+                        else if (x < 0) dir = 'e';
+                        else if (y > 0) dir = 's';
+                        else if (y < 0) dir = 'n';
+                    } else {
+                        do {
+                            dir = opciones[Math.floor(Math.random() * opciones.length)];
+                        } while (
+                            (dir === 'n' && y + 1 > minutos / 2) ||
+                            (dir === 's' && y - 1 < -minutos / 2) ||
+                            (dir === 'e' && x + 1 > minutos / 2) ||
+                            (dir === 'o' && x - 1 < -minutos / 2)
+                        );
+                    }
+                    agregarDireccion(dir);
+                }
+                //Devuelve las cardinalidades
+                return direcciones.join(' ');
+            } // fin de la función  generar caminata
+
+        let minutos = usuario();
+        let caminata = generarCaminata(minutos);
+        console.log("Caminata generada: " + caminata);
+        document.getElementById("resultado").innerText = "Caminata generada: " + caminata;
+        window.alert("Los pasos seran: " +caminata);
+    </script>
+</body>
+</html>

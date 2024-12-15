@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+    <head>
+        <title> Ejercicio 4.4 </title>
+    </head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <body align="center">
+        <h1>Ejercicio 4.4</h1>
+        <p>Este programa pide que me des un número para generar la siguiente lista:</p>
+        <input type="number" id="numeroInput" min="1">
+        <button id="enviarBtn">Enviar</button>
+        <div id="contenedorLista"></div>
+    
+        <script type="text/javascript">
+            $(document).ready(function () {
+                // Función de creación de una lista
+                function setList() {
+                    // Obtener el valor del input
+                    var x = parseInt($("#numeroInput").val()) || 0;
+    
+                    // Crear una lista desordenada
+                    var lista = "<ul>";
+                    for (var i = 1; i <= x; i++) {
+                        lista += "<li>" + i + "</li>";
+                    }
+                    lista += "</ul>";
+    
+                    // Insertar la lista en el contenedor
+                    $("#contenedorLista").html(lista);
+                    console.log(lista);
+                }
+                
+                // Evento click del botón
+                $("#enviarBtn").click(function () {
+                    setList();
+                });
+            });
+        </script>    
+    </body>
+</html>

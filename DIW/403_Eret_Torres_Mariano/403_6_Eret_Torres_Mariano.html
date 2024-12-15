@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Ejercicio 4.6 </title>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .mensaje {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <form id="miFormulario">
+        <!-- Textbox -->
+        <label for="textbox">Textbox:</label><br>
+        <input type="text" id="textbox"><br><br>
+
+        <!-- Textarea -->
+        <label for="textarea">Textarea:</label><br>
+        <textarea id="textarea" rows="4" cols="30"></textarea><br><br>
+
+        <!-- Radio Buttons -->
+        <label>Género:</label><br>
+        <input type="radio" name="genero" value="Male"> Male
+        <input type="radio" name="genero" value="Female"> Female<br><br>
+
+        <!-- Checkbox -->
+        <label for="checkbox">Acepto términos y condiciones:</label>
+        <input type="checkbox" id="checkbox"><br><br>
+
+        <!-- Select -->
+        <label for="select">Seleccione una opción:</label><br>
+        <select id="select">
+            <option value="opcion1">Opción 1</option>
+            <option value="opcion2">Opción 2</option>
+            <option value="opcion3">Opción 3</option>
+        </select><br><br>
+
+        <!-- Botones -->
+        <button type="submit" id="enviar">Enviar</button>
+        <button type="reset" id="cancelar">Cancelar</button>
+    </form>
+
+    <!-- Mensaje de confirmación -->
+    <div id="mensaje" class="mensaje"></div>
+
+    <script>
+        $(document).ready(function() {
+            // Eventos para Textbox
+            $("#textbox").on("focus", function() {
+                $("#mensaje").text("Textbox enfocado").fadeIn().fadeOut(2000);
+            });
+            $("#textbox").on("blur", function() {
+                $("#mensaje").text("Textbox perdió el foco").fadeIn().fadeOut(2000);
+            });
+            $("#textbox").on("change", function() {
+                $("#mensaje").text("Textbox cambiado: " + $(this).val()).fadeIn().fadeOut(2000);
+            });
+            $("#textbox").on("select", function() {
+                $("#mensaje").text("Texto seleccionado en Textbox").fadeIn().fadeOut(2000);
+            });
+
+            // Eventos para Textarea
+            $("#textarea").on("focus", function() {
+                $("#mensaje").text("Textarea enfocado").fadeIn().fadeOut(2000);
+            });
+            $("#textarea").on("blur", function() {
+                $("#mensaje").text("Textarea perdió el foco").fadeIn().fadeOut(2000);
+            });
+            $("#textarea").on("change", function() {
+                $("#mensaje").text("Textarea cambiado: " + $(this).val()).fadeIn().fadeOut(2000);
+            });
+            $("#textarea").on("select", function() {
+                $("#mensaje").text("Texto seleccionado en Textarea").fadeIn().fadeOut(2000);
+            });
+
+            // Eventos para Radio Buttons
+            $("input[name='genero']").on("change", function() {
+                $("#mensaje").text("Radio seleccionado: " + $(this).val()).fadeIn().fadeOut(2000);
+            });
+
+            // Evento para Checkbox
+            $("#checkbox").on("change", function() {
+                if ($(this).is(":checked")) {
+                    $("#mensaje").text("Checkbox marcado").fadeIn().fadeOut(2000);
+                } else {
+                    $("#mensaje").text("Checkbox desmarcado").fadeIn().fadeOut(2000);
+                }
+            });
+
+            // Evento para Enviar
+            $("#miFormulario").on("submit", function(event) {
+                event.preventDefault(); // Evita el envío del formulario
+                $("#mensaje").text("Formulario enviado correctamente").fadeIn().fadeOut(3000);
+            });
+        });
+    </script>
+</body>
+</html>

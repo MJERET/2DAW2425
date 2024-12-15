@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Testing</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            console.log("Mariano José Eret")
+            //Ejercicio 1. 
+            //Async y defer
+            /*Usamos Async cuando queremos que una funcion nos devuelva una función algo que hemos escrito.
+            async function hola(){
+                return "Hola";
+            }
+
+            */
+            //Ejercicio 3
+            function pruebaAlcance() {
+ 	        for (i = 0; i < 10; i++) {      //Recorre hasta que i toma el valor de 9
+    	    console.log(i);
+            }
+  	        console.log("-------------");
+            
+            for (var j = 5; j < 15; j++){   // Recorre hasta que j toma el valor de 14
+  	        console.log(j);
+            }
+            console.log("-------------");
+ 	        
+            for (let k = 10; k < 20; k++){  // Recorre hasta que k toma el valor de 19
+  	        console.log(k);
+            }
+            console.log("-------------");
+            //console.log({i,j,k});         // Muestra el valor de i, j y k. No se mostraran por pantalla debido a que estan fuera del bucle
+                                            // y no se han declarado como variables globales.
+            }
+            pruebaAlcance();
+                console.log({i,j,k});       // Muestra el valor de i, j y k. No se mostraran por pantalla debido a que estan fuera del bucle
+                                            // y no se han declarado como variables globales. y está fuera de la funcion pruebaAlcance
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <head>
+        <title> Ejercicio 2</title>
+        <meta charset="UTF-8">
+        <author> Mariano José Eret </author>
+    </head>
+    <body>
+        <h1 align="center"> Ejercicio 2. </h1>
+        <p> Introduce los números que quieres sumar, para salir de la aplicación escribe un número negativo. </p>
+        <script>
+        function Calculadora(Sum = 0, contador = 0) {
+        let numero = parseFloat(prompt("Introduce un número negativo para salir):"));
+
+        if (numero <= 0) {
+        alert("Fin de meter números.");
+        console.log("Suma total:", Sum );
+        document.write("Contador de números:", contador);
+        //Cuando escribamos un número negativo, nos saldrá la media de los números introducidos.
+        if (contador > 0) {
+            let media = Sum / contador;
+            console.log("Media aritmética:", media);
+            document.write("<br /> Media aritmética:", media +"<br/>");
+        }
+    } else {
+        Sum += numero;
+        document.write("Suma total:", Sum + "<br/>");
+        contador++;
+        Calculadora(Sum, contador); // Llamamos a la función
+    }
+}
+    // Llamamos a la función.
+    Calculadora();
+        </script>
+    </body>
+</html>

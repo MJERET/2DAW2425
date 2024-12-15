@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <head>
+        <title> Ejercicio 04-11-2024</title>
+        <meta chartset="UTF-8">
+    </head>
+    <body>
+        <h3 align="center"> El Dia favortio del mes! </h3>
+        <p id="seleccion"></p>
+        <script>
+            /*Pedir un número al usuario*/
+            let meses = ['Enero','Febrero','Marzo','Abril', 'Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+            let usuario = Number(prompt("Dime el número del mes favorito"));
+            let text = "";
+            try {
+                if (usuario <= 12 && usuario < 1) {
+                    throw new Error('DIOS MIO!')
+                }
+            
+            }
+            catch (e) {
+                console.error("No se puede introducir un número menor de 0 ni mayor de 12");
+            }
+
+            //Condición que recorre el array
+            for (var i =0; numero=usuario.lenght, i<numero; i++) {
+                text=text+meses[i];}
+            //Forma de imprimir
+            document.getElementById("seleccion").innerHTML = "El mejor mes del año es: "+text;
+
+
+        </script>
+    </body>
+</DOCTYPE>

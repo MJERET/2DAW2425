@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <head>
+        <title> Ejercicio en 15 minutos </title>
+    </head>
+    <body align="center">
+        <br><br>
+        <h1> Temporizador de 60 segundos! </h1>
+        <script>
+            function caso1 () {
+                // Ejercicio del día 09-12-2024 
+                //Array de la semana
+                const miArray = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"];
+                //Ordenamos el array de la siguiente manera
+                let letraM = miArray.filter((dia, letra) => dia += "M");
+                //Mostramos el resultado
+                console.log(letraM)
+                document.getElementById("letraM").innerHTML = letraM;
+
+            }
+            caso1();
+            function Temporizador() {
+                //Temporizador que haga la cuenta regresiva de 60 segundos Al final de la cuenta atras tiene que salir el resultado de la cuenta atras
+                const reloj = new Date();
+                //Lo pongo en segundos
+                reloj.getSeconds(60);
+                //Miro que este ejecutando los 60 segundos
+                console.log(reloj)
+                document.getElementById("IP").innerHTML = reloj;
+            }
+        </script>
+        <button onclick="setTimeout(Temporizador, 1000)"> Temporizador </button> <!-- A cierto tiempo se ejecuta. -->
+        <p id="IP"></p>
+        <p id="letraM"></p>
+    </body>
+</html>

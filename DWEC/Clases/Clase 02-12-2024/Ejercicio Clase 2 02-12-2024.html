@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h1> Modelo de eventos avanzados </h1>
+        <h3 id="W3C"> Modelo del W3C </h3>
+        <h3 id="w3canonima"> Modelo del W3C con funciones anónimoas. </h3>
+        <script>
+        function saludarUnaVez () {
+            alert("¡HOLAAAA!");
+        }
+        function colorear () {
+            document.getElementById("W3C").style.color="red";
+        }
+        function fondo () {
+            document.getElementById("W3C").style.background="blue";
+        }
+        document.getElementById("W3C").addEventListener("click", saludarUnaVez, false);
+        document.getElementById("W3C").addEventListener("click", colorear, false);
+        document.getElementById("W3C").addEventListener("mouseover", fondo, false);
+
+
+        document.getElementById("w3canonima").addEventListener("click", function() {document.getElementById("w3canonima").style.color="white";}, false);
+        document.getElementById("w3canonima").addEventListener("mouseover", function() {document.getElementById("w3canonima").style.background="black";}, false);
+        document.getElementById("w3canonima").addEventListener("click", function() {alert("ANONIMO")}, false);
+        </script>
+    </body>
+</html>

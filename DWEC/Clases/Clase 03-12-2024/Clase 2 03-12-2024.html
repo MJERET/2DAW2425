@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+    <body>
+        <script>
+            //Convetir un array en un objeto es decir de tipo object. Object.fromEntries(array)
+            //Construye Obejto con un array de pares clave:valor
+
+            const keys = [
+                    "name" , 
+                    "life" , 
+                    "power", 
+                    "talk" 
+            ];
+            const values = ["Otto", 99, 10, function(){ return "hola!"; }];
+            const miArray =  [];
+
+             for(let i of Object.keys(keys)) {
+                const key = keys[i];
+                const value = values[i];
+                miArray.push(key, value);
+            
+            } 
+            console.log(miArray);
+            const user = Object.fromEntries(miArray);
+            console.log(user);
+
+            /* for (let i of keys) {
+                miArray+=[keys]
+                i++
+                for (let j of values) {
+                    miArray+[values]
+                    j++
+                }
+            } */
+            //console.log(user)
+        </script>
+    </body>
+</html>

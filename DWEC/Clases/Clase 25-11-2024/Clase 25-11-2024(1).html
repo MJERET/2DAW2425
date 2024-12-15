@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title> Gallina </title>
+        <meta author="Mariano José Eret">
+    </head>
+    <body>
+        <p id="navegador"></p>
+        <script>
+            //CLASE DEL DÍA 25-11-2024
+            //Propiedades del elemento screen
+            var texto = "";
+            texto += "<br/> CodeName:" +navigator.appCodeName;
+            texto += "<br/> Name:" +navigator.appName;
+            texto += "<br/> Version:" +navigator.appVersion;
+            texto += "<br/> Motor:" +navigator.product;
+            texto += "<br/> Plataforma:" +navigator.platform;
+            texto += "<br/> OnLine:" +navigator.onLine;
+            texto += "<br/> Idioma:" +navigator.language;
+            texto += "<br/> Cookies:" +navigator.cookieEnabled;
+            texto += "<br/> UserAgent:" +navigator.userAgent;
+            texto += "<br/> Geolocation:" +navigator.geolocation;
+            console.log(navigator.geolocation)
+            document.getElementById("navegador").innerHTML = texto;
+
+            //Para confimar que java este habilitado:
+            alert("Java activado: " +navigator.javaEnabled())
+            
+            //Número de URLs en el historial de la página.
+            alert("URLs del historial: " +history.length)
+            //Objetos
+            const player = {
+                nombre: "Juan Garcia",
+                aprobadas: 4,
+                asignaturas: 6,
+                toString: function() {
+                    return `${this.nombre} (${this.aprobadas}/${this.asignaturas})`;
+                }
+            
+            };
+            console.log("Mi jugador es " +player)
+
+            var ana = new player("Ana García", "4", "5")
+            console.log("Mi jugador es " +player)
+        
+        </script>
+    </body>
+</html>

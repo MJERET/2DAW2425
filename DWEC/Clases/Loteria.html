@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+    <head>
+        <title> Loteria </title>
+    </head>
+    <body>
+        <p id="IP"></p>
+        <script>
+            //Los números de la loteria son 5. *,*,*,*,*
+            //Tenemos que elegir dos números y tiene que tener los siguientes requisitos:
+
+            /*
+                - Entre los dos números, aparecen todos los dígitos del 0 al 9, necesariamente una vez cada uno.
+                - La suma de los dos números vuelven a ser un número de loteria, es decir, tiene 5 cifras.
+            */
+
+
+
+            // hacer uso del set para pillar un número cualquiera. 
+            function numDigito() {
+                var digitos =[];
+                //Creamos un bucle para llenar nuestro array
+                for(let i=0; i<5; i++){
+                    //Número aleatorio entre el 0 y el 9.
+                    var numero = Math.floor(Math.random()*9)+0;
+                    digitos.push(numero);   //Guarda los números sin ser un array
+                }
+                console.log(digitos);
+                return digitos;
+            } numDigito();
+
+            //función que pilla los números del array digitos y los mete en el set. 
+            function elSet(digitos){
+            //Creo un set para limpiar el resultado de math.random
+             const miSet = new Set( digitos);
+            //Si el tamaño del set es menor que 5. llamamos otra vez a al función de los digitos.
+            if (miSet.size < 5) {
+                console.log("números repetidos otra vez");
+                //Volvemos a llamar la función. 
+                numDigito();
+                //Si el tamaño es el correcto FIN
+                } else console.log("números correctos");
+                console.log(miSet);
+            } elSet();
+
+            function cambiaso(miSet) {
+                //con este set vamos a comprar el set anterior, para sacar los otros números de loteria.
+                const cambio = new Set([0,1,2,3,4,5,6,7,8,9]);
+                //Creamos un nuevo set a partir de los dos.
+                var miSet2 = new Set(...cambio, ...miSet2);
+                console.log(miSet2)
+            } cambiaso();
+            
+            //Primero creo una función que me pilla el número es decir que lo imprime el usuario.
+            function user() {
+                var usuario 
+                //Le pedimos el primer digito al usuario
+                usuario = Number(prompt("Introduce un número entre 0 y 9"));
+                try{
+                    if (isNaN(usuario) || usuario > 9 || usuario < 0) {
+                        alert("introducir un número comprendido entre 0 y 9");
+                        console.log(usuario)
+                    } else {
+                        document.getElementById("IP").innerHTML = "has introducido el: " +usuario;
+                        console.log(usuario)
+
+                    }
+                } catch {
+                    console.error("El número introducido es mayor del rango");
+                    
+                }
+            }
+            //user()
+        </script>
+    </body>
+</html>

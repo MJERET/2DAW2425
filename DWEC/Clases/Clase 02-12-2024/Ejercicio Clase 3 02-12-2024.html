@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+    <head>
+        <title> Clase 02-12-2024 </title>
+        <meta charset="UTF-8">
+    </head>
+    <body> 
+        <h1 id="eventos"> Caso de eventos </h1>
+        <h2 id="Parrafo"> Parrafo 1</h2>
+        <h2 id="Parrafo2"> Parrafo 2</h3>
+        
+        <script>
+            //Función con parametros
+            function manejador(e){
+                switch(e.type) {
+                    case "mouseover":this.style.color="red" 
+                    break;
+                    case "mouseout":this.style.color="blue"
+                    break;
+                }
+            }
+            //En función del tipo recibido hacemos una cosa o otra. 
+            document.getElementById("eventos").addEventListener("mouseover", manejador);
+            document.getElementById("eventos").addEventListener("mouseout", manejador);
+            
+            //Mirar con el e.target el parrafo que he pulsado. 
+            function saludo(e) {
+                //Miramos con el e.target y el id, mira sobre cual de los dos parrafos, es el que presiona.
+                switch(e.target.id) {
+                    case "Parrafo": this.style.color="yellow",
+                    alert("Has clikeado el parrafo 1 (amarillo)"); 
+                    break;
+                    case "Parrafo2": this.style.color="green",
+                    alert("has clikeado el parrafo 2 (verde)"); 
+                    break;
+                }
+                //También lo podemos hacer mediante el if y el if esle
+                //if (e.target.id = "Parrafo")
+            }
+            document.getElementById("Parrafo").addEventListener("click", saludo);
+            document.getElementById("Parrafo2").addEventListener("click", saludo);
+        </script>
+    </body>
+</html>

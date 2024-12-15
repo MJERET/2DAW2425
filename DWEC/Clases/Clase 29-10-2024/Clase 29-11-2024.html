@@ -1,0 +1,34 @@
+<!-- Clase 29-11-2024
+* En está clase vemos como funcionan los eventos, y los distintos posibles eventos que hay en JS
+* Ejemplos de código JS y de como lo implementamos en nuestro HTML. 
+* Etiqueta submit
+*
+-->
+
+<!DOCTYPE html>
+    <head>
+        <title> Clase del 29-11-2024 </title>
+    </head>
+    <body>
+        <h1> Modelo Eventos en línea</h1>
+        <!-- h3 tendra que al clickear se cambie el texto, que si estamos encima de él tiene fondo rojo y que si nos vamos tiene fondo blanco-->
+        <h3 id="cabecera1" onclick="this.innerHTML='javascript en XHTML'"onmouseover="this.style.background='red'" onmouseout="this.style.background='white'"> Cambiazo </h3>
+        <h3 onclick="cambiar(this)"> Pulsa aqui para ver que pasa </h3>
+        <a href="http://www.google.com" onclick="return preguntar();"> Pulsa para ir a chrome</a>
+        <script>
+            // Clase del dia 29-11-2024
+
+            //  <a href="http://www.google.com" onclick="alert('Vamos a chrome'); return false"> Pulsa para ir a chrome</a> Este alert, nos hace confirmar el ir a chrome, pero si ponemos false. no nos lleva
+
+            // Estaremos haciendo la implementación de cambio de texto, mediante un código externo. 
+            function cambiar(elem){
+                elem.innerHTML = "Con función Externa !!"
+            }
+            function preguntar() {
+		        return confirm("seguro que quieres ir a chrome?");
+	        }
+            //<a href="http://www.google.com" onclick="return preguntar();"> Pulsa para ir a chrome</a> Está función hace que podamos confirmar si queremos ir o no a chrome.
+
+        </script>
+    </body>
+</html>

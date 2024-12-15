@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+    <HEAD>
+        <title> Ejercicios de clase </title>
+    </HEAD>
+    <body align="center">
+        <h1> Ejercicios de clase </h1>
+        <button onclick="setTimeout(Ejercicio1, 1000)"> Ejercicio 1 </button> 
+        <button onclick="setTimeout(Ejercicio2, 1000)"> Ejercicio 2 </button> 
+        <button onclick="setTimeout(Ejercicio3, 1000)"> Ejercicio 2 </button> 
+        <p id="resultado"></p>
+        <script>
+            function Ejercicio1() {
+                /*Dada la lista de números:
+                Usar map, filter y reduce para obtener los dobles de los elementos del array, obtener los que son pares y averiguar la suma de todos los impares.*/
+                const numeros = [1, 2, 3, 4, 5, 6, 3, 7, 7];
+                const numerosimpares = numeros.filter(pares => pares % 2 != 0);
+                //Hago los números impares por separado
+                //Números pares. 
+                let num = numeros.map(numero => numero * 2 );
+                console.log("Doble de los números: " + num)
+                document.getElementById("resultado").innerHTML +="Doble de los números: "+ num +"<br/>";
+                //números pares
+                let pares = numeros.filter(pares => pares % 2 == 0);
+                console.log("Números pares: " + pares)
+                document.getElementById("resultado").innerHTML +="Números pares: "+ pares +"<br/>";
+                //Suma de los impares
+                let impares = numerosimpares.reduce((num , impares) => num + impares, 0);
+                console.log("suma de números impares: " + impares)
+                document.getElementById("resultado").innerHTML +="Suma de números impares: "+ impares +"<br/>";
+            }
+            function Ejercicio2() {
+                /* Se requiere:
+                - Filtrar los usuarios mayores de 25 años.
+                - Duplicar la edad de esos usuarios filtrados.
+                - Obtener la suma total de las edades duplicadas.*/
+                const usuarios = [
+                { id: 1, nombre: 'Juan', edad: 25 },
+                { id: 2, nombre: 'María', edad: 30 },
+                { id: 3, nombre: 'Pedro', edad: 20 },
+                { id: 4, nombre: 'Ana', edad: 35 },
+                ];
+                //filtro de las edades
+                let numEdad = usuarios.filter(usuario => usuario.edad > 25);
+                console.log(numEdad)
+                document.getElementById("resultado").innerHTML +="Edades mayores de 25: "+ numEdad +"<br/>";
+                //Multiplicación de las edades por dos
+                let mayor25 = numEdad.map(numero => numero.edad * 2);
+                console.log(mayor25);
+                document.getElementById("resultado").innerHTML +="Edades de 25 por 2: "+ mayor25 +"<br/>";
+                //Suma de todas las variables
+                let suma25 = mayor25.reduce((suma, numero) => suma + numero);
+                console.log(suma25)
+                document.getElementById("resultado").innerHTML +="Suma de todas las edades: "+ suma25 +"<br/>";
+            }
+            function Ejercicio3() {
+                /* Se pide:
+                    1. Filtrar los usuarios mayores de edad (mayores o igual a 18 años).
+                    2. Calcular el promedio de edades de los usuarios filtrados.
+                    3. Encontrar al usuario más joven de entre los filtrados.
+                    4. Obtener una lista de nombres de usuarios que empiezan con la letra 'A'.
+                // Lista de usuarios */
+                const usuarios = [
+                    { id: 1, nombre: 'Juan', edad: 25 },
+                    { id: 2, nombre: 'María', edad: 30 },
+                    { id: 3, nombre: 'Pedro', edad: 20 },
+                    { id: 4, nombre: 'Ana', edad: 35 },
+                    { id: 5, nombre: 'Luisa', edad: 22 },
+                    { id: 6, nombre: 'Alberto', edad: 19 },
+                ];
+                //Filtro de los usuarios que son mayores de edad
+                let numEdad = usuarios.filter(usuario => usuario.edad >= 18);
+                console.log(numEdad)
+                document.getElementById("resultado").innerHTML +="Edades mayores de 25: "+ numEdad +"<br/>";
+                //Suma de todas las fechas para calcular el promedio entre todas ellas
+                let suma = numEdad.reduce((suma, numero) => suma + numero);
+                console.log(suma)
+                document.getElementById("resultado").innerHTML +="Suma de todas las edades: "+ suma +"<br/>";
+                let media = numEdad.map((suma, numero) );
+            }
+        </script>
+    </body>
+</html>

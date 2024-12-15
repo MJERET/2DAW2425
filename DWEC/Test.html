@@ -1,0 +1,39 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            
+	const PUNTOS_CARDINALES = ["N","S","E","W"];
+	// control inicial de errores.
+	do {
+        try {
+	    alert ("Por favor, introduzca una cantidad entre 6 y 16");
+	    var minutos = parseInt(prompt("¿De cuantos minutos dispone?")); 
+        if (isNan(minutos) || minutos === null || minutos < 6 || minutos > 16 || minutos %2 !=0)
+        throw new Error ("Entrada no valida. Deber ser un número entre 6 y 16 y multiplo de ")
+        } catch (error) {
+            alert(rror.message);   
+        }
+	} while  (isNan(minutos) || minutos === null || minutos < 6 || minutos > 16 || minutos %2 !=0)
+	
+	
+	function paseoValido(paseoPosible) {
+	ns = 0, eo = 0 ;
+	for (let i = 0; limite = paseoPosible.lenght, i <limite; i++) {
+
+    }
+		
+	}	
+
+	//Generación aleatorioa y sucesia de paseos posibles.
+	do {
+		paseoPosible = [];
+		for (let i = 0; i < minutos; i++) {
+			paseoPosible.push(PUNTOS_CARDINALES[Math.floor(Math.random() * PUNTOS_CARDENALES.lenght)])
+		}
+			paseoValido(paseoPosible)	
+	}   while(paseoValido(paseoPosible))
+
+        </script>
+    </body>
+</html>

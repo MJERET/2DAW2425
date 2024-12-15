@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>Clase 26-11-2024</title>
+    </head>
+    <body> 
+        <script>   
+            /* PROTOTIPOS.
+               Es el esqueleto de objetos
+               Permite que los objetos de JS hereden características entre si.
+               Todos los objetos tienen un prototipo, que a su vez es un objeto: se trata de prototype
+               y contiene/es un objeto que incluye las propiedades y métodos asociadas al objeto    
+            */
+            /*var ana = new Persona("Ana" ,"Garcia", "1990");
+            var jose = new Persona("Jose" ,"Garcia", "1992");
+            
+            Persona.prototype.boda="2020";
+            Persona.prototype.boda = function test (){
+                    return "boda en el año" + this.boda;
+            }
+            console.log(test());
+            
+            /*
+                Persona es el constructor
+                El Objeto creado con new Persona tiene como prototipo el valor de Persona.prototype
+                En JS, juan._proto_ es una referencia al prototipo del objeto juan. Es decir, apunta
+                al objeto que actúa como prototipo de juan y del que hereda propiedades y métodos.
+            
+            
+            function Objeto () {
+                
+                const instancia = new Objeto();
+
+                console.log(instancia.__proto__===Objeto.prototype); //true
+                console.log(Objeto.prototype. Constructor===Objeto); //true
+            }*/
+            /*
+                En JS juan.__proto__ es una refrencia a prototipo del objeto juan. Es decir, apunta al objeto que actúa como 
+                prototipo de juan y del que hereda propiedades y métodos.
+                En entornos modernos, es preferible usar Object.getPrototypeOf(obj) para acceder al prototipo de un objeto.
+                Cadena de prototipos: Si se accede a una propiedad o método en juan y no existe directamente en el objeto, 
+                JS busca en el prototipo al que apunta juan.__proto__. Este proceso se repite hacia arriba en la cadena de prototipos
+                hasta llegar al prototipo raíz (Object.prototype), o hasta que no haya más prototipos (cuyo caso devuelve undefiend)
+            
+                __proto__ 
+                    - Propiedad de instancia de objetos.
+                    - Apunta al prototipo del objeto.
+                    - No se define explicitamente, es automatico.
+                    
+                prototype.
+                    - Propiedad de funciones constructoras.
+                    - Se usa como prototipo de las instancias new.  
+                    - Se define al crear una funcion constructora.
+            
+                Ejercicico de clase:
+                Vamos a crear un elemento.
+            */
+                function Persona(nom, ape, an) {
+                    this.nom=nom;
+                    this.ape=ape;
+                    this.an=an;
+                    this.nombreCompleto=function() {
+                        return this.nom + "" + this.ape
+                    }
+                }
+                var ana = new Persona("Ana" ,"Garcia", 1990);
+                var jose = new Persona("Jose" ,"Lopéz", 1992);
+                
+                ana.nacionalidad="Española"
+                ana.nacimiento = function() {
+                    return "Nacio en el año: " +this.an 
+                }
+                alert(ana.nacionalidad);    //Española
+                alert(ana.nacimiento())     //Nacio en el año 1990
+                
+                alert(jose.nacionalidad);   //Undefiend
+                //alert(jose.nacimiento())    //No imprime nada y para la ejecución
+                
+                //Estos datos afectan  a todas las instancias que yo cree
+                Persona.prototype.boda="2020";
+                Persona.prototype.fechaBoda = function(){
+                    return "boda en el año" + this.boda;
+                }
+                var juan = new Persona("Juan", "Sánchez", 1994);
+                alert(juan.nom);
+                alert(juan.fechaBoda());
+                alert(Persona.prototype);
+                //console.log(prototype);
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<head>
+    <title> Ejercicio 4.5 </title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .selected {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <table border="1" id="tablaEquipos">
+        <tr>
+            <th> Posición </th>
+            <th> Equipo </th>
+            <th> Puntos </th>
+            <th> Acciones </th>
+        </tr>
+        <tr>
+            <td> 1 </td>
+            <td> Real Oviedo </td>
+            <td> 50 </td>
+            <td>
+                <button class="seleccionar">Seleccionar</button>
+                <button class="borrar">Borrar</button>
+                <button class="modificar">Modificar</button>
+            </td>
+        </tr>
+        <tr>
+            <td> 2 </td>
+            <td> Osasuna </td>
+            <td> 48 </td>
+            <td>
+                <button class="seleccionar">Seleccionar</button>
+                <button class="borrar">Borrar</button>
+                <button class="modificar">Modificar</button>
+            </td>
+        </tr>
+        <tr>
+            <td> 3 </td>
+            <td> FC Barcelona </td>
+            <td> 45 </td>
+            <td>
+            <button class="seleccionar">Seleccionar</button>
+            <button class="borrar">Borrar</button>
+            <button class="modificar">Modificar</button>
+            </td>
+        </tr>
+        <tr>
+            <td> 4 </td>
+            <td> Real Madrid </td>
+            <td> 40 </td>
+            <td>
+                <button class="seleccionar">Seleccionar</button>
+                <button class="borrar">Borrar</button>
+                <button class="modificar">Modificar</button>
+            </td>
+        </tr>
+        <tr>
+            <td> 5 </td>
+            <td> FC Cuatrovientos</td>
+            <td> 35 </td>
+            <td>
+                <button class="seleccionar">Seleccionar</button>
+                <button class="borrar">Borrar</button>
+                <button class="modificar">Modificar</button>
+            </td>
+        </tr>
+        <tr>
+            <td> 6 </td>
+            <td> Sporting de Gijon </td>
+            <td> 0 </td>
+            <td>
+                <button class="seleccionar">Seleccionar</button>
+                <button class="borrar">Borrar</button>
+                <button class="modificar">Modificar</button>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <!-- Formulario -->
+    Posición:<br/>
+    <input type="text" id="posicion"><br/><br/>
+    Nombre:<br/>
+    <input type="text" id="nombre"><br/><br/>
+    Puntos:<br/>
+    <input type="text" id="puntos"><br/><br/>
+    <input type="hidden" id="filaAEditar" value="">
+
+    <button id="insertar">Insertar</button>
+    <button id="cancelar">Cancelar</button>
+
+    <script>
+        $(document).ready(function() {
+            // Seleccionar/Deseleccionar
+            $(document).on("click", ".seleccionar", function() {
+                let fila = $(this).parent().parent();
+                if (fila.hasClass("selected")) {
+                    fila.removeClass("selected");
+                    $(this).text("Seleccionar");
+                } else {
+                    fila.addClass("selected");
+                    $(this).text("Deseleccionar");
+                }
+            });
+
+            // Borrar fila
+            $(document).on("click", ".borrar", function() {
+                $(this).parent().parent().remove();
+            });
+
+            // Modificar fila (cargar datos en formulario)
+            $(document).on("click", ".modificar", function() {
+                let fila = $(this).parent().parent();
+                $("#posicion").val(fila.find("td:first").text());
+                $("#nombre").val(fila.find("td:nth-child(2)").text());
+                $("#puntos").val(fila.find("td:nth-child(3)").text());
+                $("#filaAEditar").val(fila.index()); // Guardar índice de la fila
+                $("#insertar").text("Modificar");
+            });
+
+            // Insertar/Modificar fila
+            $("#insertar").click(function() {
+                let posicion = $("#posicion").val();
+                let nombre = $("#nombre").val();
+                let puntos = $("#puntos").val();
+                let indiceFila = $("#filaAEditar").val();
+
+                if ($(this).text() === "Modificar") {
+                    // Modificar fila existente
+                    let fila = $("#tablaEquipos tr").eq(indiceFila);
+                    fila.find("td:first").text(posicion);
+                    fila.find("td:nth-child(2)").text(nombre);
+                    fila.find("td:nth-child(3)").text(puntos);
+                    $(this).text("Insertar");
+                } else {
+                    // Insertar nueva fila
+                    $("#tablaEquipos").append(`
+                        <tr>
+                            <td>${posicion}</td>
+                            <td>${nombre}</td>
+                            <td>${puntos}</td>
+                            <td>
+                                <button class="seleccionar">Seleccionar</button>
+                                <button class="borrar">Borrar</button>
+                                <button class="modificar">Modificar</button>
+                            </td>
+                        </tr>
+                    `);
+                }
+                // Limpiar formulario
+                $("#posicion").val("");
+                $("#nombre").val("");
+                $("#puntos").val("");
+                $("#filaAEditar").val("");
+            });
+
+            // Cancelar
+            $("#cancelar").click(function() {
+                $("#posicion, #nombre, #puntos, #filaAEditar").val("");
+                $("#insertar").text("Insertar");
+            });
+        });
+    </script>
+</body>
+</html>

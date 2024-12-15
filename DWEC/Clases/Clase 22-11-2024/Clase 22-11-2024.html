@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title> Clase del 22-11-2024 </title>
+        <meta charset="UTF8">
+    </head>
+    <body>
+        <p id="reloj"></p>
+        <script>
+            //Clase del día 22-11-2024
+            
+            //CONFIRM
+            
+            //Nos mostrara un alert con dos respuestas: un aceptar y un cancelar
+            /*let respuesta
+            respuesta = confirm ("¿Te gusta JS?");  //Devuelve un true y un false en función de la respuesta marcada.
+            // Con está línea hacemos un if corto y podemos mostrar la respuesta más facilmente. 
+            alert(respuesta ? "Que bien" : "Que mal");  // El primer argumento es para el caso true y el segundo argumento es para el caso false. */
+            
+            //TIME.
+            function saludar(){
+                //creación de la funcion que incluye un alert que nos saluda.
+                alert("Texto");
+                
+            }
+            //Con esto hacemos un reloj que constantemente nos va a actualizar el timepo de nuestra aplicación. 
+            var int = setInterval(reloj, 1000)
+            function reloj(){
+                //Guarda como valor la fecha actual. 
+                var miFecha = new Date();   //Para hacer uso de la función Date tiene que estar en mayusculas
+                document.getElementById("reloj").innerHTML = miFecha.getTime(); 
+            }
+            reloj();
+        </script>
+        <!-- Cada set hace una cosa. -->
+        <button onclick="setTimeout(saludar, 4000)"> Saludo </button> <!-- A cierto tiempo se ejecuta. -->
+        <button onclick="setInterval(saludar, 4000)"> Saludo repetido </button> <!-- Se ejecuta todo el tiempo hasta que pare. -->
+        <button onclick="clearTimeout(saludar, 4000)"> Cancelar </button> <!-- Para la ejecución.  -->
+        <button onclick="clearInterval(int)"> Cierre del reloj </button>
+    </body>
+</html>

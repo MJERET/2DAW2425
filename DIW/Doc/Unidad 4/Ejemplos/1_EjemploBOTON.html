@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+    <head>
+        <title> Ejemplo 1 </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js">
+            //Está parte solo funciona para marcar el archivo o enlace de JQUERY
+        </script>
+    </head>
+    <body align="center">
+        <!-- Ejempo de como enlazar el JSQuery -->
+        <a href=""> no es un enlace </a>
+        <br>
+        <button id="a"> TEST </button>
+        <script>
+            //Para todos los elementos a
+             $(document).ready(function() {
+                //
+                $("a").click(function(event){
+                    alert ("Hello everybody!")
+                ;});
+            });
+            //para las cosas con el id a
+            $(document).ready(function() {
+                //
+                $("#a").click(function(event){
+                    alert ("Hello everybody!")
+                ;});
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+    <head> <title> Ejercicio 103 </title> </head>
+    <body>
+        <h1 align="center"> Ejericio 103 de clase </h1>
+        <p id="demo"> </p>
+        <script> 
+            /*Realiza un script que muestre la posición de la primera vocal ( así como la propia vocal) de un texto introducido por teclado.
+              Realiza el mismo ejercicio utilizando el método includes. */ 
+            let arrayPalabras = [];                                 //Array que almacena las arrayPalabras.
+            let vocals = ["a","e","i","o","u"];                     //Array que almacena las vocales.
+            //Petición de las arrayPalabras o palabra al usuario.
+            function user () {
+                text = prompt("Introduce un texto");
+                console.log("Texto por usuario es: " +text);
+                let frase = text.split(""); //Dividimos el texto en letras.
+                frase = text.toLowerCase(); //Lo convertimos a loweCase
+                console.log(frase);
+                return frase;
+            }
+            //Llamada a la función usuario, para que nos cree la petición. 
+            function miArray() {
+                arrayPalabras = user();                                        //Función que almacena las arrayPalabras en un array.
+            }
+            miArray();
+            document.getElementById("demo").innerHTML += "El texto introducido es: " + arrayPalabras + " </br>";
+            //condición que comprueba si la palabra tiene vocales.
+            for (let i = 0; longitud=arrayPalabras.length, i<longitud; i++) {  
+                //Recorremos el array de las arrayPalabras y confirmamos si tiene una vocal.
+                //Creamos una condición if que comprueba si la vocal está en la palabra.    
+                if (vocals.includes(arrayPalabras[i])) {
+                    console.log("La vocal es: " + text.charAt(i) + " y está en la posición: " + i );
+                    document.getElementById("demo").innerHTML += "La vocal es: " + text.charAt(i) + " y está en la posición: " + i +"</br>";
+                    alert ("La vocal es: " + text.charAt(i) + " y está en la posición: " + i);
+                    break;
+                } else {
+                    console.log("No hay vocal en la parte de: "+arrayPalabras[i] +" entonces es: " +vocals.includes(arrayPalabras[i]));
+                } }   
+        </script>
+    </body>
+</html>

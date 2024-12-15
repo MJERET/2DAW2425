@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>27-09-2024</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <br>
+        <h3>Clase del día 27-09-2024</h3>
+        <p id="parrfo1"> </p>
+        <p id="parrfo2"> </p>
+        <p id="parrfo3"> </p>
+        <script>
+            //Poner que edad belen alcanza la mayoria de edad.
+            
+            // document.getElementById(parrafo1).innerHMTL=nombre;
+            // document.getElementById(parrafo2).innerHMTL=nombre;
+
+            var nombre;
+            nombre = "Belen"; //Tenemos que definirlo, por ende lo definimos dandole un valor.
+            var pais = "España", 
+                nacimiento = 1990,
+                boda = "2023"; //Se escribe como si fuera SQL.
+
+            var myEdad = 26,
+                mayoriaEdad = 18,
+                edadBelen = -1*(mayoriaEdad - myEdad); // Lo multiplicamos por -1 para que nos de un valor positivo.    
+            var nacionalidad = "Española";
+
+            //Print de la edad de belen + nacionalidad.
+            document.write ("Belen de nacionalidad "+ nacionalidad +" alcanzo la mayoria de edad hace: " + edadBelen + " años.");
+            
+            /*Nos saldra una ventana la cual nos va a indicar el tipo de variable que es.
+            alert(typeof(pais));        //String
+            alert(typeof(nacimiento));  //int | number.
+            alert(typeof(boda));        //String*/
+
+            /*Ejemplos de operadores UNARIOS.
+            var a =8;
+            alert ("El valor inicial de a es: " +a);
+            ++a;
+            alert ("El valor de a depués de incrementar 1 es: " +a);
+            a--;
+            alert ("El valor despues de restar 1 es: " +a)*/
+        
+            // Operadoes +
+            var nombre ="Juan", 
+                apellido="García"
+                var nombreCompleto = nombre + " " + apellido;
+                alert(nombreCompleto);
+
+            //Operadores de asignación.
+            var texto = "IES";
+            texto += " Barajas"; //texto = texto + "Barajas";
+            alert(texto);
+
+            //Operadores de comparación.
+            var x    = 5; // Tipo nñumerico. Para comparar se usa el == y también el === 
+            alert("x==8 es " + (x==8)); //True
+            alert("x==5 es " + (x==5));
+            alert("x==5 es " + (x=='5'));
+
+            //EOperardor AND / y (&&)
+            var x = 4, y = 2;
+
+            var resultado = (x < 5 && y > 1); // Resultado = True
+                resultado = (x > 5 && y < 1); // Resultado = False
+            alert (resultado);
+
+            //Operador OR / o (||)
+            var resultado2 = (x > 5 || y > 1); //Resultado true
+            alert(resultado2);
+
+            //Operador NOT / no (!)
+            var resultado3 = !(x == 5); //Resultado true
+            alert(resultado3);
+
+            //Formato: (Condicion) ? Resultado_cierto : Resultado_falso
+            let edad = 22;
+            let puuedeVotar = (edad >= 18) ? "Puede votar" : "No puede votar";
+            alert(puuedeVotar);
+
+
+        </script>
+
+    </body>
+</html>

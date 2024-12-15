@@ -1,0 +1,1128 @@
+Desarrollo web de entorno cliente
+Programación orientada a objetos: 
+    • Clase (define un objeto)
+    • Constructor (función)
+    • Instancia ()
+Niveles Lenguajes
+IDES  visual studio
+
+Trabajar con GIT
+Comandos básicos:
+git init/ Inicio de un repositorio 
+git add <file>/ Paso de [file] del WD al SA Todos
+git status/ 
+git commit / 
+git push/
+git pull/ 
+git clone
+
+Descargar git
+
+Practica  crear directorio mkdir escenario1
+Pwd para saber donde estoy
+Cd cambiar
+Git init  para que me inicialice con escenario1
+Guardar las modificaciones haciendo un commit
+3 estados: hecho cuentas, lo 
+
+Unir cuenta de github con carpeta
+Los comandos de poner ocnfiguracion de correo que sea lo mismo que el github pero con mi correo
+
+
+16/09/2024
+Crear ramas en git 
+
+Git branch –M main
+Git remote add origin “ ”
+Git push –u origin main
+
+Crear un git ignored
+Crear el fichero pruebagit ignored
+Crear en el fichero
+Que no tenga en cuenta nada de lo que haga en le fichero
+
+
+Descargar pluggins de github en visual studio
+
+Me falta enlazarlo.
+
+Aplicación web
+Diferencia entre una página web, un side web y una aplicación web
+Side web  Es un conjunto de páginas web www.elpais.com es el side (sitio del elpaís)
+Aplicación web  es una aplicación que voy a interactuar con ella a través de un navegador web. SI nos bajamos un apk, instalamos un software. Si abrimos el Gmail, es una página web.
+Páginas web  pueden ser dinámicas (busca a través de una base de datos que me la manda) y estáticas (esta totalmente albergada sin información que yo puedo acceder y va a dar lo mismo). Página web estática (solo puede ser cambiada si el programador accede y la cambia en ese momento)
+Si me conecto mediante un api a una base de datos, y tengo un cliente con permisos suficientes que puede meter nuevos productos es dinámica. 
+Aplicaciones web: SPA (una única página) y MPA (múltiples páginas)
+
+Tecnología que utilizamos para esto: 
+    • HTML
+    • CSS
+    • JAVASCRIPT
+Tecnología PHP, es como java script, pero está en la parte servidor, no en local.
+
+Lenguaje de programación:
+JAVASCRIPT (no tipado  da problemas cuando se trabaja con muchos programadores porque puedes tener la misma variable que puede llegar a dar problemas por hacer cosas)
+TYPESCRIP (es tipado  puedo declarar mis variables, es muy prefijado)
+Entorno de desarrollo: Usaremos VisualStudio Code
+
+    • Arquitectura cliente-servidor (frontend - Backend)
+        ◦ Concepto  Cliente (programa que utilizo para poder conectarme a)
+    • Clientes pesados y ligeros
+        ◦ EL más ligero: el navegador (Chrome y Edge)
+        ◦ EL más pesado: FTP (File Transfer Protocol) Ejemplo: File Fila
+
+www  es el sistema sobre el que estamos usando en internet
+http / https  protocolo que se utiliza
+websocket  comunicaciones a través de navegador
+primero socket  enlace entre una dirección Ip y un puerto
+URL (Uniform Resource Locator/ localizador de recursos uniforme)  La dirección de la pagina
+Ajax  mezcla entre JavaScript y XML con una asincrónica  permite desarrollar parte de código asíncrona con otra parte de código
+CSS dinámico (da un poco igual)
+Web API (Application Programming Interface)   Ej: PokeApi
+Api es un conector que me permite extrae información de un sitio. Me permite ser capaz de conectar una con otra
+
+
+
+Lógica del servidor
+Cómo funciona el cliente-servidor  cliente se pone en contacto con el servidor
+El servidor recibe los datos enviados por el cliente mediante lógica del cliente  los procesa guarda de forma permanente  los procesa
+
+Que hace el cliente: se comunica para intercambio de datos con la lógica del servidor
+Muestra los datos al usuario mediante interfaz web
+Entiende los controles incluidos en la interfaz
+
+Excepciones:
+NO todas las aplicaciones web tienen lógica del cliente servidor
+Puede haber aplicaciones (monolíticas? BUSCAR, aunque no es importante)
+
+Aplicación de múltiples páginas: EJ GitHub
+Aplicaciones de una página (SPA)  Cuando la lógica del cliente me la descargo solo UNA VEZ, de tal forma que el acceso a otras secciones solo provoca la descarga de datos. La lógica ya está descargada. EJ: GMAIL
+
+Características con desarrollo JAVASCRIPT
+    • Es multiplataforma  vale para Windows Mac, Linux etc. Nuestra aplicación es totalmente multiplataforma. Aunque el Chrome para MAC no tienen las mismas características que una de Windows. No exactamente porque el navegador puede acceder, pero teniendo características propias del sistema operativo distinto
+    • Compatibilidad entre navegadores
+    • Universalidad
+    • Actualizaciones transparentes para el usuario
+
+
+17/09/2024
+Modelización de aplicaciones web
+Se entiende por capa cada elemento que procesa o trata información. En un modelo de n-capas la información atraviesa varias capas entre la interfaz y la administración de los datos. El más habitual es el modelo de tres capas. Three-tier architecture
+
+
+Modelo de dos capas
+    • Gran parte de la aplicación corre en el lado del cliente (cliente pesado)
+    • La lógica de negocio se encuentra en el lado del cliente
+    • Inconvenientes
+        ◦ Dificilmente escalable
+        ◦ Numero reducido de conexiones
+        ◦ Carga de red
+
+Modelo de tres capas
+    • Diseñada para superar limitaciones del modelo de dos capas.
+    • Una capa intermedia contiene la lógica de negocio.
+    • Las aplicaciones web actuales se ajustan a este modelo.
+Detalle modelo de tres capas
+    • Capas de presentación (parte en el cliente y parte en el servidor) 
+        ◦ Recoge la información del usuario y lo envía al servidor para que la capa negocio la procese
+        ◦ Procesa determinada información
+        ◦ Recibe resultados de la capa proceso
+        ◦ Generan la presentación y la muestra (HTML, CSS, JS)
+    • Capas de aplicación proceso o negocio. Nivel lógico intermedio
+    • Capa de datos (servidor/es de bases de datos)
+
+FRONT-END				BACK-END
+Nivel presentación			Nivel de aplicación y nivel de datos
+
+Navegador  Servidor Web  Servidor de aplicaciones web 
+
+UNIDAD 1-2  Selección de arquitecturas y herramientas de programación
+Arquitectura de navegador
+Para ello, todos los navegadores siguen una arquitectura de referencia que dispone de los siguientes componentes básicos:
+
+USer Interface  Browser engine (DataPersistence)     Rendering engine  Networking/JavaScript Interpreter/ UI Backend
+Motor de navegación: Es quien obtiene la dirección solicitada (URL) y provee los mecanismos de navegación (proceso de carga, ir a la pagina siguiente, anterior)
+Motor de renderizado: El CORE del navegador. Interpreta el código y realiza la representación visual del recurso obtenido a partir del acceso a la URL
+Subsistema de persistencias de datos: Los datos que los subsistemas del navegador necesitan almacenar localmente se guardan en este sistema de almacenamiento persistente. Por ejemplo:
+    • Gestion del historial
+    • Mantenimiento de sesiones de usuarios en disco
+    • Almacenamiento de las preferencias de configuración del usuario
+
+Comunicaciones
+Implementa los protocolos de transferencia de ficheros y documentos de Internet (HTTP, FTP)
+Es responsable de la codificación usada, en texto, audio, video… (MIME)
+Puede almacenar una cache de elementos a recientemente
+Gestiona la seguridad
+
+Interprete de JavaScript
+
+UI Backend: Parser XML   Framework, librerías de dibujo etc
+
+
+
+Que motores de renderizado utilizan para los navegadores principales (Edge, Chrome, Firefox, Safari)
+Google Chrome  Blink
+Microsoft Edge  Blink, usaba antiguamente (2020) EdgeHTML
+Firefox  Gecko y Quantum
+Safari  WebKit 	
+Opera  Presto, Blink y WebKit
+Internet Explorer  Trident MSHTML
+Brave  Blink V8 FYI
+duckduckgo  macOS
+
+    1. Utilizado los distintos tipo de variables y operadores
+    2. Indentificado los ambiatos
+
+20/09/2024
+Navegadores Características:
+    • Plataforma
+    • Características propias: gestor de descargas, almacenamiento de contraseñas include, formularios, búsquedas, traducciones…
+    • Personalización de la interfaz: navegación por pestañas, ventanas emergentes, visualizadores de PDF, zoom…
+    • Soporte de tecnologías Web: CSS, Java, RSS, XHTML…
+    • Tipo de licencia: libres o propietarios
+
+Arquitectura de ejecución:
+Cada navegador interactúa de forma particular con el usuario.
+El proceso de interacción se inicia con la dirección del recurso (url) a la que se quiere acceder y finaliza con la visualización completa del recurso. Este proceso depende del navegador y su configuración.
+Puede estar más centrado en una respuesta rápida, mostrar una respuesta más fiel al contenido del recurso o en priorizar en aspectos de seguridad en las comunicaciones con el servidor.
+
+
+
+Consola en distintos navegadores
+En Firefox: Herramientas > Desarrollador web > Consola.
+En Chrome: Ver > Opciones para desarrolladores > Consola JavaScript
+En Edge: Opciones > Herramientas > Herramientas de desarrollo > Consola.
+
+
+TECNOLOGIAS DEL LADO CLIENTE UNIDAD 1-2
+Lenguajes de programación en entrono cliente
+Lenguajes: HTML5, CSS, JavaScript, TypeScript (JavaScript tipado), AJAX
+Frameworks: AngularJS, VueJS, ReactJS
+
+HTML  Hypertext Markup Language (Lenguaje marcado de Hipertexto): Es un lenguaje de marcado esencial para el desarrollo web que define la estructura de la página web (el contenido que se va a mostrar en el navegador).
+CSS  Cascading Style Sheets  Hojas de
+
+Lenguajes de programación en entrono cliente: Es aquel lenguaje que se ejecuta en el propio navegador.
+    • El leguaje principal es HTML: variaciones:
+        ◦ XML (eXtensibleMarkupLanguage)
+        ◦ DHTML (Dynamic HTML)
+        ◦ XHTML (eXtensibleHTML)
+    • CSS (Hojas de estilo en cascada)
+Integración código y etiquetas HTML
+HTML, CSS y JavaScript
+Para desarrollar aplicaciones web que se ejecuten en el lado del cliente el documento base debe estar escrito en HTML
+EL desarrollador debe integrar código de scripting en esos documentos HTML ya sea directamente o incluyendo llamadas a ficheros externos
+HTML5 opto por JavaScript como lenguaje de programación estándar.
+
+
+
+
+JAVASCRIPT UNIDAD 2
+Introducción
+    • HTML (esqueleto), CSS (estilo, diseño gráfico) y JavaScript (fragmentos de código) son los tres pilares fundamentales del desarrollo web.
+    • Regulado por ECMA  The standards for JavaScript are the ECMAScript Language Specification (ECMA-262) and the ECMAScript Internationalization API specification (ECMA-402)
+    • Un Script empezó siendo un fragmento de código (interpretado) que realizaba una rutina concreta. Ahora son auténticos programas completos.
+
+Diferencia entre un lenguaje compilado y un interpretado
+Lenguaje interpretado va leyendo línea a línea hasta que no funcione una línea, aunque puede seguir leyendo: Lenguaje compilado, lo lee entero y si hay un error no sigue funcionando
+
+Vocabulario
+    • Lenguaje de programación  escritura del código
+    • Librería  dependencia externa para añadir funcionalidades
+    • Framework  caja de herramientas para construir arquitectura. Tener un sitio donde ir metiendo cosas y una serie de herramientas me lo van traduciendo
+    • jQuery
+    • Java
+    • VanillaJS
+    • Forntend 
+    • Client-side 
+    • JS, Angular, Vue 
+    • Backend
+    • Server-side
+    • Node
+
+JavaScript
+Es un lenguaje de programación del lado del cliente, se ejecuta en el navegador, NO en el servidor web.
+    • Es interpretado ¿?, aunque no hay compilación lo hace línea a línea. Hace Hoisting, todas las variables encima. No genera un exe, pero es Compilado JIT
+    • Orientado a objetos (basado en prototipos= clonar y no necesariamente instanciar)
+    • Basado en objetos con funciones, ventanas… que se pueden reutilizar
+    • Estructurado. Utiliza las estructuras básicas del lenguaje estructurado: secuencia, selección e iteración.
+    • Tipificación débil. No necesita identificación del tipo de variable
+    • Tipificación dinámica. Ese tipo puede cambiar a lo largo de la ejecución. 
+    • La mayoría de los motores de JavaScript modernos utilizan la técnica Compilacion Just In Time que consiste en compilar fragmentos de código durante la ejecución del programa (más de una sola instrucción) y permite aumentar su rendimiento.
+    • Hoy en día, JavaScript es el único lenguaje compatible con todos 
+Inconvenientes:
+Los navegadores, por razones de seguridad, ejecutan código de secuencia de comandos en un entorno sandbox (parte de memoria separada para hacer las pruebas) que no permite acceso a archivos y recursos locales
+Como el código no está compilado, entra en el navegador como texto plano por lo que cualquiera puede ver el código de una forma fácil de leer y reutilizarlo sin permiso.
+Se utiliza la ofuscación del código, que consiste en transforma un script listo en una forma un poco menos legible, pero no excesivamente eficaz. 
+
+Ejecucion del codigo en el navegador
+EL codigo JS se introduce entre etiquetas: <script> </script>
+Se puede insertar en el propio codigo HTML o mediante la referencia a un fichero con extensión .js externo.	<script src
+
+Mayúscula flwchita, + exclamación=1 + ENter  me hace el html con el body y el head
+Control + F5  runnear para verlo en el Chrome
+Alt + f12  para ver la consola
+Ctrl + Sift + C y darle a consola  ver los warm o errores
+
+Crear otro fichero suma.js
+Dos formas para trabajar con JavaScript  metiendo directamente con HTML o 
+
+23/09/2024
+    • Defer: significa que el script debe ejecutarse después de cargar toda la pagina
+    • Async: significa que el script se ejecutara inmediatamente, pero en paralelo al análisis del resto de la pagina
+
+Donde va el script
+UBICACIÓN <SCRIPT>		¿Cuándo se descarga el archivo JS?	PAGINA
+    • En <head>  ANTES de empezar a dibujar la pagina Sin dibujar
+    • En <body>  DURANTE el dibujado de la pagina  Dibujada hasta donde esta <script>
+    • Antes de </body>  DESPUES de dibujar la pagina  Dibujada al 100%
+Con JS se puede…
+    • Establecer comunicaciones con el exterior. Por ejemplo, escribir en la consola (F12)
+        ◦ Console.log(“ejemplo de consola”);
+    • Escribir en cualquier elemento HTML con
+        ◦ Document.getElementById(“identificador id”).innerHTML
+    • Generar HTML con el método
+        ◦ Document.writer
+    • Generar mensaje de alerta con
+        ◦ Windows.alert
+    • Modificar contenido de la página (Ejemplo: Botón con acción de cambio color)
+        ◦ Document.getElementById(“demo”).innerHTML = “Hello JavaScript!”;
+    • Cambiar atributos de un objeto HTML
+        ◦ Document.getElementById(“image”).src= “picture.gif”;
+    • Cambiar el estilo CSS
+        ◦ Document.getElementById(“demo”).style.fontSize = “25px”;
+        ◦ Document.getElementById(“demo”).style.color = “red”;
+        ◦ Document.getElementById(“demo”).style.backgroundColor = “yellow”;
+
+document.getElementById("frase").innerHTML = "He cambiado la frase"; //Hay que referirse
+innerHTML  me permite cambiar
+que me coja el id=frase, y me la cambie por he cambiado la frase.
+
+Document.getElementById
+Para mantener el texto que estaba:
+    • Document.getElementById(“id_p”).innerHTML= Document.getElementById(“id_p”).innerHTML+carta;
+
+Función				Descripción
+Console.log()		Muestra la información proporcionada en la consola Javascript
+Console.info()   	Equivalente al anterior. Se utiliza para mensajes de información.
+Console.warm()   	Muestra información de error. Aparece en rojo
+Consolo.clear    	Limpia la consola. Equivalente a pulsar CTRL+L o escribir clear().
+
+La idea es utilizar la función que más se adapte a nuestra situación en cada caso (errores graves con console.error(), errores leves con console.warm(), etc…).
+Debugger. Define la ejecución en un punto.
+¡Practica Atención!!
+Llamar a la función justo después de definirla, en el cuerpo, antes y después de algún titulo <h1> o similar
+
+Reglas básicas
+    • Es recomendable utilizar el ; al finalizar cada línea
+    • Se pueden agrupar varias instrucciones en la misma línea separándolas con ;
+    • Los decimales con “.”
+    • Comentarios con // o si varias líneas /*…*/
+    • Se pueden utilizar “” o ‘’ en los literales
+    • JS ignora os espacios en blanco entre elementos, pero utilizarlos hace el código más legible
+    • Case sensitive. Indentacion no obligatoria pero recomendable. Poner
+    • Tamaño “ilimitado” de líneas. Si se divide, hacerlo después de un operador
+    • Var o let declaran las variables. No es imprescindible
+    • EL operador de asignación es =. El resto: +,-,*,/,%... En versiones posteriores **. Tambien ++ y – (delante y detrás …operadores pre y post incremento)
+    • Los bloques (funciones, bucles…) de código se limitan con {}.
+    • Recomendado camelCase para definición de variables. Pueden empezar con “_” y “$”.
+    • Hay una serie de palabras reservadas que no pueden ser utilizadas como identificadores: break, continue, switch, for, do…while, if…else, Debugger, try…catch, var, function, return.
+
+Variables Ejemplos
+Var nombre;
+Var nombre = “Juan”;
+Nombre= ‘Pepe’;
+Var nombre= “Juan”, apellido= ‘Garcia’, apellido2= “Lopez”;
+Var nombreApellido= “Juan”+” ”+ “Garcia”;
+Var edad= nacimiento+32;
+Var numero= 23
+Var c = a + b
+Las variables se declaran con let (lo recomendado desde ES2015), aunque también pueden declararse con var. La diferencia es que con let la variable solo existe en el bloque en que se declara mientras que con var la variable existe en toda la función en que se declara.
+
+Ambito (scope) de las variables
+Con “var” defino la variable global y local en JS
+Si se declara una variable en cualquier parte del programa sin usar var automáticamente se convierte en una variable global. (no es muy recomendado)
+A partir de la versión ES6 (EcmaScript2015), podemos utilizar “let” para declarar variable.
+Let limita el ambiro al bloque de ejecución, expresión o declaración. Var limita el ámbito a la función en la que se define o convierte a la variable de ámbito global si esta fuera de una función. Se pueden usar y declarar mas adelante a diferencia de las creadas con let.
+
+24/09/2024
+Variables
+Espacio de memoria a la que se le asigna un nombre y guarda un valor
+Los valores son un tipo concreto:
+    • Object
+    • Tipos primitivos: string, number, boolean, undefined, null, bigint y symbol.
+
+ES6
+A partir de ES6 se puede utilizar const para definir constantes (en mayúsculas por convención). Se declara e inicia simultáneamente.
+
+Ejemplo
+Si aparecen alcances anidados, la variable local declarada en un bloque más interno eclipsara en la variable de fuera
+
+JavaScript moderno
+En JavaScript tenemos dos tipos de variables: las variables y las constantes. Las varibales son aquellas que pueden cambiar de valor, mientras que las constantes no pueden cambiar de valor
+    • Const: las variables constantes no pueden ser modificadas (no tienen set)
+    • Let: pueden ser modificadas
+    • Var: no tienen …
+
+Uso stric
+El modo estricto obliga a declarar las variables
+    • Sin use strict se utiliza JavaScript rn modo “poco riguroso”, o “sloppy mode”
+    • Se pueden utilizar ambos modos en el mismo programa
+    • No todos los navegadores usan el modo stricto
+Al poner esta sentencia al principio del codifo interprete avisara si se usa una variable sin declarar. Fuerza al navegador a no permitir
+    • Usar una variable sin declarar
+    • Definir más de una 
+Operadores de tipos
+Los operadores de tipos typeof y instanceof, sirven para conocer de qué tipo es una variable
+    • Typeof devuelve una cadena que indica el tipo de operando que hay después sin evaluarlo
+    • Instanceof verifica si un objeto se corresponde con el tipo de dato indicado a continuación
+Nota- EN realidad, instanceof comprueba si un objeto contiene la propiedad prototype de un constructor. (prototipos y constructores mas adelante)
+
+Ejercicio. 101
+Tarea 1: trabajar la creación de ramas y programación base. Abrir una segunda rama para el segundo ejercicio
+Declara seis variables utilizando nombres acordes a su contenido:
+El precio de una sola rosa (8) y el número de rosas que tienes (70)
+El precio de un solo lirio (10) y el número de lirios que tienes (50)
+El precio de un solo tulipán (2) y el número de tulipanes que tienes (120)
+
+    a) Ahora declara tres variables, una para cada una de las rosas, lirios y tulipanes que tienes, en las que colocas su precio total. Inserta los valores correspondientes en las variables utilizando las variables declaradas en el paso anterior.
+    b) Finalmente, declara una variable en la que almacenes el precio de todas tus flores (nuevamente, usa las variables anteriores para la inicialización). Muestra toda la información del inventario en la consola de la siguiente forma:
+
+Rosa: precio unitario: 8 , cantidad: 70 , valor: 560
+Lirio: precio unitario: 10 , cantidad: 50 , valor: 500
+Tulipán: precio unitario: 2 , cantidad: 120 , valor: 240
+Total: 1300
+
+
+27/09/2024
+Operador	Descripcion
+==		equal to
+===		equal value AND equal type
+¡=		not equal
+¡==		not equal value OR not equal type
+            ▪ Greater tan OR equal to
+<		less tan
+>= 		greater tan OR equal to
+<=		less than
+¿		Ternary operator
+
+30/09/2024
+OPERADORES
+Tipo lógico
+    • AND: devuelve true si los dos operadores son verdaderos &&
+    • OR: 
+    • NOT
+Asignación de valores por defecto con ||
+En funciones se pueden utilizar para asignar valores por defecto
+EJ: const port= process.env.PORT || 5000;
+Si no esta definida process.env.PORT toma el valor 5000
+
+Operador ternario
+Let votante= (edad > 18) true; false  MIRAR QUE ESTA MAL ESCRITO
+Operadores incrementados
+    • a++ incremento posterior
+        ◦ let x=10
+        ◦ let y = x++			se incrementa x después de asignarla a y
+        ◦ console.log(x,y)
+    • ++a incremento anterior
+        ◦ Let x=10
+        ◦ Let y = ++x			se incrementa x antes de asignarla a y
+        ◦ console.log(x,y)
+Operadores de tipo
+Posibles valores de typeof:
+    • “undefined”
+    • “object”
+    • “boolean”
+    • “number”
+    • “bigint”
+    • “string”
+    • “symbol”
+    • “function”
+
+Precedencia de operadores. Introducción
+La precedencia de operadores determina el orden en el cual los operadores son evaluados uno respecto del otro. Los operadores con mayor precedencia se convierten en los operados de los operadores con menor precedencia.
+Let year = 2050;
+Let newYear = year= 2051; //se ejecuta de derecha a izquierda
+Significa lo mismo que:
+Let year= 2050;
+Year= 2051;
+Let newYear= year;
+
+Tipo de datos
+JavaAcript tiene “tipicacion débil y dinamica”, puede cambiar el tipo de un dato y realizar conversiones automáticamente al hacer operaciones como comparaciones, operaciones aritméticas
+    • Primitivos
+        ◦ String o cadena
+        ◦ Number
+        ◦ Booleas
+    • Complejos
+        ◦ Array
+
+Conversiones entre tipos (casting)
+JS es interpretado y débilmente tipado por lo que se asignara por defecto a una variable el tipo de dato más acertado.
+Funciones de conversión (métodos globales): String() toString() y number()
+Ademas existen:
+    • pasrseInt()		convierte cadena a entero
+    • parseFloat()		convierte cadena a decimal
+    • toDateString()		convierte variable de tipo fecha a String
+    • toUTCString()		convierte horas UTC en string
+
+Tipos de datos (Casting)
+Sirven para cambiar una variable de tipo
+De String a Number
+    • Number(variable)
+    • Variable.parseInt()
+    • Variable.parseFloat()
+De Number a String
+    • String(variable)
+    • Variable.toString()
+
+Conversiones implícitas
+En una comparación entre una cadena y un numero, JS intenta convertir la cadena en numero (decimal o hexadecimal) antes de comparar
+Si no, NaN (Not a Noum)
+Si uno de los operadores es un booleano, lo convierte a numero (1=true). >Sin embargo, la resta con una cdena no tiene sentido, por lo que, en ese caso, JS convierte todo a Number
+En la suma si hay una cadena, el otro lo convierte en cadena
+EJ:
+Const STR1= 42 + “1”;
+Console.log(STR1);
+Console.log
+
+Coerción
+Es la conversión automatica o implícita de valores de un tipo de dato a otro. Es una característica que fuerza a una variable de cierto tipo a tener el comportamiento de una diferente.
+La coerción es implícita mientras que la conversión puede ser implícita o explícita.
+
+Evitar errores de coerción
+La coerción puede llevar a errores sutiles y difíciles de depurar. Para evitar estos errores, es importante tener en cuenta los siguientes consejos:
+Utilizar operadores estrictos de comparación (=== y ¡==)
+
+Template literals
+Uso de ‘ (acento grave) en cadenas
+Sirve para poner dentro de una cadena variables y expresiones que serán evaluadas al ponerlas dentro de ${}. Se respetan los saltos de línea, tabuladores, etc. Que haya dentro
+Let edad=25;
+Console.log (\’El visitante:
+${edad} años\’)
+
+Mostrara en la consola
+El visitante tiene:
+25 años
+
+Opciones especiales
+    • Valor no definido (undefined). Valor predeterminado de todas las variables después de una declaración sin asignación de valor.
+    • Cadena vacia. (“”)
+    • Valor nulo (null)
+    • NaN (Not a Number): Indica que el resultado de la operación no puede ser un numero
+    • Infinity y –Infinity: indica que el resultado es demasiado grande o demasiado pequeño (ej. 1/0 0 -1/0)
+Nota ¡typeoff de null es 
+
+Boolean ()
+Existen funciones de conversión: Boolean (). El valor false siempre se devuelve para:
+    • 0
+    • NaN (Not a Number)
+    • Cadena vacia
+    • Undefined
+    • null
+
+Precision de números y conversiones
+    • Metodo toString ()
+        ◦ Convierte numero en cadena de caracteres
+        ◦ NombreVariable.toString;
+    • Metodo toFixed()
+        ◦ Ajuste de decimales
+    • Metodo toPrecision()
+        ◦ Ajusta la precisión de un numero
+
+Entrada de datos
+    • Window.prompt  si no se introduce valor, guarda “null” en la variable
+Let libroLeido = prompt(“¿Cuál es el titulo del ultimo libro que has leido?”, default);
+    • <p>Introduzca edad y puse botón:</p>
+    • <input id=”edad” value= “18”/>
+Hacer programa donde pidamos nombre por pantalla y mostrarlo por consola dentro de un saludo JavaScript
+Pedir nombre
+Mostrarlo por consola dentro de un saludo
+Repetir utilizando “template literals”
+Mostrar el tipo de variable que es
+…
+Introduce un nombre
+Pepito
+Hola pepito
+
+04/10/2024
+FUNCIONES
+Una función es un grupo de sentencias o instrucciones que realizan una tarea o calculan un valor.
+Para poder utilizar una función hay que definirla en algún lugar del programa y después llamarla (invocarla) ya sea desde dentro del código, en un evento o automáticamente. Devuelve algo si se utiliza un return. 
+La estructura más habitual es la denominada por declaración
+
+Function <nombre de la función> (<parámetros opcionales separados por comas>){
+	<instrucciones>
+}
+Pueden invocarse, incluso antes de su definición
+
+    • Introducción
+Las funciones pueden o no tener un valor de retorno. Si no se especifica un return, la función devuelve undefined por defecto. Las funciones solo retornan un valor. Si queremos retornar más de uno los podemos agrupar en arrays u objetos
+Al usar paréntesis (), se invoca a la función. Sin paréntesis, se referencia al objeto que representa la función
+Como las funciones son objetos de primera clase pueden ser asignadas a variables, pasadas como argumentos y devueltas por otras funciones
+
+Pero también, mediante expresión (guardas en variables… que se pueden “ejecutar” después- son las funciones anónimas o lambda-. Si se ponen () se ejecuta, si no muestra el contenido de la variable) o constructor de objeto (no recomendado, pero confirma que en JS todo puede ser un objeto)
+
+    • Variantes
+        ◦ Hay funciones sin parámetros
+        ◦ Las funciones pueden devolver un dato o no
+        ◦ Se puede escribir una función sin el paréntesis y guardarla en una variable
+        ◦ Existe la función sin nombre (función anónima)
+        ◦ En JS las funciones son un tipo de datos mas por lo que podemos hacer cosas como pasarlas por argumento o asignarlas a una variable:
+
+    • Parámetros y argumentos
+Los parámetros son los nombres que aparecen en la definición de una función. Los argumentos son los valores que se le pasan (y que, por tanto, recibe) una función
+Como JS tiene una tipificación débil y dinámica no hay que indicar ni tipo ni número de parámetros ni argumentos y tampoco se comprueba que se corresponda con los argumentos proporcionados
+Existen argumentos por exceso y por defecto. Si se proporcionan menos argumentos el resultado es NaN (No es un número)
+Si se proporcionan más argumentos se almacenan en objeto array o lista llamado arguments[].
+
+
+    • Funciones anónimas (lambda)
+Las funciones anónimas no tienen nombre. Esto quiere decir que no es necesario acompañar la palabra function con un nombre de función.
+Sistaxis
+	Función (<parámetros separados por comas y entre corchetes>)
+
+    • Funciones flecha
+Las funciones flecha permiten definir de manera compacta una función convencional. Básicamente, se trata de reemplazar la palabra function por => antes de abrir las llaves:
+
+07/10/2024
+Ejercicio de suma
+Meter en suma el prompt del contador que me meta. Con un pront pide un  numero, si este e es mayor o igual que 0, aumento la suma y vuelvo a llamar a la función.
+En Java Script las funciones son objetos, que se puede llamar a si misma (propiedades de lo objetos).
+
+            //Primero definimos la funcion suma (que ya esta hecha)            
+            function ObtenerSuma(suma=0, contador=0){
+                let numero = prompt("Introduce un numero :");
+                if numero <0 {
+                    alert
+                    console.log ();
+                }else
+                suma += numero;
+                    contador += 1;
+                    ObtenerSuma(suma, contador);
+            }
+
+
+
+
+
+
+08/10/2024
+Hemos hecho el ejercicio 4 de los EjerciciosBasicos
+
+FUNCIONES 
+Parametros REST y SPREAD
+    • EL parámetro rest (…) permite que una función trate un numero indefinido de argumentos ej: copiado en 08-10-2024.html
+
+FUNCIONES
+Resumen
+    • Se puede invocar con más argumentos (arguments [], length)
+    • Pueden utilizar y modificar variables globales… No utilizar
+    • Si no hay return devuelve undefined
+    • Sin paréntesis, se referencia al OBJETO que representa la función.
+    • Como son objetos, pueden ser asignadas a una variable, pasadas como argumento y devueltas por otras funciones.,
+    • Callbacks y programación funcional (más adelante)
+    • Por declaración, por expresión, por constructor
+    • Anónimas (no se invocan ni sirven para la recursividad)
+    • Flecha es simplicación sintáctica (con const porque no pueden ser resignadas). No tienen su propio this si no que lo heredan del contexto en el que se crearon. No son housted (por eso no se pueden invocar antes, ni pueden ser métodos en objetos). No tienen argumentos [].
+        ◦ Contante y variable: a una constante no puedo reasignarle un valor
+        ◦ Housted: JavaScrip es interpretado. Pasan las variables
+
+Funciones anónimas (this)  problema
+
+Funciones flecha
+La sintaxis de una arrow function es:
+    • No aparece la palabra function
+    • Si solo tiene 1 parámetro se pueden eliminar los paréntesis de los parámetros
+    • Se utiliza el símbolo =>
+    • SI la función solo tiene 1 línea se pueden eliminar las {} y la palabra return
+
+11/10/2024
+
+ESTRUCTURAS DE CONTROL
+Modificación del programa 
+Condición if-else
+Else if añade una nueva condición en el caso de que la primera haya sido false
+
+Condiciones switch
+Equivale a varias sentencias if-else anidadas. Se utiliza por ejemplo para crear menus
+Switch va comprobando con instancias case cuál de las opciones se corresponde con la expresión.
+
+Repeticiones bucle for
+Consiste en tres expresiones opcionales entre paréntesis y separadas por punto y coma. La primera indica desde que numero, la segunda la condición que debe cumplir ducho número, y por último, el incremento o decremento de cada iteración del bucle.
+
+Bucle for in
+Se utiliza para moverse por las propiedades de un objeto
+For (variable in objeto){
+	instrucciones
+}
+La variable es el índice que se utiliza para recorrer el objeto
+1_21For.html
+
+Bucle for of
+Se utiliza para moverse por las propiedades de un objeto. Es similar al for…in pero la variable contador en vez de tomar como valor cada índice toma cada elemento
+
+Bucle while
+El bucle while ejecuta una o varias instrucciones mientras una condición sea verdadera. La condición se evalúa ANTES de ejecutar la sentencia, por lo que pudiera ocurrir que ninguna de las sentencias que encierra el bloque se ejecuten nunca.
+Se puede producir con cierta facilidad un bucle infinito…
+
+While(condición) {
+Sentencia;
+Sentencia;
+}
+Con while se controla la introducción de datos erróneos. Solo hay un caso particular en el for y while pueden ser equivalentes. (¿Cuando?)
+Omitiendo la tercera sentencia
+
+toFixed
+Convierte los números en string y redondea el numero especifico del strenn en uno de decimales (mal)
+
+toPrecition
+Formatea un número a una longitud especificada
+
+
+14/10/2024
+Saltos. Break y continue
+Permiten alterar el flujo del programa, saltando a otro punto del código. Se desaconseja su uso, aunque en switch es prácticamente imprescindible break.
+Break termina el bucle y transfiere el control del programa a la siguiente instrucción que se encuentra después de la instrucción de terminación del elemento.
+Continue termina la ejecución de las sentencias de la iteración actual del bucle o la etiqueta y continua la ejecución del bucle en la siguiente iteración.
+Permite saltar una o más iteraciones
+La sintaxis de este tipo de estructuras es la siguiente:
+	Break [etiqueta];
+	Continue [etiqueta];
+Las etiquetas son identificadores opcionales que periten al programa salir de una sentencia que esta etiquetada y que no tiene que ser una sentencia de bucle necesariamente.
+
+Break y continue con etiquetas
+
+15/10/2024
+Rombo24.html
+
+Juego: adivina un numero
+Contesta con “Es mayor” o “Es menor”
+Cuenta los intentos
+	Math.ceil(Math.random()*100)
+
+18/10/2024
+OBJETO EN JS
+Objetos nativos y de alto nivel
+Los datos primitivos son los vistos hasta ahora:
+    • Cadena
+    • Numero
+    • Booleano
+    • Nulo o null
+    • No definido o undefined
+    • Symbol (em ES6)
+El resto son objetos, un valor en memoria que se referencia mediante un identificador.
+
+Los objetos pueden ser nativos o de alto nivel (dependen del navegador). Posteriormente, los objetos definidos por el usuario
+OBJETOS NATIVOS: no dependen del navegador
+    • String
+    • Number	No se suelen utilizar. Mas rápido “datos primitivos”
+    • Boolean	Let miCadena= new String()
+    • Date
+    • Math
+    • RegExp (Expresiones regulares)
+    • Array
+    • Function
+    • Object
+
+
+OBJETOS DE ALTO NIVEL: dependen del navegador
+    • Window
+    • Screen
+    • Navigator	BOM
+    • Location
+    • History
+    • Document (este es del DOM)
+
+DEFINICION OBJETO:
+Propiedades: se definen en modo nombre:valor
+Metodos: acciones que se pueden ejecutar sobre un objeto
+
+Clase Object
+Un objeto es una colección de variables y funciones agrupadas estructuralmente.
+    • Variables=propiedades
+    • Funciones=Metodos
+Son pares clave:valor y se usa el separador “,”. Pueden contener datos primitivos, otros objetos, funciones
+
+Objetos nativos. Constructores integrados
+Un constructor integrado nos permite definir un objeto del tipo que sea. Todos los objetos nativos (excepto Math que es un objeto de tipo global pues se encuentra incluido en JS) utilizan la siguiente sintaxis para definirse:
+New <TipoObjetoNativo>([valor])
+
+Objetos nativos: String
+Un objeto de tipo string contiene caracteres (dentro de una cadena)
+Las cadenas se pueden:
+    • Instanciar: Crear un ejemplar del objeto (con datos primitivos o con new)
+    • Concatenar: Unir dos cadenas de texto (+)
+    • Medir… con length se obtiene un numero de caracteres
+
+Objetos nativos: String
+n w3schools/ references/ JS reference
+Propiedades:
+    • Constructor. Muestra la función constructora
+    • Prototype. Permite añadir propiedades y métodos a un objeto
+        ◦ Objeto.prototype.nuevapropiedad= valor
+    • Length. Muestra el numero de caracteres de una cadena
+
+String: Métodos
+    • String length
+    • String slice()
+    • String substring()
+    • String substr()
+    • String replace()
+    • String replaceAll()
+    • String toUpperCase() mayúsculas y minusculas
+    • StringtoLowerCase()
+    • String concat()
+    • String trim()
+    • String trimStart()
+    • String trimEnd()
+    • String padStart()
+    • String padEnd()
+    • String charAt()
+    • String charCodeAt()
+    • String Split()
+
+String. Métodos de búsqueda
+    • .charAt(<num>): devuelve el carácter que ocupa la posición especificada
+    • .indexOf(<caracter): devuelve la primera posición de un carácter en una cadena
+    • .lastIndexOf(<caracter): devuelve la última posición de un carácter en una cadena
+    • .search(<cadena||expresion>): busca una cadena o expresión regular en otra cadena
+    • .match(<expresión regular>): busca una expresión regular en otra cadena.
+
+EJERCICIO JUANJO
+Definir las siguientes variables:
+
+
+
+
+
+
+21/10/2024
+Ejercicio Juanjo
+Realiza una aplicación web que solicite una cadena de texto. El programa debe decir cuántas veces ocurre cada uno de estos patrones sin distinguir mayúsculas y minúsculas: “00” “101”, “ABC”, “HO”. Un carácter puede formar parte de más de un patrón encontrado. Por ejemplo:
+En la cadena “000” el patrón “00” aparece dos veces (una empieza en la posición 0 y otra empieza en la posición 1).
+Internamente el programa realizará la cuenta de patrones con una función definida como function numeroPatrones (texto) que devolverá un numero entero con el número de patrones encontrados.
+1110101000ABCHO
+ejercicioJuanjo21Octubre.html
+
+console.time()
+console.timeEnd()
+
+METODOS
+
+DIFERENCIAS FOR-TAREA JUANJO
+for: Es un bucle que te permite iterar sobre índices de arrays con un rango definido. 
+forEach: Método de arrays que ejecuta una función en cada elemento del array. No se puede detener el bucle ni usar break. 
+for...of: Recorre directamente los valores de un iterable (como arrays o cadenas), sin acceder a los índices. Se utiliza para moverse por las propiedades de un objeto.
+
+22/10/2024
+DUODECIMA PARTE ARRAY
+Como se definen
+Arrays (vectores) es un conjunto de elementos a los que se accede por un índice. Se trata de una estructura de datos ESTATICA. Almacena en una misma variable múltiples tipos de datos: valores primitivos, objetos, etc. Se referencian con un índice numérico. (a diferencia de los objetos que se referencian con un nombre). Se definen:
+
+Propiedades length
+Length devuelve la longitud del array
+Días.length
+Se puede utilizar para recorrer el Array:
+
+Metodo Array.isArray
+Devuelve true si es un objeto de tipo Array. Si se utiliza typeof con un array se obtiene Object
+Document.write(“<br>”+ Array.isArray()”)
+
+Array y String
+Cada objeto (y los arrays son un tipo de objeto) tienen definido el método .toString() que lo convierte en una cadena.
+Este método es llamado automáticamente cuando, por ejemplo, queremos mostrar un array por la consola. En realidad console.log(a) ejecuta console.log (a.toString()). En el caso de los arrays esta función devuelve una cadena con los elementos del array dentro de corchetes y separados por coma.
+Para convertir los elementos de un array a una cadena se utiliza .join(‘separador’)
+.sort Ordena alfabéticamente los elementos del array. Se le puede pasar una función que le indique como ordenar que devolverá un valor negativo si el primer elemento es mayor, positivo si es mayor el segundo o 0 si son iguales
+
+25/10/2024
+Métodos para añadir, extraer o borrar elementos (popping and pushing)
+    • Pop y shift  extraen el ultimo y primer elemento del array, respectivamente.
+    • Delete  elimina el elemento (pero mantiene la posicion)
+    • Push y unshift  añaden elementos al final y al principio, repectivamente
+    • Splice  permite insertar y borrar elementos en diferentes posiciones
+    • Slice  permite extraer un subarray
+    • Concat  une un array con otro
+    • copyWhithing  copia elementos de un array y los sustituye por otros elementos array
+    • fill  sustituye los elementos del array por uno indicado
+    • indexOf  devuelve la primera posición de un elemento
+    • lastIndexOf  devuelve la ultima posición de un elemento
+    • reverse  invierte el orden de un array
+    • sort  ordena el array
+Hay una diferencia entre usar “delete”, “pop” o “shift” en un array. Los tres eliminan elementos, pero…
+
+Algunos métodos
+Push() y unshift(): añaden un elemento al final y al principio del array respectivamente
+
+Pop() y shift(): extraen el ultimo y el primer elemento respectivamente y lo puede guardar en una variable. Si no, se borra
+
+Ejercicio 2
+Solicitar una frase desde teclado, almacenar cada palabra en un elemento de un array y mostrar los siguientes datos:
+    • La primera palabra de la frase.
+    • La última palabra de la frase
+    • El número de palabras de la frase.
+
+Ejercicio 3
+Programa que pida un número que indica por cada pareja de dígitos (empezando por la derecha) los viajeros que han subido y bajado (respectivamente) en la estación de partida y en cada una de las estaciones intermedias hasta llegar a su destino.
+Por ejemplo, si se recibe el siguiente número 68|5735|2846|3604, significa que partió con 4 viajeros, en la siguiente estación subieron 6 y bajaron 3, en la segunda intermedia bajaron 4 y subieron 6…
+Se pide:
+    • Control de errores (NaN, número incorrecto…)
+    • ¿Cuántos llegaron al final de trayecto?
+
+Modificación: el número de viajeros puede ser de más de un dígito.
+
+
+
+
+
+
+28/10/2024
+Hemos añadido al código del ejercicio 2
+    • Que el código te pregunte si quieres añadir nuevas palabras y que te diga que la primera palabra es la primera de la primera frase, y que la última palabra sea la última de la última frase.
+    • Que se ordene alfabéticamente el array de palabras.
+
+
+29/10/2024
+Algunos métodos (continuacion)
+Concat() uno dos o mas arrays
+NombreArray.concat(otroNombreArray);
+
+Arrays –sort
+Como mas se utiliza esta función es ordenando arrays de obketos. Por ejemplo dado un objeto persona con los campos nombre y edad, para ordenar un array de objetos persona por su edad:
+Ejercicio: utilizar un array arrow
+
+toLocaleCompare
+Para ordenar por un campo de texto se puede usar la función toLocaleCompare:
+EJERCICIO: Hacer una función que ordene las notas de una array pasado como parámetro. Si se le pasa [4,8,3,10,5] debe devolver [3,4,5,8,10]. Pruébalo en la consola
+toLocaleCompare.html
+
+
+4/11/2024
+ESTRUCTURA DE CONTROL
+Repeticiones. Resume
+For: 	       Control más detallado sobre el índice y el flujo. / recorre un bloque de código varias veces
+For…in:        Es una iteración/Itera sobre las claves de un negocio. Mejor para objetos / recorre las propiedades de un objeto
+For…of:       Itera sobre los valores de un iterable. El mas moderno y recomendable para arrays. Aparecio con JavaScript y internamente funciona mejor, es mas eficiente. Para array. / recorre los valores de un objeto iterable
+.ForEach(): Método de array apropiado para aplicar una función a cada elemento de un array. Aplicar una función, a cada método de un array.
+While: recorre un bloque de código mientras una condición especificada es verdadera
+Do/while: recorre un bloque de código mientras una condición evaluada posteriormente es verdadera. Al menos se ejecuta una vez
+
+
+
+
+PREGUNTA EXAMEN
+Explica for in for of, método for each
+
+MANEJO DE ERRORES
+Conceptos
+En general, se pueden definir como comportamientos anómalos, imprevistos o no. Una aplicación debe disponer de tolerancia a fallos, es decir, de la capacidad de recuperación ante la aparición de errores.
+Los errores no se pueden evitar, pero una eficiente gestión de los mismos es fundamental
+CUadno se producen
+    • Durante el desarrollo
+
+Tipos
+Error (no controlado): provoca que la aplicación deje de funcionar
+Excepción (controlada): situación en alguna medida esperada que se trata convenientemente
+Advertencia(warning): nos avisa de situaciones que pueden evolucionar en un error.
+
+Try-catch
+Si sucede un error en el código el programa dejara de ejecutarse, pero el usuario solo advertirá que el programa no hace nada y solo si abre la consola vera el error. En JS (como en muchos otros lenguajes) existe la gestión  de excepciones como:
+Try{
+…
+}catch (error){
+…
+}
+
+Dentro del bloque try se pone el código a proteger y cualquier error producido en el que será pasado al bloque catch donde es tratado. Opcionalmente puede haber al final de un bloque finally que se ejecuta siempre
+
+Objetos Error en JavaScript
+Cuando se produce un error, en JavaScript genera un objeto que contiene los detalles al respecto. El objeto se pasa como argumento para catch
+Objetos Error predefinidos. (clase Error)
+Propiedades:
+    • Name: (EvalError, RangeError,)
+    • message
+
+Objeto Error
+Cuando algo falla, se lanza un objeto Error.
+Que tiene propiedades específicas como menssage, name, fileName, lineNumber, columnNumber, y stack. Además, tiene un método muy utilizado llamado toString ()
+Es posible lanzar errores personalizados utilizando el constructor de Error. Aunque Error es genérico, también existen errores más específicos como EvalError, InternalError, SyntaxError, RangeError, TypeError y URIError
+
+Hacer una función de comprobar el length. Quiero una función que me dé un número (entre 1 y 12), y me devuelve el número del mes. Darle error usando trought diciendo “Numero de mes no valido”. Hacer la función y comprobar el error.
+Error.html
+
+05/11/2024
+MANEJO DE ERRORES
+Metodos
+    • EvalError
+    • InternalError
+    • RangeError
+    • DeferentError
+    • SysntaxError
+    • URIError
+
+
+
+
+Throw – try-catch
+JavaScript … will throw an exception…
+Puede ser una cadena, un numero, un objeto…
+Throw 400;
+Usado junto con try…catch permite generar mensajes personalizados
+Por defecto al lanzar un error este
+
+
+Hacer un cajero automatico, meter un cantidad, que compruebe el saldo (variable hecho por mi, ejemplo 50). Si tiene saldo, que saque el dinero y lo desconté en el saldo. SI no tiene que diga error: no hay suficiente saldo
+
+Que es coerción, escribe el formato de un
+Como se pueden definir las funciones (declaración, expresion,)
+
+
+
+
+
+
+
+
+
+
+08/11/2024
+OBJETOS EN JS
+Objetos del navegador (BOM)
+
+BOM Browser Object Model o Modelo de Objetos del Navegador, por lo que dependen de el. Permite que JS se comunique con el navegador obteniendo y manipulando
+
+https://www.w3schools.com/js/js_window.asp
+
+Objetos del navegador (BOM)
+Hay un objeto “raiz” llamado window que tiene dos roles
+    • Es un objeto global para el código JavaScript
+    • Representa la “ventana del navegador” y proporciona métodos para controlarla
+
+Vista general de la estructura cuando JavaScript se ejecuta en un navegador
+    • WINDOW
+
+Objetos del navegador: Windows
+    • Representa una ventana abierta en un navegador
+    • SI una ventana tiene etiquetas de tipo <iframe> (marco, por ejemplo, un video de youtube) el navegador crea un objeto window para el html inicial y uno para cada <iframe>
+    • Todos los objetos, funciones… son miembros del objeto window: las funciones son métodos del objeto window; las variables globales y el DOM son propiedades.
+    • No todos los métodos sirven para todos los navegadores: hay que comprobar la compatibilidad. (screenLeft no funciona con Firefox y screenX sí)
+
+Se puede declarar una ventana en una variable: de este modo se podrán ejecutar sus métodos posteriormente sin problemas. Con la propia ventana actual
+
+Objetos navegador. Window. Propiedades mas importantes
+    • Name: representa el nombre de la ventana
+    • outerWidth y outerHeight: son el ancho y alto de la ventana incluyendo la barra de herramientas y la de scroll.
+    • innerWidth e innerHeight: similar a los anteriores pero sin incluir la barra de herramientas ni la de scroll
+    • pageXOffset y pageYOffset:
+    • screenX y screenY
+
+Objeto navegador. Window. Propiedades iframe y con otras ventanas
+    • frames: devuelve todos los iframe de la ventana
+    • frameElement: devuelve el frame en el que esta insertada la ventana.
+    • length
+    • closed
+    • opener
+    • parent
+    • self
+
+Objeto navegador. Window. Otros objetos internos
+EL objeto window es el principal del que cuelgan el resto de objetos del navegador (se puede nio poner...)
+    • window.document
+    • window.navigator
+    • window.screen
+    • window.history
+    • window.location
+
+
+Objeto navegador. Window. Métodos (1)
+Es importante declarar una ventana en una variable: asi se podrán ejecutar sus métodos posteriormente
+    • open: Consulta parámetros 
+        ◦ window.open(URL, name, spect, replace)
+    • close
+    • resizeBy y resizeTo
+    • MoveBy y MoveTo
+
+
+
+
+
+
+
+2_15Window.html
+
+
+
+
+
+
+
+Metodo close
+resizeBy(): mover y cerrar
+MoveBy():
+
+Añadir otros dos botones, el focus() y el print()
+
+
+
+
+
+
+
+
+
+
+
+
+Tarea 1
+·     Alcance de variables
+-     Estructuras de control: if, switch, for, for-in, for-of, while, do-while, break, continue
+·      Funciones (declaración o expresión. Constructor)
+·      Funciones anónimas (expresión...) , callback
+·      Parámetros y argumentos
+·      Argumentos por exceso ( arguments()) y por defecto (NaN) 
+·      Funciones flecha
+
+Tarea 2
+·       Objetos nativos
+Tarea 3
+JavaScript y DOM
+
+Métodos de acceso
+Modificación
+Eventos
+Animación
+
+ JS_ejercicio_090523.docx
+
+Tarea 4
+
+Tarea 5
+Desestructuración de objetos
+Formularios
+Validación
+
+Tarea 6
+Cookies
+WebStorage y SessionStorage
+
+Tarea 7
+Asincronía
+function checkPreferentes(e) {
+  const checked = e.target.checked
+  diasDisponibilidad.forEach(diasPreferentes => {
+    diasPreferentes.checked = checked
+  })
+}
+
+____________________________________
+
+//Si pulsa sobre todos
+  if (evento.target.id == 'checkTodos') {
+
+    //Seleccionar todos
+    if (evento.target.checked == true) {
+
+      checkbox.forEach(element => {
+        element.checked = true;
+      });
+

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+    <head>
+        <title>Subrayar elementos con jQuery</title>
+        <meta charset="UTF-8">
+        <style>
+            .resaltado { background-color: yellow; }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <p>Cuales de los siguientes lenguajes son orientados a objetos: <span>Java</span>, VB6, <span>C++</span>, C, <span>C#</span>, Cobol</p>
+        <input type="button" value="Subrayar elementos" id="boton1">
+        <script>
+            // Cuando se haga clic en el botón
+            $("#boton1").click(function() {
+                // Seleccionar todos los span y añadir la clase resaltado
+                $("span").addClass("resaltado");
+            });
+        </script>
+    </body>
+</html>

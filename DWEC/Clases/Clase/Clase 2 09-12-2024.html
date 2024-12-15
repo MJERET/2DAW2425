@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            function caso1 () {
+            let arrayNotas = [5,6,4,8,9,1,2,3];
+            //let arrayAprobados = [5.2,6,9.75,7.5];
+/*                 for (let i = 0; i < arrayNotas.length; i++) {
+                    let nota = arrayNotas[i];
+                    if(nota > 5) {
+                        array.arrayAprobados.push(nota);
+                    }
+                } */
+               let arrayAprobados = ArrayNotas.find(nota => nota => 5 );
+            console.log(arrayNotas);
+            console.log(arrayAprobados);      
+            }
+            function caso2() {
+                //Ordenar los arrays segun los casos escritos.
+                let miArray1 = [1,2,3,4,5,6,7,8];
+                let miArray2 = [1,2,3,8,9,0,43,45,65];
+                let miArray3 = [17,32,87,45]; 
+                //Funciones para cuando se repiten o no se repiten
+                function noRepetir(){
+                    let miSet = new Set([...miArray1 , ...miArray2 , ...miArray3]);
+                    //variable para sacar la media
+                    let Suma = miSet.reduce((total, nota) => total += nota ,0) //total 35.35
+                    let media = Suma / miSet.size;
+                    return console.log(media);
+                }
+                noRepetir();
+                function repetir() {
+                    let miArray = new Array([...miArray1 , ...miArray2 , ...miArray3]);
+                    //variable para sacar la media
+                    let Suma = miArray.reduce((total, nota) => total += nota ,0) //total 35.35
+                    let media = suma / miArray.length;
+                    return console.log(media);
+                }
+                repetir();
+            }
+            caso2();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+    <head>
+        <title> </title>
+    </head>
+    <body>
+        <p id="miTexto"> Este texto lo voy a modificar. </p>
+        <button id="miBoton"> Pulsar </button>
+        <script>
+            function alPulsar() {
+                var x = document.getElementById("miTexto");
+                x.innerHTML = "Has pulsado el boton";
+            }
+            document.getElementById("miBoton").addEventListener("click", alPulsar, false);  //Función anonima. 
+            // Otros ejemplos
+            //      elemento.addEventListener("<evento_sin_on>", function(){<codigo_función>}, false )
+            //      document.getElementById("w3canonima").addEventListener("click", function() {this.style.background = 54652; } ) 
+            //  Tenemos varias formas de cambiar los campos: onblur, onchange, onfocus, onselect, onsubmit, onreset, onkeydown, onkeypress, onkeyup. 
+            //  https://www.w3schools.com/tags/ref_eventattributes.asp
+
+            /*
+                Sabemos cómo asociar "escuchadores" o listeners a elementos para que, cuando 
+            */
+        </script>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+    <head>
+        <title> Canvas </title>
+    </head>
+    <body>
+        <canvas id='canvas-1' width="300" height="200"></canvas>
+        <script>var canvas = document.getElementById('canvas-1');
+            var ctx = canvas.getContext('2d');
+            //draw to ctx object//Sample code fills canvas with grey color:
+            ctx.fillStyle = '#FFEE00';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);// black rectangle
+            ctx.fillStyle = '#00EEFF';
+            ctx.fillRect(10, 10, 100, 100);// outlined rectangle,
+            ctx.strokeRect(150, 10, 100, 100);
+         </script>
+    </body>
+</html>

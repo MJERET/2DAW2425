@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de Video Secuencial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #video-player {
+            width: 80%;
+            max-width: 640px;
+            height: auto;
+            margin: 20px 0;
+        }
+        #events-log {
+            width: 80%;
+            max-width: 640px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            height: 200px;
+            overflow-y: auto;
+            background: #f9f9f9;
+            text-align: left;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reproductor de Video Secuencial</h1>
+    <input type="text" id="video-list" placeholder="Ingresa las URLs de los videos, separadas por comas" style="width: 80%; padding: 10px;">
+    <button onclick="startPlayback()">Iniciar</button>
+    
+    <video id="video-player" controls></video>
+    
+    <h2>Eventos del Reproductor de Video</h2>
+    <div id="events-log"></div>
+
+    <script>
+        // Variables para el reproductor de video y lista de videos
+        const videoPlayer = document.getElementById('video-player');
+        const eventsLog = document.getElementById('events-log');
+        let videoQueue = [];
+        let currentIndex = 0;
+
+        // Función para comenzar la reproducción
+        function startPlayback() {
+            const input = document.getElementById('video-list').value;
+            videoQueue = input.split(',').map(url => url.trim()).filter(url => url);
+            currentIndex = 0;
+            eventsLog.innerHTML = ''; // Limpia el registro de eventos
+            if (videoQueue.length > 0) {
+                loadVideo(videoQueue[currentIndex]);
+            } else {
+                logEvent("Por favor, introduce al menos un video.");
+            }
+        }
+
+        // Función para cargar y reproducir un video
+        function loadVideo(videoSrc) {
+            videoPlayer.src = videoSrc;
+            videoPlayer.load();
+            videoPlayer.play().catch(() => {
+                logEvent(`Error: El fichero de video "${videoSrc}" no existe.`, true);
+                playNextVideo(); // Intenta el siguiente video si falla
+            });
+        }
+
+        // Avanza al siguiente video en la cola
+        function playNextVideo() {
+            currentIndex++;
+            if (currentIndex < videoQueue.length) {
+                loadVideo(videoQueue[currentIndex]);
+            } else {
+                logEvent("Reproducción completada.");
+            }
+        }
+
+        // Función para registrar eventos en pantalla
+        function logEvent(message, isError = false) {
+            const logEntry = document.createElement('div');
+            logEntry.textContent = message;
+            if (isError) logEntry.classList.add('error');
+            eventsLog.appendChild(logEntry);
+            eventsLog.scrollTop = eventsLog.scrollHeight; // Desplaza hacia el final
+        }
+
+        // Asocia eventos de video y los registra
+        videoPlayer.addEventListener('play', () => logEvent("Evento: Reproducción iniciada"));
+        videoPlayer.addEventListener('pause', () => logEvent("Evento: Reproducción en pausa"));
+        videoPlayer.addEventListener('ended', () => {
+            logEvent("Evento: Video terminado");
+            playNextVideo();
+        });
+        videoPlayer.addEventListener('error', () => {
+            logEvent(`Error: No se pudo cargar el video "${videoQueue[currentIndex]}"`, true);
+            playNextVideo();
+        });
+        videoPlayer.addEventListener('loadeddata', () => logEvent("Evento: Datos del video cargados"));
+        videoPlayer.addEventListener('timeupdate', () => logEvent(`Evento: Tiempo actualizado a ${Math.floor(videoPlayer.currentTime)}s`));
+        videoPlayer.addEventListener('volumechange', () => logEvent("Evento: Volumen cambiado"));
+
+    </script>
+</body>
+</html>

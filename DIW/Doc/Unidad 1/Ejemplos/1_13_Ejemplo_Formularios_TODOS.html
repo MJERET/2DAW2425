@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+    <head>
+        <title> Menu </title>
+    </head>
+    <body>
+        <!--Text-->
+        <div style="margin:1en;">
+            <label for="input-1">Input DNI</label><br />
+            <input id="input-1" name="dniInput" placeholder="Insert DNI" pattern="[0-9]{8}[AZ]{1}" maxlength="9" autofocus="true" required="true" type="text">
+        </div>
+        <!--Textarea-->
+        <div>
+            <label for="textareal">Description</label></div>
+            <textarea id="textareal" name="Description" placeholder="Insert your description" cols="40" rows="8" maxlength="10"></textarea>
+         </div>
+         <!--Search-->
+         <div style="margin:1en;">
+            <label for="search1">Search</label><br />
+             <input id="search1" name="search" placeholder="Enter your search term" type="search" />
+        </div>
+         <!-- Password -->
+        <div style="margin:1en;">
+            <label for="password2">Reenter password</label><br />
+            <input id="password2" name="password2" placeholder="Enter password" maxlength="15" required="true" type="password"/>
+         </div> 
+        <!-- Number -->
+        <div style="margin: 1em;">
+            <label for="number4">Even numbers</label><br />
+            <input id="number4" name="number" placeholder="Even numbers: 2, 4, 6" min="2" max="100" step="2" required="true" type="number"/>
+        </div>
+        <!-- File -->
+        <form enctype="multipart/form-data" ...>
+            <div style="margin:1en;">
+                <label for="file1">Upload</label><br />
+                <input id="file1" name=“file1" placeholder="Select field" type="file"/>
+        </div>
+        <!-- URL -->
+        <div style="margin:1em;">
+            <label for="url2">Your site (http://)</label><br/>
+            <input id="url2" name="url2" placeholder="Enter valid url" pattern="^http:\/\/[\w\W]+" type="url"/>
+        </div>
+        <!-- Email -->
+        <div style="margin:1em;">
+            <label for="email1">Email</label><br />
+            <input id="email1" name="email1" placeholder="Enter email“ type="email"/>
+        </div>
+        <!-- Telefono -->
+        <div style="margin:1em;">
+            <label for="telephone2">Local telephone</label><br />
+            <input id=" telephone2 " name=" telephone2" placeholder="Enter local pone 948..." pattern="998[0-9]{6}" maxlength="9" required="true" type="tel"/>
+        </div>
+        <!-- Date -->
+        <div style"margin:1em;">
+            <label for="date1">Enter date</label><br />
+            <input id="date1" name="date1" placeholder="Enter date" type="date"/>
+        </div>
+        <!-- Time -->
+        <div style="margin:1em;">
+            <label for="tine1">Enter time </label><br />
+            <input id="time1" nane="tine1" placeholder="Enter time" type="time" />
+        </div>
+        <!-- Datetime -->
+        <div style="margin:1em;">
+            <label for="datetime1">Enter datetime </label><br />
+            <input id="datetime1" name="datetime1" placeholder="Enter datetime" type="datetime" />
+        </div>
+        <!-- Week -->
+        <div style="margin:1en;">
+            <label for="week1">Enter week</label><br />
+            <input id="week1" name="week1" placeholder="Choose week" type='week'>
+        </div>
+        <!-- Month -->
+        <div style="margin:1em;">
+            <label for="month1">Choose month</label><br />
+            <input id="month1" name="month1" placeholder="Choose month" type="month"/>
+        </div>
+        <!-- Color -->
+        <div style="margin: 1em;">
+            <label for="color2">Mandatory color</label><br />
+            <input id="color2" name="color" placeholder="Mandatory color" required="true" type="color"/>
+        </div>
+        <!-- Range -->
+        <label for="rateFilm">Rate this film</label>
+        <input id="rateFilm" name="rate" type="range" min="0" max="100">
+        
+    </body>
+</html>

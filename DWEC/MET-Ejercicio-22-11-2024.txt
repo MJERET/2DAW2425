@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+    <head>
+        <title> Ejercicio de 22-11-2024 </title>
+    </head>
+    <body>
+        <p id="ventana"></p>
+        <script>
+            /*Ejercicio de clase. 
+            
+            Ejercicio 1. Abrir una nueva ventana de dimensiones 500x200px en la posición (100,200)
+                         Escribir en ella (con document.write) un título H1 que diga 'hola'
+                         Desplazarla 300px hacia abajo y 100px a la izquierda
+                         Cerrarla.
+
+            Ejercicio 2. Hacer que a los dos segundos de abrir la página se abra un popup:
+                         Con un mensaje de bienvenid.
+                         Con un botón de "Cerrar" que permita al usuario cerrarla.
+                         Con el tamaño justo para vizualizar el mensaje sin barras de scroll, ni de herramientas, ni de dirección... unicamente el menaje y el boton. 
+            */ 
+           //Para marcar el tiempo.
+            function reloj(){
+                //Guarda como valor la fecha actual. 
+                var miFecha = new Date();   //Para hacer uso de la función Date tiene que estar en mayusculas
+                document.getElementById("reloj").innerHTML = miFecha.getSeconds(); 
+            }
+            reloj();
+            
+            //Está función abre una ventana con la posición 100 y 200 con un tamaño de 500x200px
+            function abrir () {
+                let ventana
+                //El valor de open es ("" , "" , "altura", "anchura" )
+                ventana = window.open("", "", "width=500 height=200", top=100, left=200)
+                //La movemos 100px y 200px
+                ventana.document.write("<h1> hola </h1>");
+                //document.getElementById("ventana").innerHTML = ventana;
+            }
+
+            function mover () {
+                ventana.moveTo(top=300, left=100)
+            }
+
+
+
+        </script>
+        <button onclick="setInterval(4000,abrir())"> Ventana 1 </button> <!-- Este boton abre y nos pone la ventana de 500px x 200px en la posición 100 y 200-->
+        <button onclick="setInterval(5000, mover())"> Mover 1 </button> <!-- Este boton Nos mueve la pagina 300 y 100 pixeles. -->
+    </body>
+</html>

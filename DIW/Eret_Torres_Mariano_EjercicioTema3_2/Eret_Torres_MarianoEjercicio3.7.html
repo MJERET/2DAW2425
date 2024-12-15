@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Nombres con IndexedDB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 30px;
+        }
+        #nameInput {
+            padding: 5px;
+            width: 60%;
+        }
+        button {
+            padding: 10px;
+            margin-left: 10px;
+        }
+        #nameList {
+            margin-top: 20px;
+            text-align: left;
+            width: 60%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gestión de Nombres con IndexedDB</h1>
+    
+    <!-- Caja de texto para ingresar el nombre -->
+    <input type="text" id="nameInput" placeholder="Escribe un nombre para agregar a la BD">
+    <button onclick="addName()">Agregar Nombre</button>
+    
+    <!-- Contenedor para la lista de nombres -->
+    <div id="nameList"></div>
+    
+    <script>
+        // Inicializa la base de datos
+        let db;
+        const dbName = "nombresDB";
+        
+        window.onload = function() {
+            let request = indexedDB.open(dbName, 1);
+
+            // Configuración inicial de la base de datos
+            request.onupgradeneeded = function(event) {
+                db = event.target.result;
+                let objectStore = db.createObjectStore("nombres", { keyPath: "id", autoIncrement: true });
+                objectStore.createIndex("nombre", "nombre", { unique: false });
+                console.log("Base de datos creada y configurada.");
+            };
+
+            // Si se abre correctamente, guarda la referencia a la BD
+            request.onsuccess = function(event) {
+                db = event.target.result;
+                displayNames(); // Muestra los nombres al cargar
+            };
+
+            request.onerror = function(event) {
+                console.error("Error al abrir la base de datos:", event.target.errorCode);
+            };
+        };
+
+        // Función para agregar un nombre a la BD
+        function addName() {
+            const nameInput = document.getElementById("nameInput");
+            const name = nameInput.value.trim();
+
+            if (name === "") {
+                alert("Por favor, ingresa un nombre.");
+                return;
+            }
+
+            let transaction = db.transaction(["nombres"], "readwrite");
+            let objectStore = transaction.objectStore("nombres");
+            let request = objectStore.add({ nombre: name });
+
+            request.onsuccess = function() {
+                console.log("Nombre agregado:", name);
+                nameInput.value = ""; // Limpia la caja de texto
+                displayNames(); // Actualiza la lista de nombres
+            };
+
+            request.onerror = function() {
+                console.error("No se pudo agregar el nombre:", request.error);
+            };
+        }
+
+        // Función para mostrar los nombres almacenados en la BD
+        function displayNames() {
+            const nameList = document.getElementById("nameList");
+            nameList.innerHTML = ""; // Limpia la lista antes de actualizar
+
+            let transaction = db.transaction(["nombres"], "readonly");
+            let objectStore = transaction.objectStore("nombres");
+            let request = objectStore.openCursor();
+
+            request.onsuccess = function(event) {
+                let cursor = event.target.result;
+                if (cursor) {
+                    // Crea un elemento para cada nombre
+                    let listItem = document.createElement("div");
+                    listItem.textContent = `ID: ${cursor.value.id}, Nombre: ${cursor.value.nombre}`;
+                    nameList.appendChild(listItem);
+                    cursor.continue();
+                } else {
+                    console.log("Todos los nombres han sido listados.");
+                }
+            };
+
+            request.onerror = function() {
+                console.error("Error al leer los nombres:", request.error);
+            };
+        }
+    </script>
+</body>
+</html>

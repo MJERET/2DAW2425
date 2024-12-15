@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <head>
+        <title> Clase de 02-12-2024 </title>
+    </head>
+    <body>
+        <h3 id="tradicional">Pulsa aquí</h3>
+        <script>
+            /* Eventos tradicional. 
+                Consiste en aplicar sobre un elemento seleccionado a traves de JS, un evento de la forma "onnombreevento" (onclick, onmouseover, onblur...).
+
+                Desde el punto de vista de la organización, está forma es mucho más correcta, ya que separa el código HTML del código JS.
+                Sin embargo, Está opción tampoco es la más recomendada. 
+                
+                La página debe estar completamente cargada para que se utilicen las funciones del DOM que asignan manejadores a los elementos HTML. 
+            
+            */
+            window.onload = function () {
+                alert("La página ha cargado correctamente");
+                document.getElementById("tradicional").onclick = miMensaje; //Sin parentesis           
+            }
+            function miMensaje() {
+                document.getElementById("tradicional").innerHTML = "Modelo tradicional";
+            }
+
+            /*
+            Evento. Mecanismo que se acciona cuando el usuario realiza un cambio sobre la página web.
+            Capturar un evento es programar una acción para que realice una tarea.
+            El encargado de gestionar los eventos DOM (Document Object Model)
+
+            Manejador. Acción que se va a manejar. Por ejemplo
+            
+            Ademas del modelo de evento en línea (mezcla código HTML y JS).
+            El modelo tradicional (no permite asigar a un mismo elemento más de un evento), ejemplo:
+            document.getElementById
+            */
+        </script>
+    </body>
+</html>

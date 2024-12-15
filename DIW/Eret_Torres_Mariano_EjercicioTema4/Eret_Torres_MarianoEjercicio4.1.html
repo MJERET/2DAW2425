@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de jQuery</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <!-- Botón para ocultar los elementos de la primera lista -->
+        <input type="button" value="Ocultar la primera lista" id="boton1">
+        <h2>Lista 1</h2>
+        <ul id="lista1">
+            <li>Opción número 1</li>
+            <li>Opción número 2</li>
+            <li>Opción número 3</li>
+            <li>Opción número 4</li>
+        </ul>
+        <h2>Lista 2</h2>
+        <ul id="lista2">
+            <li>Opción número 1</li>
+            <li>Opción número 2</li>
+            <li>Opción número 3</li>
+            <li>Opción número 4</li>
+        </ul>
+        <script>
+            // Esperar a que el documento esté listo
+            $(document).ready(function() {
+                // Agregar evento click al botón
+                $("#boton1").click(function() {
+                    // Seleccionar y ocultar los li de la primera lista
+                    $("#lista1 li").hide();
+                });
+            });
+        </script>
+</body>
+</html>
+

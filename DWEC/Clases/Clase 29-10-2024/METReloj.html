@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+    <head>
+        <title> Reloj Ejercicio de clase 29-11-2024</title>
+    <style type="text/css">
+        body { margin: 20%; }
+    </style>
+    </head>
+    <body align="center">
+        <h3> Reloj </h3>
+        <p id="tiempo"></p>
+        <script>
+            //Creación de un reloj, que al precionar, inicie el tiempo constantemente.
+            function tiempo () {
+                //Función tiempo de la que sacamos las horas, minutos y segundos
+                var tiempo = new Date();
+                // Función Reloj, quien es quien mide y nos muestra las horas, minutos y segundos por pantalla
+                var Relojero = new Date();
+                    //Ponemos todas las variables del tiempo en Reloj
+                    Relojero = tiempo.toLocaleTimeString();
+                console.log(Relojero);
+                return document.getElementById("tiempo").innerHTML=Relojero;
+            }
+            var int = setInterval(tiempo, 1000); 
+            tiempo();
+        </script>
+        <button onclick="setInterval(tiempo, 1000)"> Arranque </button> <!-- Arranca la ejecución del reloj -->
+        <button onclick="clearTimeout(int)"> STOP </button> <!-- Para la ejecución.  -->
+    </body>
+</html>

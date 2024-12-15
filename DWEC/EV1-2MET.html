@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+    <head>
+        <title>Ejercicio Examen 1</title>
+        <meta author="Mariano José Eret">
+        <meta charset="UTF-8">
+    </head>
+    <body> 
+        <h1 align="center"> Ejercicio 2 Examen DWEC</h1>
+        <p id="frase" align="center"></p>
+        <script>
+        
+            /*  Ejercicio 2. Creación de una piramide invertida.
+            Haz un programa en JavaScript que dibuje una pirámide invertida utilizando los números del 1 al número que indique el usuario (máximo 50), 
+            de tal forma que la primera línea contenga tantos números repetidos como el número introducido y vaya disminuyendo en una unidad en cada salto de línea. 
+            Las cifras estarán centradas en la pantalla en la medida de lo posible.
+            Simula el resultado si el número indicado es 22 y añade una captura del resultado obtenido por pantalla.
+            */ 
+           
+            //Creamos la función usuario, la cual nos dara un número que usaremos para la creación de la piramide.
+            function user () {
+                let input;
+                do {
+                    input = Number(prompt("Introduce un número (MAX 50)"));
+                    if (input < 1 || input > 50)  {
+                        console.warn("Solo validos números del 1 al 50");
+                        window.alert("Solo validos números del 1 al 50")
+                        console.log("Número introducido" + input);
+                    }
+                } while (input < 1 || input > 50);
+                console.log("Número introducido" + input);
+                return input;
+            } 
+            //Creación de la piramide.
+            let numero = user();    //Variable con la que haremos los números descendentes y número de filas. 
+            let piramide = "";      //Variable con la que vamos a imprimir la piramide. 
+            
+            // Generar la pirámide invertida
+            for (let i = numero; i >= 1; i--) {
+                let linea = " ";
+                // mientras que espacio no sea igual al número introducido, seguira 
+                for (let espacio = 0; espacio < i; espacio++) {
+                    //Imprimimos el número
+                    linea += i + " ";
+                }
+            //Imprimir por línea los fragmentos de la piramide. 
+            piramide += linea.trim() + "\n";
+            }
+            //Para mostrar la piramide por pantalla. 
+            document.getElementById("frase").innerText = piramide;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Generar Caminata</title>
+</head>
+<body>
+    <script>
+        function generarCaminata(minutos) {
+            if (minutos < 6 || minutos > 16 || minutos % 2 !== 0) {
+                throw new Error("El número de minutos debe ser un valor par entre 6 y 16.");
+            }
+            
+            let x = 0;
+            let y = 0;
+            const direcciones = [];
+            const opciones = ['n', 's', 'e', 'o'];
+        
+            function agregarDireccion(dir) {
+                direcciones.push(dir);
+                if (dir === 'n') y++;
+                if (dir === 's') y--;
+                if (dir === 'e') x++;
+                if (dir === 'o') x--;
+            }
+        
+            for (let i = 0; i < minutos; i++) {
+                let dir;
+                if (i === minutos - 1) {
+                    if (x > 0) dir = 'o';
+                    else if (x < 0) dir = 'e';
+                    else if (y > 0) dir = 's';
+                    else if (y < 0) dir = 'n';
+                } else {
+                    do {
+                        dir = opciones[Math.floor(Math.random() * opciones.length)];
+                    } while (
+                        (dir === 'n' && y + 1 > minutos / 2) ||
+                        (dir === 's' && y - 1 < -minutos / 2) ||
+                        (dir === 'e' && x + 1 > minutos / 2) ||
+                        (dir === 'o' && x - 1 < -minutos / 2)
+                    );
+                }
+                
+                agregarDireccion(dir);
+            }
+        
+            if (x === 0 && y === 0) {
+                return direcciones;
+            } else {
+                return generarCaminata(minutos);
+            }
+        }
+
+        // Test cases
+        function testGenerarCaminata() {
+            try {
+                console.assert(generarCaminata(8).length === 8, "Test 1 Failed");
+                console.assert(generarCaminata(12).length === 12, "Test 2 Failed");
+                console.assert(generarCaminata(1).length === 6, "Test 3 Failed");
+                console.assert(generarCaminata(16).length === 16, "Test 4 Failed");
+                console.assert(generarCaminata(10).length === 10, "Test 5 Failed");
+                console.log("All tests passed!");
+            } catch (e) {
+                console.error(e.message);
+            }
+        }
+
+        // Run tests
+        testGenerarCaminata();
+    </script>
+</body>
+</html>

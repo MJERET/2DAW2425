@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+    <body>
+        <script>
+            //Clase del día 03-12-2024
+            //Metodos de Object
+            const user = {
+			name : "Otto",
+			role : "arquero",
+			life : 99,
+            features : ["learn", "code", "paint"]
+		    }
+            const {name, role, life} = user;
+            console.log(user);
+
+            //Metodos
+            //Devuelve Array de los indices iterables (en una cadena --número de letras)
+            console.log(Object.keys(user));
+            // Devuelve Array de los contenidos iterables
+            console.log(Object.values(user));
+            // Devuelve Array de los pares claves:valor
+            console.log(Object.entries(user));
+        </script>
+    </body>
+</html>

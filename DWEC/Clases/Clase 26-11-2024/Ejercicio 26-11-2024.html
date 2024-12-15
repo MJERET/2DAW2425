@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title> Relojero </title>
+    </head>
+    <style type="text/css">
+    body {
+        margin:20%;
+    }
+    </style>
+    <body align="center">
+        
+        <h1> Viajero del tiempo </h1>
+        <p id="frase"></p>
+        <script> 
+            //Está primera parte pilla un número ya introducido como el año 1994-01-05 y mira cuantos días, meses y años han pasado
+            function modelo1 () {
+                
+                //Fecha antigua
+                const fechaVieja = new Date("1994-01-05");
+                console.log(fechaVieja)
+                // Fecha actual:
+                var fechaActual = new Date();
+                console.log(fechaActual);
+                //Marcamos una función para hacer la resta de ambas fechas:
+                var calculo = fechaActual - fechaVieja;
+                console.log(calculo)
+                
+                //Tenemos que pasar esto a una fecha coherente, para eso:   
+                function cambioCalculo(){
+                    var dias = Math.floor(calculo / (1000 * 60 * 60 * 24));
+                    console.log("Han pasado: "+dias + " dias");
+                    alert("Han pasado: "+dias+ " días");
+
+                    var meses = Math.floor(calculo / (1000 * 60 * 60 * 24 * 30));
+                    console.log("han pasado: "+ meses +" meses");
+                    alert("Han pasado: " +meses+ " meses");
+
+                    var anio = Math.floor(calculo / (1000 * 60 * 60 * 24 * 365));
+                    console.log("Han pasado: " +anio+ " años");
+                    alert("Han pasado: " +anio+ " años");
+                    
+                    //Imprimimos todos los datos.
+                    document.getElementById("frase").innerHTML = "Han pasado: " +dias + " días, " +meses+ " meses y " + anio + "";
+                }
+                cambioCalculo();
+            }
+
+            function modelo2() {
+                function user() {
+                    // Solicita al usuario que introduzca una fecha en un formato específico
+                    var input = prompt("Introduce la fecha en formato YYYY-MM-DD:");            
+                    // Crea un objeto Date a partir de la entrada del usuario
+                    var fechaUsuario = new Date(input);
+                    // Valida si la fecha es válida
+                    if (isNaN(fechaUsuario.getTime())) {
+                        console.log("La fecha introducida no es válida.");
+                    } else { console.log("Fecha válida:", fechaUsuario); }
+                return fechaUsuario
+                }
+                function cambioCalculo(calculo){
+                    var fechaActual = new Date();
+                    console.log(fechaActual);
+                    var calculo = fechaActual - user();
+
+                    var dias = Math.floor(calculo / (1000 * 60 * 60 * 24));
+                    console.log("Han pasado: "+dias + " dias");
+                    alert("Han pasado: "+dias+ " días");
+
+                    var meses = Math.floor(calculo / (1000 * 60 * 60 * 24 * 30));
+                    console.log("han pasado: "+ meses +" meses");
+                    alert("Han pasado: " +meses+ " meses");
+
+                    var anio = Math.floor(calculo / (1000 * 60 * 60 * 24 * 365));
+                    console.log("Han pasado: " +anio+ " años");
+                    alert("Han pasado: " +anio+ " años");
+                    
+                    //Imprimimos todos los datos.
+                    document.getElementById("frase").innerHTML = "Han pasado: " +dias + " días, " +meses+ " meses y " + anio + " años";
+                }
+                cambioCalculo();
+            }
+
+
+
+
+            </script>
+    <button onclick="setTimeout(modelo1, 4000)"> Modelo1 </button> <!-- A cierto tiempo se ejecuta. -->
+    <button onclick="setTimeout(modelo2, 3000)"> Modelo2 </button> <!-- A cierto tiempo se ejecuta. -->
+    </body>
+</html>

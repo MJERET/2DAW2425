@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+    <head> 
+        <title> Clase del 03-12-2024 </title> 
+    <meta charset="UTF-8">
+    <style type="text/css">
+        body {
+            align-items: center;
+            margin-left: 20%;
+            margin-top: 20%;
+            
+        }
+
+    </style>
+    </head>
+    <body>
+        <!-- Clase del día 03-12-2024 -->
+         <p> Clase del 03-12-2024 </p>
+         <p> MET || 2nd DAW </p>
+        <h3> Ejercicio con la papelera de reciclaje de windows </h3>        
+
+        <script>
+            //Ejercicio: Ejercicio con la papelera de reciclaje de windows. 
+            const user = {
+			name : "Otto",
+			role : "arquero",
+			life : 99,
+            features : ["learn", "code", "paint"]
+		    }
+            const { name, ...rest } = user;
+            console.log(user);
+            console.log(rest)
+		//Cómo se desestructura...
+        /*const fullUser = {
+                ...user,
+                power : 25,
+                life : 50
+            }*/
+            const fullUser = {
+                ...structuredClone(user),
+                power:25,
+                life:50
+            }
+        
+        /*const {name, role, life} = user;
+		console.log(name);
+        console.log("----------------------------------------");
+		console.log(role, life);
+        console.log("----------------------------------------");
+        console.log(user);
+        console.log("----------------------------------------")
+        console.log(fullUser);
+        console.log("----------------------------------------");
+         
+        console.log(user.features);
+        console.log("----------------------------------------");
+        console.log(fullUser.features);
+        console.log("----------------------------------------"); 
+		console.log({name, role, life}); 
+        console.log("----------------------------------------");
+        //Cambiamos una propiedad de features
+        fullUser.features[0] = "program";                       //Esto da lugar a que cambie también en user, no solo en fullUser. (NO SIRVE PARA COPIAR OBJETOS. 
+        console.log(fullUser.features);
+        console.log("----------------------------------------");
+        console.log(user.features); */
+		
+        /*
+		La desestructuración solo funciona para estructura de datos Con un objeto que tenga...
+        */
+           
+        /*
+        En este ejemplo, se crea un nuevo objeto fullUser con las mismas propiedades de user, añadiendole la nueva propiedad power y sobreescribiendo life con el valor de 50.
+        En el caso de hacer ...user al final (en lugar del principio), se le da preferencia a las propiedades de user, que sobresescriben.
+        */
+
+        </script>
+    </body>
+</html>
