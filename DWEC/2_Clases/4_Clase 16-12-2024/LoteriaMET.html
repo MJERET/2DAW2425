@@ -12,9 +12,6 @@
                 - Entre los dos números, aparecen todos los dígitos del 0 al 9, necesariamente una vez cada uno.
                 - La suma de los dos números vuelven a ser un número de loteria, es decir, tiene 5 cifras.
             */
-
-
-
             // hacer uso del set para pillar un número cualquiera. 
             function numDigito() {
                 var digitos =[];
@@ -24,32 +21,75 @@
                     var numero = Math.floor(Math.random()*9)+0;
                     digitos.push(numero);   //Guarda los números sin ser un array
                 }
-                console.log(digitos);
                 return digitos;
-            } numDigito();
-
+            }
             //función que pilla los números del array digitos y los mete en el set. 
-            function elSet(digitos){
+            function elSet(){
+            //Guardo la variable del array en mi función.
+            let digitos = [5,1,2,3,4];
+            console.log(digitos);
+            console.log("------------------- Digitos");
             //Creo un set para limpiar el resultado de math.random
-             const miSet = new Set( digitos);
+             const miSet = new Set([...digitos]);
             //Si el tamaño del set es menor que 5. llamamos otra vez a al función de los digitos.
             if (miSet.size < 5) {
                 console.log("números repetidos otra vez");
                 //Volvemos a llamar la función. 
-                numDigito();
-                //Si el tamaño es el correcto FIN
-                } else console.log("números correctos");
+                console.log("-------------------F");
                 console.log(miSet);
-            } elSet();
-
-            function cambiaso(miSet) {
+                console.log("-------------------F");
+                elSet();
+                //Si el tamaño es el correcto FIN
+                } else { 
+                console.log("números correctos");
+                console.log("-------------------B");
+                console.log(miSet);
+                return miSet; 
+                } // Else 
+            }
+            function cambiaso() {
+                const ELSET = elSet();
                 //con este set vamos a comprar el set anterior, para sacar los otros números de loteria.
-                const cambio = new Set([0,1,2,3,4,5,6,7,8,9]);
+                const miArray = [0,1,2,3,4,5,6,7,8,9];
                 //Creamos un nuevo set a partir de los dos.
-                var miSet2 = new Set(...cambio, ...miSet2);
-                console.log(miSet2)
+                const miSet2 = new Set(miArray.filter(x => !ELSET.has(x)));
+                console.log("-------------------TEST");
+                console.log(miSet2);
+                return miSet2;
             } cambiaso();
             
+            function permutaciones(arr) {
+                // Caso base: si el arreglo tiene solo un elemento, es la única permutación
+                if (arr.length === 1) return [arr];
+                
+                const resultado = []; // Array donde se guardarán las combinaciones
+
+                for (let i = 0; i < arr.length; i++) {
+                    // Tomar un elemento como "fijo"
+                    const fijo = arr[i];
+                    // Crear un array sin el elemento "fijo"
+                    const restantes = arr.slice(0, i).concat(arr.slice(i + 1));
+                    // Generar las permutaciones del array restante
+                    const permutacionesRestantes = permutaciones(restantes);
+
+                    // Combinar el elemento "fijo" con las permutaciones restantes
+                    for (let permutacion of permutacionesRestantes) {
+                        resultado.push([fijo, ...permutacion]);
+                    }
+                }
+            return resultado;
+            }
+
+            // Ejemplo de uso:
+            const array = [0, 6, 7, 8, 9];
+            const todasLasPermutaciones = permutaciones(array);
+
+            // Imprimir todas las combinaciones
+            console.log("Todas las combinaciones posibles:");
+            console.log(todasLasPermutaciones);
+            console.log("Total combinaciones:", todasLasPermutaciones.length);
+
+
             //Primero creo una función que me pilla el número es decir que lo imprime el usuario.
             function user() {
                 var usuario 

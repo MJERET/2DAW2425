@@ -1,0 +1,79 @@
+<!-- Clase del 13-01-2025
+ - En está clase hemos hecho un repaso del DOM
+
+-->
+<!DOCTYPE html>
+    <head>
+        <title> Clase del 13-01-2025 </title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        /*Clase ejemplo*/
+        .miClase {
+            color:green;
+        }´
+
+        .Caja {
+            color:red;
+        }
+    </style>
+        
+    <script>
+        //Hacemos que arranque el Js
+        window.onload=inicio;
+        window.addEventListener("load",inicio);
+        
+        /* marcamos la siguiente variable con el fin de reducir nuestra sintaxis.
+        var principal = document.getElementById("main");
+        var parrafo1 = principal.innerHTML;*/
+
+        //podemos acceder a cualquiera de las clases que he creado. 
+        //document.querySelector(p.miClase);
+
+        function inicio() {
+            document.getElementById("cambiarTextos").addEventListener("click", cambiarTextos);
+            document.getElementById("cambiarClases").addEventListener("click", cambiarClases);
+            document.getElementById("quitarClases").addEventListener("click",  quitarClases);
+        }
+        
+        //Función del primer boton
+        function cambiarTextos() {
+            document.getElementById("parrafo1").innerHTML="Primero cambiado"; //Primer parrafo
+            document.getElementsByTagName("p")[1].innerHTML="Segundo cambiado"; //Segundo parrafo
+            document.getElementsByClassName("miClase")[0].innerHTML= "Tercero cambiado" //Tercer parrafo
+        }
+
+        //Vamos a realizar las dos siguientes funciones faltantes
+        
+        //Function de mi segundo boton, es lo mismo que hicimos en el caso anterior 
+        function cambiarClases() {
+            document.getElementById("parrafo1").setAttribute("clase", "miClase"); // Primer parrafo
+            document.getElementById("parrafo2").className="miClase"; // Segundo parrafo
+        }
+
+        function quitarClases() {
+            
+            indice = document.getElementsByTagName("p").length;
+            console.log(indice); //esto no se porque no imprime o tiene valor alguno
+            for (var i=0; i<indice; i++){ //esto esta bien escrito en teoria
+                document.getElementsByClassName("miClase")[0].className="";
+                console.log("desaparece")
+            }
+        
+        }
+        
+        //Ejercicio. getElementById.children. Hacer un boton que añada tres puntos suspensivos a un parrafo
+                    // También que el usuario pueda cambiar el texto correspondiente
+    </script>
+    </head>
+    <body>
+        <div id="main" >
+            <p id="parrafo1"> Este es el primero </p>
+            <p id="parrafo2"> Este es el segundo </p>
+            <p id="parrafo3" class="miClase"> Este es el tercero </p>
+        </div>
+        </br>
+        <button id="cambiarTextos"> Cambiar Texto de párrafos </button>
+        <button id="cambiarClases"> Cambiar Texto de párrafos </button>
+        <button id="quitarClases"> Cambiar Texto de párrafos </button>
+    </body>
+</html>

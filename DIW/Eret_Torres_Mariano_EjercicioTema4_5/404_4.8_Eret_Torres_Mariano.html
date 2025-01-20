@@ -1,0 +1,102 @@
+<!-- 404_4.8_Eret_Torres_Mariano
+En este ejercicio nos piden que apartir de la siguiente página:
+
+https://www.rememberthemilk.com/signup/
+Pongamos las siguientes restricciones:
+
+Nombre: 
+    • Requerido. 
+    • Tamaño máximo 100 caracteres. 
+Apellidos: 
+    • Requerida 
+    • Tamaño máximo 100 caracteres. 
+Origen: 
+    • Requerido. 
+    • Tamaño minimo 3 caracteres. 
+    • Tamaño máximo 100 caracteres. 
+Fecha de salida: 
+    • Requerido. 
+    • Formato de fecha 
+Destino: 
+    • Requerido. 
+    • Tamaño mínimo 3 caracteres. 
+    • Tamaño máximo 100 caracteres. 
+Fecha de llegada: 
+    • Requerido 
+    • Formato de fecha. 
+Email: 
+    • Requerido. 
+Formato de email. 
+    • Tamaño máximo 50 caracteres. 
+-->
+
+<<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Registro</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="form_validation.js"></script> <!-- Archivo con las validaciones -->
+</head>
+<body>
+  <div class="container mt-5">
+    <h2>Formulario de Registro</h2>
+    <form>
+      <!-- NOMBRE -->
+      <div class="form-group">
+        <label for="firstname">Nombre:</label>
+        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Ingrese su nombre" maxlength="100" required>
+        <div class="help-block text-danger"></div>
+      </div>
+
+      <!-- APELLIDOS -->
+      <div class="form-group">
+        <label for="lastname">Apellidos:</label>
+        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Ingrese sus apellidos" maxlength="100" required>
+        <div class="help-block text-danger"></div>
+      </div>
+
+      <!-- ORIGEN -->
+      <div class="form-group">
+        <label for="origin">Origen:</label>
+        <input type="text" class="form-control" id="origin" name="origin" placeholder="Ingrese el lugar de origen" minlength="3" maxlength="100" required>
+        <div class="help-block text-danger"></div>
+      </div>
+
+      <!-- FECHA DE SALIDA -->
+      <div class="form-group">
+        <label for="departureDate">Fecha de salida:</label>
+        <input type="date" class="form-control" id="departureDate" name="departureDate" required>
+        <div class="help-block text-danger"></div>
+      </div>
+
+      <!-- DESTINO -->
+      <div class="form-group">
+        <label for="destination">Destino:</label>
+        <input type="text" class="form-control" id="destination" name="destination" placeholder="Ingrese el lugar de destino" minlength="3" maxlength="100" required>
+        <div class="help-block text-danger"></div>
+      </div>
+
+      <!-- FECHA DE LLEGADA -->
+      <div class="form-group">
+        <label for="arrivalDate">Fecha de llegada:</label>
+        <input type="date" class="form-control" id="arrivalDate" name="arrivalDate" required>
+        <div class="help-block text-danger"></div>
+      </div>
+
+      <!-- EMAIL -->
+      <div class="form-group">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su correo electrónico" maxlength="50" required>
+        <div class="help-block text-danger"></div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </div>
+
+  <script src="form_validation.js"></script>
+</body>
+</html>

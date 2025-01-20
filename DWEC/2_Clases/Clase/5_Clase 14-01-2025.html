@@ -1,0 +1,115 @@
+<!-- Clase del 13-01-2025
+ - En está clase hemos hecho un repaso del DOM
+ - Vamos a añadir elementos al DOM
+-->
+<!DOCTYPE html>
+    <head>
+        <title> Clase del 14-01-2025 </title>
+        <meta charset="UTF-8">
+        <style type="text/css">
+            /**/
+            .miClase {
+                color:red;
+            }
+        </style>
+        <script>
+            /*Creación de elementos de DOM*/
+             //Aqui escribimos es donde creamos los elementos mediante DOM. DOM tiene palabras reservadas para la creación de elementos
+             //CreateElement. CreateTextNode. appendChild. replaceChild. removeChild. setAttribute.
+             // crear elemento, crear elemento en, incluir otro elemento dentro de otro, sustituir otro elemento, borrar elemento, trabajar con atributos.
+            
+            /*Creación del elemento
+            var miParrafo = document.createElement("p", "div", "img"); 
+            //Creación del texto
+            var texto = document.createTextNode("Hola Mundo");
+            //Si extraemos de un textArea, por ejemplo:
+            document.getElementById("texto").value;
+            //Añadimos un hijo al párrafo con el texto.
+            miParrafo.appendChild(texto);
+            //añadir atributos.
+            miParrafo.setAttribute("class", "NOMBRE DE LA CLASE"); miParrafo.className="Nombre de la clase"; ambas maneras son iguales */
+
+            window.onload=inicio;
+            window.addEventListener("load",inicio);//la versión que le gusta a juanjo
+            
+            //Función inicial requerido para asegurarnos de que arranque correctamente
+            function inicio() {
+                //código para que cuando presionemos los botones haga:
+                document.getElementById("crearParrafo").addEventListener("click", crearParrafo);
+                document.getElementById("crearImagen").addEventListener("click", crearImagen);
+                document.getElementById("borrarUltimo").addEventListener("click", borrarUltimo);
+                document.getElementById("borrarPrimero").addEventListener("click", borrarPrimero);   
+                document.getElementById("Cambio").addEventListener("click", Cambio);   
+            }
+            
+            function crearParrafo() {
+                var miParrafo = document.createElement("p");
+                var texto = document.createTextNode(document.getElementById("texto").value);
+                // Unimos el texto con el elemento <p>
+                miParrafo.appendChild(texto);
+                miParrafo.setAttribute("class", "miClase"); // le ponemos el elemento de miClase
+                // Ponemos el texto en nuestro div    
+                var cont = document.getElementById("miDiv");
+                cont.appendChild(miParrafo);
+            }
+
+            function crearImagen(){
+                //Creación de imagen
+                var miImagen = document.createElement("img");
+                //Para poner la imagen
+                miImagen.setAttribute("src", "nutria.jpg");
+                //contenedor que pone nuestra imagen
+                var cont = document.getElementById("miDiv");
+                cont.appendChild(miImagen)
+                /*variante de img.
+                var imagen = document.createElement("img");
+                var ruta = prompt("Dime la ruta de la imagen");
+                imagen.setAttribute("src", ruta);
+                imagen.setAttribute("src", prompt("introduce el texto alternativo"));
+                var cont = document.getElementById("div1");
+                cont.appendChild(imagen);
+                */ 
+            }
+
+            function borrarUltimo(){
+                var padre = document.getElementById("miDiv");
+                var hijo = padre.lastChild;
+                padre.removeChild(hijo);
+            }
+
+            function borrarPrimero(){
+                var padre = document.getElementById("miDiv");
+                var hijo = padre.firstChild;
+                padre.removeChild(hijo);
+            }
+
+            //Cambiar el primer elemento por el que queramos cambiar
+            function Cambio() {
+                //Creamos el texto por el que vamos a sustituir
+                var textoNuevo = document.createTextNode("Casita roja");
+                //Creamos la variable que va a pillar los elementos del div
+                var padre = document.getElementById("miDiv");
+                //Creamos otra variable que guarde solo el primer elemento del div
+                var hijo = padre.firstChild;
+                //Y por ultimo remplazamos el texto nuevo con el hijo que es el primer elemento
+                padre.replaceChild(textoNuevo, hijo)
+                
+            }
+
+            
+        </script>
+    </head>
+    
+    <body align="center">
+        </br>
+        <div id="miDiv"></div>
+        </br>
+        <textarea id="texto" autofocus></textarea>
+        </br>
+        <button id="crearParrafo">Crear párrafo</button>
+        <button id="crearImagen">Crear imagen</button>
+        <button id="borrarUltimo">Borrar ultimo</button>
+        <button id="borrarPrimero">Borrar primero</button>
+        <button id="Cambio">Cambiar el primer elemento</button>
+    </body>
+</html>

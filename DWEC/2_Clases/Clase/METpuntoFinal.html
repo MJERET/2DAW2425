@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+    <head>
+        <title> DOM Clase 17-01-2025 </title>
+        <meta charset="UTF-8">
+        <style type="text/css"> body {align-items:center; } </style>
+    </head>
+    <body>
+        <h3> Clase del día 17-01-2025</h3>
+        <div id="norte">
+            <h2>Galicia</h2>
+            <ul id="lista">
+                <li>A Coruña</li>
+                <li>Lugo</li>
+                <li>Orense</li>
+                <li>Ponteverdra</li>
+            </ul>
+        </div>
+        <div id="sur">
+            <h2>Canarias</h2>
+            <ul id="lista">
+                <li>Santa Cruz de Tenerife</li>
+                <li>Las Palmas</li>
+            </ul>
+        </div>     
+        <div id="texto"></div> 
+        <button id="boton"> Punto </div>
+    </body>
+    <script>
+        //-----------------------------------------------------------------------
+        /*
+          Seleccionar el padre de un elemento con parentElement.
+          Acceder a todos los hijos, con .childNodes y .children (SON DISTINTOS)
+          Acceder a primero o último hijo con .firstChild o .lastChildren
+          Encontrar el siguiente hermano, con nextSibling y nextElementSibling
+            <h1></h1> // cuando ponemos este comentario, ya cuenta como otro elemento
+          */
+        //-----------------------------------------------------------------------
+        /*
+            - ParentElement. Devuelve el elemento padre del elemento.
+            - ParentNode. Salto de linea es un nodo 
+            - Children Devuelve la colección con todos los elementos hijo de elemento (sólo elementos HTML, no comentarios ni nodos de tipo texto)
+            - ChildNodes Devuelve la colección con todos los hijos de elemento, incluyendo comentarios y nodos de tipo texto por lo que no suele utilizarse.
+            - firstElement Child
+            - firstChild
+            - LastElementChildren...
+        */
+        //-----------------------------------------------------------------------
+        /*
+        Cuando le de click a galicia tiene que salir un mensaje que diga que es una provincia que está en el sur y tiene 
+        las siguientes ciudades
+        */
+        window.onload=inicio;
+
+        function inicio() {
+            var longitud = document.getElementsByTagName("h2").length;
+            for (var i=0; i<longitud; i++){
+                //document.getElementsByTagName("h2")[i].addEventListener("click", recorrerAdelante);
+                document.getElementsByTagName("h2")[i].addEventListener("click", recorrerAtras);
+                document.getElementById("boton").addEventListener("click", punto);
+            }
+            
+
+        }
+        /*function recorrerAdelante(e) {
+            var texto = "";
+            var h2 = e.target;
+            texto += "Has elegido " +h2.textContent + " ";
+            var padre = h2.parentElement;
+            texto += "que está situado " +padre.id + "<br/>";
+            var ul = h2.nextElementSibling;
+            texto += "El número de provincias es " + ul.children.length + " ";
+            var hijo = ul.firstChild;
+            while (hijo != null) {
+                texto += "" + hijo.textContent + " ";
+                hijo = hijo.nextElementSibling;
+            }
+            document.getElementById("texto").innerHTML = texto;
+        }*/
+        /*Este ejercicio pero al reves, con el orden de: ul*/
+        function recorrerAtras(e) {
+            var texto = "";
+            var h2 = e.target;
+            texto += "Has elegido " +h2.textContent + " ";
+            var padre = h2.parentElement;
+            texto += "que está situado " +padre.id + "<br/>";
+            var ul = h2.nextElementSibling;
+            texto += "El número de provincias es " + ul.children.length + " ";
+            //Miramos elemento ul hacia atras:
+            var hijo = ul.lastElementChild;
+            while (hijo != null) {
+                texto += "" + hijo.textContent + " ";
+                hijo = hijo.previousElementSibling;
+            }
+            document.getElementById("texto").innerHTML = texto;
+        }
+        function punto() {
+            console.log("A");
+            var li = document.getElementsByTagName("li");
+            for (var i = 0; i < li.length; i++) {
+                li[i].textContent += ".";
+            }
+        }
+
+    </script>
+</html>

@@ -26,7 +26,8 @@
                 function noRepetir(){
                     let miSet = new Set([...miArray1 , ...miArray2 , ...miArray3]);
                     //variable para sacar la media
-                    let Suma = miSet.reduce((total, nota) => total += nota ,0) //total 35.35
+                    console.log(miSet)
+                    //let Suma = miSet.reduce((total, nota) => total += nota ,0) //total 35.35
                     let media = Suma / miSet.size;
                     return console.log(media);
                 }
@@ -34,6 +35,7 @@
                 function repetir() {
                     let miArray = new Array([...miArray1 , ...miArray2 , ...miArray3]);
                     //variable para sacar la media
+                    console.log(miArray)
                     let Suma = miArray.reduce((total, nota) => total += nota ,0) //total 35.35
                     let media = suma / miArray.length;
                     return console.log(media);
