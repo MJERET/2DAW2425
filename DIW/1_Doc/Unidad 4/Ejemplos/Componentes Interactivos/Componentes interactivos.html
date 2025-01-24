@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>DW :: client-side dev :: jouery advanced selectors</title>
-    <style type="text/css">
-    .horizontal {
-    float: left;
-    margin: 9px;
-    list-style: none;
-    }
-    </style>
-</head>
+    <head>
+        <title>DW :: Client-side dev :: jQuery advanced selectors</title>
+        <link rel="stylesheet" href="list.css" />
+        <script type="text/javascript">
+        $(document).ready(function () {
+        $('#selected-media > li').addClass('horizontal');
+        });
+        $('#selected-media li:not(.horizontal)').addClass('sublevel');
+        
+        $('selectorCSS_1:not(selectorCSS_2)').reglaJquery (valor);
+        </script>
+        
+        <script 
+       src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js">
+        </script></head>
 <body>
     <ul id="selected-media">
         <li>Series
@@ -49,12 +54,20 @@
    /* Obviamente, también necesitarás añadir el atributo class="horizontal" a todos los <li> primer nivel.
         No obstante, existe una manera de evitar el paso anterior, y hacerlo 
         mucho más rápidamente con jQuery. Podríamos utilizar el siguiente 
-        código:*/
-        $(document).ready(function() {
-            $('#selected-media > li') .addClass ('horizontal');
-        });      
-        
-        
+        código:*
+        /*
+         Mediante este código, cuando la página finalice su carga (ready), 
+         añadimos la clase CSS horizontal a todos los hijos de primer nivel 
+         (carácter >') del elemento con id selected-media (es decir, la lista 
+         ul). Si de la regla anterior eliminásemos el carácter ">, la clase CSS 
+         se añadiría a todos los elementos li que haya dentro de #selected
+         media, sin importar su nivel de anidamiento.
+         El fragmento anterior lo podríamos añadir al final del <head> entre 
+         dos etiquetas script. Además, como estás utilizando jQuery, 
+         necesitas añadir obviamente una referencia a la librería(en este caso 
+         utilizamos una versión online facilitada por la CDN de Google).
+        */
+
     </script>
 </body>
 </html>

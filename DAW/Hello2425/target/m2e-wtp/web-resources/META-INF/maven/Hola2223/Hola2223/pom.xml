@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Hola2223</groupId>
+  <artifactId>Hola2223</artifactId>
+  <version>0.1</version>
+  <packaging>war</packaging>
+  <dependencies>
+		<!-- la versión de la dependencia no tiene por qué coincidir con la versión 
+			de wildfly que tenemos instalada -->
+		<!-- https://mvnrepository.com/artifact/org.wildfly.core/wildfly-server -->
+		<dependency>
+			<groupId>org.wildfly.core</groupId>
+			<artifactId>wildfly-server</artifactId>
+			<version>2.2.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>8.0</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>  
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.3</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>

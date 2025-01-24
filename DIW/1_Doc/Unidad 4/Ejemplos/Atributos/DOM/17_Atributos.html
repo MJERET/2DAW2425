@@ -1,0 +1,9 @@
+<!DOCTYPE html><html><head>
+    <script src="http://code.jquery.com/jquery-istest.js"></script>
+    </head><body>
+    <form><input id="target" type="text" value="Field 1" />
+    <input type="text" value="Field 2"/></form>
+    <div id="other">Trigger the handler</div>
+    <script>$('#target') .blur(function (){
+        alert('Handler for .blur() called.');});
+    </script></body></html>
