@@ -1,0 +1,114 @@
+<!--
+    MET-202.html
+    1. Añadir un input con el NIF
+    2. Añadir un input con la fecha de matriculación (día, mes, año)
+    3. Añadir un Select con cursos académicos (desde 20-21 a 23-24 con posibilidad de que el usuario añada nuevos cursos académicos.
+    4. Al menos 5 “asignaturas” del DAW
+    5. Se debe añadir un checkbox para seleccionar/deseleccionar todos los días con disponibilidad.
+    6. Añadir un contador para el campo Mensaje que indique al usuario los caracteres que le quedan antes de llegar al máximo.
+
+    Realizar una validación (débil, en el lado del cliente) utilizando indistintamente los métodos vistos en clase (los tres deben estar representados) con las siguientes restricciones:
+    • Ningún elemento vacío
+    • NIF correcto ( comprobar letra)
+    • Mensaje: de entre 2 y 500 caracteres
+    • Color por defecto: azul
+    • Días: seleccionar al menos dos
+    • Preferente: por defecto marcado el lunes
+    • Botón de “Haz click sobre mí”: ir a Google.com
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 202</title>
+    <style>
+        body {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: darkgrey;
+        }
+        ul {
+            list-style: none;
+        }
+        .error {
+            border: 3px solid red !important;  /* Usa !important para forzar el estilo */
+            background-color: #ffcccc; /* Fondo rojo claro */
+            color: red;
+            padding: 5px;
+        }
+        textarea {
+            background-color: darkslategrey;
+        }
+    </style>
+</head>
+<body>
+    <form id="miFormulario">
+        <fieldset>
+            <legend align="left">Datos personales</legend>
+            <p>Introduce tu nombre: <input type="text" name="nombre" id="nombre" minlength="1" maxlength="30"></p> <!--el minlenght no lo piden pero es para el validity check-->
+            <p>Introduce tu NIF: <input type="text" name="nif" id="nif" maxlength="9" pattern="[A-Za-z0-9]{1,9}"></p>
+            <p>Introduce la fecha de matriculación: <input type="date" name="fecha" id="fecha"></p>
+            <p>Mensaje</p>
+            <textarea rows="20" cols="200" minlength="2" maxlength="500" id="mensaje"></textarea>
+            <p>Caracteres restantes: <span id="contador">500</span></p>
+        </fieldset>
+        <ul>
+            <li>Elige un color:</li>
+            <li>Rojo: <input type="radio" name="color" value="rojo"></li> 
+            <li>Verde: <input type="radio" name="color" value="verde"></li>
+            <li>Azul: <input type="radio" name="color" value="azul" checked></li>
+            <li>Oscuro: <input type="radio" name="color" value="oscuro"></li>
+        </ul>
+        <p>
+            Selecciona una asignatura
+            <select>
+                <option>DWEC</option>
+                <option>DWES</option>
+                <option>DAW</option>
+                <option>DIW</option>
+                <option>Empresa</option>
+            </select>
+        </p>
+        <ul>
+            <li>Selecciona los días con disponibilidad</li>
+            <li><input type="checkbox" id="selectAll"> Seleccionar/Deseleccionar todos</li>
+            <li>lunes: <input type="checkbox" name="dias" value="lunes" checked></li>
+            <li>Martes: <input type="checkbox" name="dias" value="martes"></li>
+            <li>Miercoles: <input type="checkbox" name="dias" value="miercoles"></li>
+            <li>Jueves: <input type="checkbox" name="dias" value="jueves"></li>
+            <li>Viernes: <input type="checkbox" name="dias" value="viernes"></li>
+        </ul>
+        <p>
+            Selecciona el día preferente
+            <select id="preferente">
+                    <option selected>Lunes</option>
+                <option>Martes</option>
+                <option>Miercoles</option>
+                <option>Jueves</option>
+                <option>Viernes</option>
+                <option>Sabado</option>
+                <option>Domingo</option>
+            </select>
+        </p>
+        <p>
+            Selecciona el curso académico
+            <select id="curso">
+                <option>20-21</option>
+                <option>21-22</option>
+                <option>22-23</option>
+                <option>23-24</option>
+            </select>
+            <input type="text" id="nuevoCurso" placeholder="Añadir nuevo curso">
+            <button type="button" onclick="agregarCurso()">Añadir curso</button>
+        </p>
+        <button type="submit" id="enviar">Haz click para enviar información</button>
+        <button type="reset">Comenzar a rellenar de nuevo</button>
+        <button type="button" onclick="window.location.href='https://www.google.com'">Haz click sobre mi</button>
+    </form>
+    <p id="mensajeError"></p>
+    <br><br>
+    <script src="MET-202.js"></script>
+</body>
+</html>

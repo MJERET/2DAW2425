@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+    <head>
+        <title>Clase del 31-01-2025</title>
+        <meta charset="UTF-8">
+    </head>
+    <body align="center">
+        <br/><br/><br/>
+        <button id="logOut"> Cerrar Session </button>
+        <p id="saludo"> </p>
+        <button id="incrementa"> Sumar </button>
+        <button id="reducir"> Restar 1 </button>
+        <p id="contador"></p>
+
+    </body>
+    <script>
+        /*Que comprueve si funciona storage.
+          Tiene que darle un mensaje de bienvenida al usuario
+          Verificar que si es la primera vez que el usuario accede 
+          Boton de contador que se tiene que almacenar un conteo, como también otro en el que se tiene que disminuir
+          boton para salirse
+          */
+        if (localStorage.usuario!=null) {
+            //Si hay usuario nos saluda
+            document.getElementById("saludo").innerHTML = "Bienvenido/a usuario! <br> " + localStorage.getItem("usuario");
+        } else {
+            //SI no hay usuario, creamos un usuario y nos saluda por primera vez
+            var nombre = prompt("Introduce tu nombre");
+            localStorage.setItem("usuario", nombre);
+            document.getElementById("saludo").innerHTML = "Primera visita " + localStorage.getItem("usuario");
+        }
+        //Contador
+        if (!sessionStorage.getItem("contador")) 
+            sessionStorage.setItem("contador", "0");
+
+        document.getElementById("contador").innerHTML = "Contador " + sessionStorage.getItem("contador");
+        document.getElementById("incrementa").addEventListener("click", incrementa);
+
+        function incrementa() {
+            sessionStorage.setItem("contador", Number(sessionStorage.getItem("contador")) + 1);
+            document.getElementById("contador").innerHTML ="Contador: " + sessionStorage.getItem("contador")
+        }
+        //Función decrecer
+        document.getElementById("reducir").addEventListener("click", reducir);
+        function reducir() {
+            sessionStorage.setItem("contador", Number(sessionStorage.getItem("contador")) - 1);
+            document.getElementById("contador").innerHTML ="Contador: " + sessionStorage.getItem("contador")
+        }
+
+        document.getElementById("logOut").addEventListener("click", logOut);
+        function logOut() {
+            localStorage.removeItem("usuario");
+        }
+        </script>
+</html>

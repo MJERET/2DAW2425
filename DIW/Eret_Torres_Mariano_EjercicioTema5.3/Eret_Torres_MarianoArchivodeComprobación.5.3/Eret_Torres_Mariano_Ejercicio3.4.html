@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Ejercicio 3.4 - Reproductor de Música</title>
+    <meta charset="UTF-8">
+    <meta author="Eret Torres Mariano">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Eret_Torres_Mariano_Ejercicio3.4.css">
+
+</head>
+<body>
+
+    <h1>Reproductor de Música</h1>
+
+    <!-- Lista de pistas de audio -->
+    <div class="player">
+        <div class="track-info" id="track-info">Seleccione una canción para reproducir</div>
+        <audio id="audio-player" controls></audio>
+        <div class="buttons">
+            <button onclick="reproducir()" class="btn btn-success">Reproducir</button>
+            <button onclick="pauseAudio()" class="btn btn-warning">Pausa</button>
+            <button onclick="stopAudio()" class="btn btn-danger">Parar</button>
+            <button onclick="prevAudio()" class="btn btn-info">Atrás</button>
+            <button onclick="nextAudio()" class="btn btn-info">Siguiente</button>
+            <button onclick="Aleatorio()" class="btn btn-primary">Aleatorio</button>
+        </div>
+    </div>
+
+    <script>
+        // Creamos el array con la lista de canciones
+        const listado = [
+            { titulo: "Melodía 1", src: "Daft punk Motherboard.mp3" },
+            { titulo: "Melodía 2", src: "Daft Punk  One More Time.mp3" },
+            { titulo: "Melodía 3", src: "Daft Punk  Infinity Repeating.mp3" },
+            { titulo: "Melodía 4", src: "Daft punk Short circuit.mp3" },
+            { titulo: "Melodía 5", src: "Ori - In Wonderment of Winter.mp3" }
+        ];
+
+        // Inicializamos la canción actual
+        let cancionActual = 0;
+        const reproductor = document.getElementById("audio-player");
+
+        // Función para actualizar la información de la pista
+        function actualizarInfo() {
+            // Actualizamos el texto con el título de la canción actual
+            document.getElementById("track-info").textContent = `Reproduciendo: ${listado[cancionActual].titulo}`;
+        }
+
+        // Función para reproducir la canción actual
+        function reproducir() {
+            reproductor.src = listado[cancionActual].src;
+            reproductor.play();
+            actualizarInfo();
+        }
+
+        // Pausar la pista actual
+        function pauseAudio() {
+            reproductor.pause();
+        }
+
+        // Parar la pista actual y reiniciar el tiempo
+        function stopAudio() {
+            reproductor.pause();
+            reproductor.currentTime = 0;
+        }
+
+        // Reproducir la pista anterior
+        function prevAudio() {
+            cancionActual = (cancionActual - 1 + listado.length) % listado.length;
+            reproducir();
+        }
+
+        // Reproducir la siguiente pista
+        function nextAudio() {
+            cancionActual = (cancionActual + 1) % listado.length;
+            reproducir();
+        }
+
+        // Función para reproducir una canción aleatoria de nuestra playlist
+        function Aleatorio() {
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * listado.length);
+            } while (randomIndex === cancionActual); // Evitar repetir la misma canción
+            cancionActual = randomIndex;
+            reproducir();
+        }
+    </script>
+</body>
+</html>
+

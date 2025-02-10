@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Formulario</title>
+        <meta name="viewport" content="width=device-width">
+        <meta charset="UTF-8">
+        <style type="text/css">
+            table {
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+            
+            .error {
+                border-color: red;
+            }
+        </style>
+    </head>
+    <body align="center">
+        <h1>Formulario</h1>
+        <form method="post" id="miFormulario">
+            <table>
+            <tr>
+                <td>Nombre: </td>
+                <td>
+                <input type="text" name="nombre" id="nombre" maxlength="15" pattern="[A-Za-z]{2,15}" title="Introduce un nombre" required />
+                </td>
+            </tr>
+            <tr>
+                <td>Edad: </td>
+                <td>
+                <input type="number" name="edad" id="edad" min="18" max="128" maxlength="3" pattern="[0-9]{3}" required />
+                </td>
+            </tr>
+            <tr>
+                <td>Telefono: </td>
+                <td>
+                <input type="text" name="telefono" id="telefono" pattern="[0-9]{9}" title="Debe introducir los nueve dígitos" required />
+                </td>
+            </tr>
+            </table>
+            <p id="mensajeError"></p>
+            <p>
+                <input type="submit" value="Enviar" id="enviar" />
+                <input type="reset" value="Borrar" id="borrar" />
+            </p>
+        </form>
+        <script src="5_Clase 28-01-2025.js"></script>
+    </body>
+</html>
