@@ -1,0 +1,19 @@
+html {filter:invert(98%) hue-rotate(180deg)}
+html :is(iframe,video,img,.dashboard-card,.tile,#emCommonAppsMenuToggler,#emCommonAppsMenu,#emCookieWrapper,body#page-login-index form.login-form),#jitsi-container iframe{filter:invert(100%) hue-rotate(180deg)}
+html :is(body#page-login-index form.login-form .login-form-forgotpassword),
+.block-stash-item .item-image{filter:invert(98%) hue-rotate(180deg)}
+
+#emCommonMessageLogo img,
+img[class*='activityicon'],
+img[class='Wirisformula'],
+section.block_activity_modules a img.icon{filter:none!important}
+body.chrome #page-wrapper iframe:fullscreen{filter:none!important}
+html :is(.courseimage-wrapper,.card-img-top){background-color:#222;filter:invert(100%) hue-rotate(180deg)}
+html :is(#page-footer .footer-content-debugging){background-color:#000!important;filter:invert(0%) hue-rotate(180deg)}
+html :is(#emCommonMessageWrapper){filter:invert(100%) hue-rotate(180deg)}
+html :is(#emMoodleLogo){filter: invert(100%) hue-rotate(180deg)}
+#emCommonFooter{filter: invert(1) hue-rotate(-180deg);border-top-color:#1E2226!important}
+#emCommonFooter img{filter:invert(0)!important}
+
+#page-login-index .login-form{background-image:url(../pix/logo_hc.png)}
+body #emCommonMenuToggler a{background-image: url(https://avisos.educa.madrid.org/public/news/img/toolbar/dark/ui.png)}

@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title> Clase del dia 10-02-2025 </title>
+    </head>
+    <body>
+        <!--Clase del día 10-02-2025-->
+    </body>
+    <script>
+    //console.log(1+1); hola(); console.log(2+2); 
+	/*
+    console.log(1+1);
+	try {
+		hola();
+	} catch (error) {
+		console.log(error);
+	}console.log(2+2); */
+    
+    //Función por declaración
+    async function miFuncion() {
+		let miPromesa = new Promise ((resolve, reject) => {
+            setTimeout(() => resolve("He esperado 2 segundos"), 2000)
+        });
+        console.log(1+1);
+        let resultado = await miPromesa; //Pausado.
+        console.log(resultado);
+        console.log(2+2);
+	}//miFuncion();
+
+    function descargarClientes() {
+        return new Promise((resolve, reject) => {
+            const error = false;
+
+            setTimeout(() => {
+                if(!error)  {
+                    resolve("El Listado de clientes se descargo correctamente");
+                } else {
+                    reject("No se pudo aplicar el descuento");
+                }
+            }, 3000);
+        });
+    }
+
+    //Función de expresión
+    async function ejecutar() {
+        try {
+            const respuesta = await descargarClientes();
+            console.log(1+1);
+            console.log(respuesta);
+            console.log(2+2);
+        } catch (error){
+            console.log(error)
+        }
+    }
+    //ejecutar();
+
+    //funcion  flecha
+    const ejecucion = async() => {
+        try {
+            const respuesta = await descargarClientes();
+            console.log(1+1);
+            console.log(respuesta);
+            console.log(2+2);
+        } catch (error){
+            console.log(error);
+        }
+    }
+
+    function descargarNuevosClientes() {
+        return new Promise( resolve => {
+            console.log("Descargar Clientes...");
+            setTimeout(() => {
+                resolve("los clientes fueron descargados")
+            }, 5000)
+        });
+    }
+    //descargarNuevosClientes();
+
+    const app = async () => {
+        try {
+            const clientes = await descargarNuevosClientes();
+            console.log(clientes);
+            const pedidos = await descargarClientes();
+            console.log(pedidos);
+        } catch (error) {
+            console.log(error)
+
+        }
+    }
+    </script>
+    </html>

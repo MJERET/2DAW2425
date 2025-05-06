@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+    <head>
+        <title> Clase del dia 10-02-2025 </title>
+    </head>
+    <body>
+        <!--Clase del día 10-02-2025-->
+    </body>
+    <script>
+        /*
+        Para evitar la respuesta secuencial de dos promesas, se utiliza junto con async/await el Promise.all repet
+        */
+
+    function descargarClientes() {
+        return new Promise((resolve, reject) => {
+            const error = false;
+            setTimeout(() => {
+                if(!error)  {
+                    resolve("El Listado de clientes se descargo correctamente");
+                } else {
+                    reject("No se pudo aplicar el descuento");
+                }
+            }, 3000);
+        });
+    }
+
+    function descargarNuevosClientes() {
+        return new Promise( resolve => {
+            console.log("Descargar Clientes...");
+            setTimeout(() => {
+                resolve("los clientes fueron descargados")
+            }, 5000)
+        });
+    }
+
+    const app = async () => {
+        try {
+        const respuesta = await Promise.all([descargarClientes(), descargarNuevosClientes()]);            
+        console.log(respuesta);    
+        console.log(respuesta[0]);
+        console.log(respuesta[1]);        
+        } catch(error) {
+            console.log(error);
+        }
+    }
+    app();
+
+    </script>
+    </html>

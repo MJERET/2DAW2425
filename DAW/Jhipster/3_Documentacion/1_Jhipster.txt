@@ -1,0 +1,3 @@
+
+	Jhipster
+	Herramienta de generación de código para aplicaciones Java + Angular/React y Spring Boot

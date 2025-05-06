@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+    <head>
+        <title> Clase del 10-02-2025 </title>
+        <meta charset="UTF-8">
+    </head>
+    <body align="center">
+        <h3> Pokeapi Test </h3>
+        <button id="boton1"> Dewott </button>
+        <button id="boton2"> Random </button>
+        <button id="boton3"> Spheal </button>
+        <p id="contenido"></p>
+    </body>
+    <script>
+        window.onload = iniciar;
+        function iniciar() {
+            document.getElementById("boton1").addEventListener("click", dewott);
+            document.getElementById("boton2").addEventListener("click", generico);
+            document.getElementById("boton3").addEventListener("click", spheal);
+        }
+
+        function generico()  {
+            const randomId = Math.floor(Math.random() * 1000) + 1; // PokeAPI has 898 Pokemon
+            const api = `https://pokeapi.co/api/v2/pokemon/${randomId}`; // Variable para la url de fetch
+            fetch(api)
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                mostrarHTML(data);
+            });
+        }
+
+        function dewott() {
+            const api = "https://pokeapi.co/api/v2/pokemon/dewott";
+            fetch(api)
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                mostrarHTML(data);
+            });
+        }
+        
+        function spheal() {
+            const api = "https://pokeapi.co/api/v2/pokemon/363";
+            fetch(api)
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                mostrarHTML(data);
+            });
+        }
+
+        function mostrarHTML(data) {
+            const contenido = document.querySelector('#contenido');
+            if (data.forms && data.forms.length > 0) {
+                contenido.innerHTML = `
+                <p>Nombre: ${data.forms[0].name}</p>
+                <p>Altura: ${data.height}</p>
+                <img src="${data.sprites.front_default}" alt="${data.forms[0].name}">
+                <p>Índices de juego:</p>
+                `;
+            } else {
+                contenido.innerHTML = `<p>No data available</p>`;
+            }
+        }
+        // document.getElementById("texto").innerHTML; 
+    </script>
+</html>

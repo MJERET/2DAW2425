@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title> Clase del día 11-02-2025 </title>
+        <style type="text/css">
+            body {
+                margin: 40%;
+            }
+            form{
+                background-color: aqua;
+                padding: 10%;
+            }
+            div {
+                background-color: blue;
+                padding: 10%;
+            }
+            p {
+                background-color: blueviolet;
+                padding: 10%;
+            }
+        </style>
+    </head>
+    <body align="center">
+        <form onclick="alert('form')">FORM
+            <div onclick="alert('div')">DIV
+                <p onclick="alert('p')">P</p>
+            </div>
+        </form>
+        <script>
+            /*
+            */
+           form.onclick = function(event) {
+            event.target.style.backgroundColor='yellow'
+            setTimeout(() => {
+                alert("target = " + event.target.tagName + ", this=" +this.tagName);
+                event.target.style.backgroundColor = '';
+            }, 0)
+        }
+        </script>
+    </body>
+</html>

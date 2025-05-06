@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanzamiento de Misiles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #000;
+            color: #fff;
+            margin-top: 50px;
+        }
+        #pantalla {
+            background: #222;
+            width: 350px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.5);
+            border: 2px solid red;
+        }
+        h3 {
+            color: #ff0000;
+        }
+        #misiles {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .misil {
+            color: yellow;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="pantalla">
+        <h3>🔥 Lanzamiento de Misiles 🔥</h3>
+        <div id="misiles"></div>
+    </div>
+
+    <script>
+        let numeroMisil = 1;
+
+        function cuentaAtras(misilNum) {
+            let contador = 5;
+            let mensaje = document.createElement("p");
+            mensaje.classList.add("misil");
+            mensaje.innerText = `Misil ${misilNum}: Cuenta atrás ${contador}`;
+            document.getElementById("misiles").appendChild(mensaje);
+
+            let intervalo = setInterval(() => {
+                contador--;
+                if (contador > 0) {
+                    mensaje.innerText = `Misil ${misilNum}: Cuenta atrás ${contador}`;
+                } else {
+                    clearInterval(intervalo);
+                    mensaje.innerText = `🔥 ¡Misil ${misilNum} lanzado! 🚀`;
+                    setTimeout(lanzarMisil, 5000); // Espera 5 segundos antes de la siguiente cuenta atrás
+                }
+            }, 1000);
+        }
+
+        function lanzarMisil() {
+            cuentaAtras(numeroMisil);
+            numeroMisil++;
+        }
+
+        window.onload = lanzarMisil; // Inicia el proceso al cargar la página
+    </script>
+</body>
+</html>

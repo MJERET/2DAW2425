@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> MET 1-2 </title>
+        <meta charset="UTF8">
+        <meta name="Mariano José Eret Torres">
+        <style type="CSS/text">
+        </style>
+    </head>
+    <body>
+        <h2> Ejercicio Evaluación Ordinaria 1-2 </h3>
+        <p> En este ejercicio se nos pide introducir unas palabras o frases que se lean igual en ambos sentidos</p>
+        <p> Es decir: hoho, jojo, aza </p>
+        <p id="resultado"></p>
+    </body>
+    <script>
+        console.log("Mariano José Eret Torres");
+        console.log("------------------------");
+        /*
+        Un palíndromo es una palabra o frase que se lee igual en ambos sentidos. 
+        Elabora un programa en JavaScript que pida una cadena de texto por pantalla y devuelva la misma cadena escrita en sentido inverso. 
+        Además , en el mismo alert, debe comprobar si se trata de un palíndromo. 
+        Valoración sobre 10:
+        • Funcionamiento correcto y según especificaciones	4 puntos
+        • Control de errores 					2 puntos
+        • Utilización de métodos de arrays			2 puntos
+        • Comprobación de que es palíndromo			2 puntos
+        */
+
+        //Hacer una petición que nos de una cadena de texto   
+        function textointroducido () {
+            var usuario = prompt("Dame una palabra que se lea igual en ambos lados");
+            console.log(usuario);
+            // No debe dejar la casilla vacía
+            if (!usuario) {
+                // Salto de error si el usuario introduce una cadena vacía
+                throw new Error(`La cadena introducida "${usuario}" no es correcta, asegúrate de introducir un texto`);
+                console.error(`No se han cumplido los requisitos, se introdujo: "${usuario}"`);
+            } else {
+                console.log(`La cadena introducida es: ${usuario}`); //Por consola mostramos el numero introducido originalmente (Esto ya no es necesario)
+                // invertimos la cadena
+                let invertida = invertirCadena(usuario);
+                //Mostramos el resultado por pantalla de la cadena invertida
+                alert(`La cadena invertida es: ${invertida}`);
+                //Decimos si es palindromo o no
+                alert(`¿Es palíndromo? ${esPalindromo(usuario) ? 'Sí' : 'No'}`);
+                document.getElementById("resultado").innerHTML = `La cadena invertida es: ${invertida} y la palabra es ${esPalindromo(usuario) ? 'un palíndromo' : 'no es un palíndromo'}`;
+            }
+            return usuario;
+        }
+
+        // A través de esta función miramos si es palíndromo de la siguiente manera:
+        const esPalindromo = (usuario) => {
+            // Pasamos el texto a una variable la cual guarda los valores cambiándolo todo a lowercase.
+            const limpia = usuario.toLowerCase().replace(/[^a-z0-9]/g, '');
+            // Seguido invertimos la cadena llamando a otra función y si son iguales es palíndromo
+            return limpia === invertirCadena(limpia);
+        };
+
+        // Función que realiza el cambio de la cadena de texto
+        const invertirCadena = (usuario) => usuario.split('').reverse().join('');
+        
+        // Llamamos a textointroducido
+        textointroducido();
+    </script>
+</html>

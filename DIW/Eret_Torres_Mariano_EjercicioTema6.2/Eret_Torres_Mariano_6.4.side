@@ -1,0 +1,176 @@
+{
+  "id": "7a1c9463-e2d2-43eb-83b6-bc0396f910cc",
+  "version": "2.0",
+  "name": "Eret_Torres_Mariano_6.4",
+  "url": "https://www.booking.com/index.es.html?aid=2311236;label=es-es-booking-desktop-onknyt5TBrS8m9RnGd*6fgS652829001115:pl:ta:p1:p2:ac:ap:neg:fi:tikwd-65526620:lp1005493:li:dec:dm;ws=&gad_source=1&gclid=EAIaIQobChMI1frk1N_eiwMVW4CDBx013wjQEAAYASAAEgKLsPD_BwE",
+  "tests": [{
+    "id": "5a6db598-6284-4443-8e15-f561a997bf90",
+    "name": "Eret_Torres_Mariano_Actividad6.4",
+    "commands": [{
+      "id": "3a276f09-04df-48a8-86c5-cacc82534e94",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e835e7b6-4a84-40c0-9e58-cfebd3e126bc",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1020",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9cc630ed-a88c-46f5-8fb2-982622d711eb",
+      "comment": "",
+      "command": "type",
+      "target": "id=APjFqb",
+      "targets": [
+        ["id=APjFqb", "id"],
+        ["name=q", "name"],
+        ["css=#APjFqb", "css:finder"],
+        ["xpath=//textarea[@id='APjFqb']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Mariano José"
+    }, {
+      "id": "a05c827f-993f-44b7-bb54-697d4cb421c7",
+      "comment": "",
+      "command": "click",
+      "target": "css=center:nth-child(1) > .gNO89b",
+      "targets": [
+        ["css=center:nth-child(1) > .gNO89b", "css:finder"],
+        ["xpath=(//input[@name='btnK'])[2]", "xpath:attributes"],
+        ["xpath=//div[3]/center/input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "f40b9926-6868-45de-86a0-02e9103fbcca",
+    "name": "Eret_Torres_Mariano_Actividad6.4.2",
+    "commands": [{
+      "id": "e5b0951a-1c5e-49f4-b50b-436dc5f004f1",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.booking.com/index.es.html?aid=2311236;label=es-es-booking-desktop-onknyt5TBrS8m9RnGd*6fgS652829001115:pl:ta:p1:p2:ac:ap:neg:fi:tikwd-65526620:lp1005493:li:dec:dm;ws=&gad_source=1&gclid=EAIaIQobChMI1frk1N_eiwMVW4CDBx013wjQEAAYASAAEgKLsPD_BwE",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "62c80851-aafc-45f3-bb20-96fbe787337e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1020",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4f445594-47d3-420d-aac3-80670b2592fe",
+      "comment": "",
+      "command": "click",
+      "target": "id=:rh:",
+      "targets": [
+        ["id=:rh:", "id"],
+        ["name=ss", "name"],
+        ["css=#\\3Arh\\3A", "css:finder"],
+        ["xpath=//input[@id=':rh:']", "xpath:attributes"],
+        ["xpath=//div[@id='indexsearch']/div[2]/div/form/div/div/div/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c1946a69-75eb-4823-89f5-1de823bea68f",
+      "comment": "",
+      "command": "click",
+      "target": "id=:rh:",
+      "targets": [
+        ["id=:rh:", "id"],
+        ["name=ss", "name"],
+        ["css=#\\3Arh\\3A", "css:finder"],
+        ["xpath=//input[@id=':rh:']", "xpath:attributes"],
+        ["xpath=//div[@id='indexsearch']/div[2]/div/form/div/div/div/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "918c2793-b456-4b1f-a366-aa11e68a4304",
+      "comment": "",
+      "command": "type",
+      "target": "id=:rh:",
+      "targets": [
+        ["id=:rh:", "id"],
+        ["name=ss", "name"],
+        ["css=#\\3Arh\\3A", "css:finder"],
+        ["xpath=//input[@id=':rh:']", "xpath:attributes"],
+        ["xpath=//div[@id='indexsearch']/div[2]/div/form/div/div/div/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Castellon"
+    }, {
+      "id": "cc2cac13-f1de-4a12-b637-c154cf3a7978",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=:rh:",
+      "targets": [
+        ["id=:rh:", "id"],
+        ["name=ss", "name"],
+        ["css=#\\3Arh\\3A", "css:finder"],
+        ["xpath=//input[@id=':rh:']", "xpath:attributes"],
+        ["xpath=//div[@id='indexsearch']/div[2]/div/form/div/div/div/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "ca7dd8b2-36eb-4e05-a6e6-5d6214c2b24e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.d358556c65:nth-child(1) .b80d5adb18:nth-child(4) > .ef091eb985",
+      "targets": [
+        ["css=.d358556c65:nth-child(1) .b80d5adb18:nth-child(4) > .ef091eb985", "css:finder"],
+        ["xpath=//div[@id='calendar-searchboxdatepicker']/div/div/div/div/table/tbody/tr[5]/td[4]/span", "xpath:idRelative"],
+        ["xpath=//tr[5]/td[4]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'27')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b2dd88bd-dbee-45ef-a619-2d98382c0e43",
+      "comment": "",
+      "command": "click",
+      "target": "css=.b80d5adb18:nth-child(6) > .a416e86ed7",
+      "targets": [
+        ["css=.b80d5adb18:nth-child(6) > .a416e86ed7", "css:finder"],
+        ["xpath=//div[@id='calendar-searchboxdatepicker']/div/div/div/div[2]/table/tbody/tr/td[6]/span", "xpath:idRelative"],
+        ["xpath=//div[2]/table/tbody/tr/td[6]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2212714d-4b62-443a-a06e-12c707a81fff",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cceeb8986b",
+      "targets": [
+        ["css=.cceeb8986b", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='bodyconstraint-inner']/div/div/div/div/form/div/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Buscar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e8acb938-ed92-4712-9011-c2a7378aa3ef",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "5e082965-4ac9-4859-8f61-047ff7654be5",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://www.google.com/"],
+  "plugins": []
+}

@@ -1,0 +1,41 @@
+var emMoodleHead = {
+    mode: "white",
+    setMode: function(e) {
+        if (typeof(M) != "object" || typeof(M.cfg) != "object" || typeof(M.cfg.wwwroot) != 'string') return;
+        var pref = emMoodleHead.getCookie("emMoodleContrastMode");
+        if (pref == "") {
+            if (typeof (window.matchMedia)=='function') {
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    pref = "2";
+                }
+            }
+        }
+        if (pref == "0") return;
+        var base = M.cfg.wwwroot + "/theme/educamadrid/css/";
+        if (pref == "2") {
+            this.mode = "dark";
+            document.write('<link rel="stylesheet" id="emHighContrastCSS" type="text/css" href="' + base + 'hc.css" />')
+        }
+    },
+    getCookie: function(name) {
+        var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        if (match) return match[2];
+        return ""
+    },
+    getBodyClass: function() {
+        if (this.mode != "white") document.body.className += " em-" + this.mode + "-mode em-2024";
+        if (this.getCookie("emMoodleSafeExamMode")=="1") {
+            document.body.className += " em-exam-mode";
+            return;
+        }
+        if (typeof(window.location.href)=='string') {
+            var s = window.location.href;
+            var c = "em_seb=on";
+            if (s.indexOf("?"+c)!=-1||s.indexOf("&"+c)!=-1) {
+                document.body.className += " em-exam-mode";
+                document.cookie = "emMoodleSafeExamMode=1; path=/; domain="+document.domain;
+            }
+        }
+    }
+};
+emMoodleHead.setMode();

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Números Romanos</title>
+</head>
+<body>
+    <script>
+        // Función flecha para convertir un número arábigo a romano
+        const convertirARomano = (num) => {
+            const valores = [
+                ["C", 100], ["XC", 90], ["L", 50], ["XL", 40], ["X", 10], 
+                ["IX", 9], ["V", 5], ["IV", 4], ["I", 1]
+            ];
+            let resultado = "";
+
+            valores.forEach(([romano, valor]) => {
+                while (num >= valor) {
+                    resultado += romano;
+                    num -= valor;
+                }
+            });
+
+            return resultado;
+        };
+
+        let continuar = true;
+
+        while (continuar) {
+            let entrada = prompt("Introduce un número entre 1 y 300 (o escribe 'salir' para terminar):");
+
+            if (entrada === null || entrada.toLowerCase() === "salir") {
+                alert("¡Gracias por usar el conversor!");
+                continuar = false;
+                break;
+            }
+
+            let numero = parseInt(entrada);
+
+            if (isNaN(numero) || numero < 1 || numero > 300) {
+                alert("⚠️ Error: Introduce un número válido entre 1 y 300.");
+                continue;
+            }
+
+            let numeroRomano = convertirARomano(numero);
+            alert(`El número ${numero} se escribe ${numeroRomano} en numeración romana.`);
+        }
+    </script>
+</body>
+</html>

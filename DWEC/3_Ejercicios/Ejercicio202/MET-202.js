@@ -1,4 +1,4 @@
-/* MET-202.JS
+    /* MET-202.JS
  - En este ejercicio tenemos que hacer todas las pruebas de validación con js y check validity
  - validaciones hechas en el html.
     1. minimo y maximo de caracteres posibles.

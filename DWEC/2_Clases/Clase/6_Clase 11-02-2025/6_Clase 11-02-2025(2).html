@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+    <head>
+        <title> Clase del 10-02-2025 </title>
+        <meta charset="UTF-8">
+    </head>
+    <body align="center">
+        <h3> Persona Test </h3>
+        <button id="boton1"> Persona </button>
+        <p id="contenido"></p>
+    </body>
+    <script>
+        window.onload = iniciar;
+        function iniciar() {
+            document.getElementById("boton1").addEventListener("click", persona);
+        }
+        
+        function persona() {
+            const url = "https://randomuser.me/api/";
+            fetch(url) 
+                .then(responde => {
+                    return responde.json();
+                })
+                .then(dato => 
+                    mostrarHTML(dato)
+                )
+        }
+        
+
+        function mostrarHTML(data) {
+            const contenido = document.querySelector('#contenido');
+            if (data.results && data.results.length > 0) {
+                const person = data.results[0];
+                contenido.innerHTML = `
+                <p>Nombre: ${person.name.first} ${person.name.last}</p>
+                <p>Género: ${person.gender}</p>
+                <img src="${person.picture.medium}" alt="${person.name.first} ${person.name.last}">
+                <p>Número de teléfono: ${person.phone}</p>
+                <p>Ubicación: ${person.location.street.name}, ${person.location.city}, ${person.location.state}, ${person.location.country}</p>
+                `;
+            } else {
+                contenido.innerHTML = `<p>No data available</p>`;
+            }
+        }
+        // document.getElementById("texto").innerHTML; 
+    </script>
+</html>

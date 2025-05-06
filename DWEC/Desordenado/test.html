@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Conversión y Validación</title>
+</head>
+<body>
+    <h1>Conversión de números decimales a romanos</h1>
+    <button onclick="solicitarNumero()">Convertir Número</button>
+
+    <h1>Validación de formulario en tiempo real</h1>
+    <form id="miFormulario">
+        <fieldset>
+            <legend>Intereses</legend>
+            <label><input type="checkbox" name="interes" value="deporte"> Deporte</label>
+            <label><input type="checkbox" name="interes" value="musica"> Música</label>
+            <label><input type="checkbox" name="interes" value="lectura"> Lectura</label>
+            <div id="idInteresesError" style="color: red;"></div>
+        </fieldset>
+        <fieldset>
+            <legend>Observaciones</legend>
+            <textarea id="idObservaciones" name="observaciones"></textarea>
+            <div id="idObservacionesError" style="color: red;"></div>
+        </fieldset>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <h1>Inversión de cadena y comprobación de palíndromos</h1>
+    <button onclick="solicitarCadena()">Invertir Cadena</button>
+
+    <h1>Obtención de chistes de Chuck Norris</h1>
+    <div id="chistesContainer"></div>
+
+    <script>
+        // EV-ORD-1-1-XXX.html
+        // Autor: [Tu Nombre]
+        // Conversión de números decimales a romanos
+
+        function convertirARomano(numero) {
+            const valores = [
+                ["C", 100], ["XC", 90], ["L", 50], ["XL", 40], ["X", 10],
+                ["IX", 9], ["V", 5], ["IV", 4], ["I", 1]
+            ];
+            let resultado = "";
+            valores.forEach(([romano, valor]) => {
+                while (numero >= valor) {
+                    resultado += romano;
+                    numero -= valor;
+                }
+            });
+            return resultado;
+        }
+
+        const solicitarNumero = () => {
+            let numero;
+            do {
+                numero = parseInt(prompt("Introduce un número entre 1 y 300:"), 10);
+            } while (isNaN(numero) || numero < 1 || numero > 300);
+            alert(`El número ${numero} se escribe ${convertirARomano(numero)} en numeración romana.`);
+        };
+
+        // EV-ORD-1-2-XXX.html
+        // Autor: [Tu Nombre]
+        // Inversión de cadena y comprobación de palíndromos
+
+        const invertirCadena = (cadena) => cadena.split('').reverse().join('');
+
+        const esPalindromo = (cadena) => {
+            const limpia = cadena.toLowerCase().replace(/[^a-z0-9]/g, '');
+            return limpia === invertirCadena(limpia);
+        };
+
+        const solicitarCadena = () => {
+            let cadena = prompt("Introduce una cadena de texto:");
+            if (!cadena) return;
+            let invertida = invertirCadena(cadena);
+            alert(`La cadena invertida es: ${invertida}`);
+            alert(`¿Es palíndromo? ${esPalindromo(cadena) ? 'Sí' : 'No'}`);
+        };
+
+        // EV-ORD-2-1-XXX.html
+        // Autor: [Tu Nombre]
+        // Validación de formulario en tiempo real
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("miFormulario");
+            const intereses = form.querySelectorAll("input[name='interes']");
+            const observaciones = document.getElementById("idObservaciones");
+            const errores = {
+                intereses: document.getElementById("idInteresesError"),
+                observaciones: document.getElementById("idObservacionesError"),
+            };
+            
+            function validarFormulario() {
+                let valido = true;
+                let algunInteresMarcado = [...intereses].some(input => input.checked);
+                if (!algunInteresMarcado) {
+                    errores.intereses.textContent = "Selecciona al menos un interés.";
+                    valido = false;
+                } else {
+                    errores.intereses.textContent = "";
+                }
+                
+                if (observaciones.value.trim().length === 0) {
+                    errores.observaciones.textContent = "Escribe al menos un carácter en observaciones.";
+                    valido = false;
+                } else {
+                    errores.observaciones.textContent = "";
+                }
+                
+                form.querySelector("input[type='submit']").disabled = !valido;
+            }
+            
+            form.addEventListener("input", validarFormulario);
+            form.addEventListener("submit", (event) => {
+                if (!validarFormulario()) {
+                    event.preventDefault();
+                    alert("Corrige los errores antes de enviar el formulario.");
+                } else {
+                    alert("Formulario enviado con éxito.");
+                }
+            });
+        });
+
+        // EV-ORD-2-2-XXX.html
+        // Autor: [Tu Nombre]
+        // Obtención de chistes de Chuck Norris con promesas y categorías
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const categorias = ["animal", "career", "celebrity", "dev", "movie"];
+            let categoriaSeleccionada = "movie";
+            
+            const contenedor = document.createElement("div");
+            contenedor.innerHTML = `
+                <h2>Chistes de Chuck Norris</h2>
+                <select id="categoria">
+                    ${categorias.map(cat => `<option value="${cat}" ${cat === categoriaSeleccionada ? 'selected' : ''}>${cat}</option>`).join('')}
+                </select>
+                <button id="obtenerChiste">Obtener Chiste</button>
+                <div id="chiste"></div>
+            `;
+            document.getElementById("chistesContainer").appendChild(contenedor);
+            
+            document.getElementById("obtenerChiste").addEventListener("click", () => {
+                categoriaSeleccionada = document.getElementById("categoria").value;
+                fetch(`https://api.chucknorris.io/jokes/random?category=${categoriaSeleccionada}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById("chiste").innerHTML = `
+                            <img src="${data.icon_url}" alt="Icono Chuck Norris">
+                            <p>${data.value}</p>
+                        `;
+                    })
+                    .catch(error => console.error("Error al obtener el chiste:", error));
+            });
+        });
+    </script>
+</body>
+</html>

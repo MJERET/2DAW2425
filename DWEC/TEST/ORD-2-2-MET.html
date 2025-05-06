@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> MET 2-2 </title>
+        <meta charset="UTF8">
+        <meta name="Mariano José Eret Torres">
+        <style type="CSS/text">
+        </style>
+    </head>
+    <body>
+        <h2> Ejercicio Evaluación Ordinaria 1-2 </h2>
+        <p> Haciendo uso de la api de Chuck Norris nos piden:</p>
+        <p> Mediante promesas poder sacar el icono y el texto de una broma aleatoria</p>
+        <br>
+        <div align="center">
+            <h1>Obtención de chistes de Chuck Norris</h1>
+            <br>
+            
+            <div id="chistesContainer"></div>
+        </div>
+    </body>
+    <script>
+        console.log("Mariano José Eret Torres");
+        console.log("------------------------");
+        /*
+        La URL https://api.chucknorris.io/ contiene una API de acceso gratuito que proporciona en formato JSON bromas sobre el actor.
+        Escribe un programa que permita obtener por pantalla, mediante promesas, el icono y el texto de una broma de forma aleatoria, 
+        dentro de una categoría previamente seleccionada por el usuario  en un checkbox donde aparezcan cinco categorías  
+        de la que estará por defecto seleccionada  “movie”.
+        Valoración sobre 10:
+        • Funcionamiento sin categorías, correcto y según especificaciones de la aplicación	3 puntos
+        • Funcionamiento con categorías				                                        4 puntos
+        • Control de Errores					                                            3 puntos
+        */
+
+        document.addEventListener("DOMContentLoaded", () => {
+            //Cargamos las categorias que se nos piden:
+            const categorias = ["animal", "career", "celebrity", "dev", "movie"]; //Categorias de los chistes que queremos mostrar de la api
+            let categoriaSeleccionada = "movie";
+            
+            const contenedor = document.createElement("div");   //Creamos elementos
+            //Para que la persona pueda escoger los chistes, creamos el siguiente html
+            contenedor.innerHTML = `
+                <div id="categorias">
+                    ${categorias.map(cat => `
+                        <label>
+                            <input type="checkbox" name="categoria" value="${cat}" ${cat === categoriaSeleccionada ? 'checked' : ''}>
+                            ${cat}
+                        </label>
+                    `).join('')}
+                </div>
+                <button id="obtenerChiste">Obtener Chiste</button>
+                <div id="chiste"></div>`;
+                //Imprimimos los checkbox de los valores de las cosas que queremos buscar
+
+            document.getElementById("chistesContainer").appendChild(contenedor);
+            //Para obtener el chiste hacemos la promesa llamado a la api con el fetch
+            document.getElementById("obtenerChiste").addEventListener("click", () => {
+                const checkboxes = document.querySelectorAll('input[name="categoria"]:checked');
+                const categoriasSeleccionadas = Array.from(checkboxes).map(checkbox => checkbox.value);
+                if (categoriasSeleccionadas.length === 0) {
+                    alert("Por favor, selecciona al menos una categoría.");
+                    return;
+                }
+                const categoriaSeleccionada = categoriasSeleccionadas[Math.floor(Math.random() * categoriasSeleccionadas.length)];
+                //Hacemos el fetch a la api, marcando que queremos un chiste y que la categoria va a ser seleccionada por el usuario
+                fetch(`https://api.chucknorris.io/jokes/random?category=${categoriaSeleccionada}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        //De aqui sacamos el icono, con el valor del chiste que escogemos de antes
+                        document.getElementById("chiste").innerHTML = `
+                            <br>
+                            <img src="${data.icon_url}" alt="Icono Chuck Norris">
+                            <br>
+                            <p>${data.value}</p>
+                        `;
+                    })
+                    //Si falla, le decimos al usuario que ha fallado y que lo vuelta a intentar
+                    .catch(error => console.error("Error al obtener el chiste:", error));
+                    console.log("Vuelve a intentarlo, asegurate de tener conexión a internet");
+            });
+        });
+    </script>
+</html>

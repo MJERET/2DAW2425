@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+    <head>
+        <title> MET 1-1 </title>
+        <meta charset="UTF8">
+        <meta name="Mariano José Eret Torres">
+        <style type="CSS/text">
+            p {
+                font-family: 'Times New Roman';
+            }
+
+        </style>
+    </head>
+    <body>
+        <h2> Ejercicio Evaluación Ordinaria 1-1 </h3>
+        <p> En este ejercicio se nos pide introducir unos valores númericos en un alert</p>
+        <p> Después hacer el cambio del sistema decimal al sistema romano</p>
+        <p id="resultado"></p>
+    </body>
+    <script>
+        console.log("Mariano José Eret Torres");
+        console.log("------------------------");
+        /*
+        Considerando las siguientes correspondencias entre números romanos y números del sistema arábico (decimal), 
+        haz un programa en JavaScript que solicite en el navegador un número entre 1 y 300 y, mediante una función, 
+        convierta el número entero en número romano.
+        Correspondencia:    
+        ["C", 100],    ["XC", 90],    ["L", 50],    ["XL", 40],    ["X", 10],    ["IX", 9],    ["V", 5],    ["IV", 4],    ["I", 1]
+        El resultado debe proporcionarse mediante un mensaje en el navegador que incluya el número y el resultado con el siguiente formato:
+        “El número  “numeroIntroducido” se escribe  “numeroResultado” en numeración romana”
+        Valoración sobre 10:
+        • Funcionamiento correcto y según especificaciones de la aplicación con uso de “template literals”		4 puntos
+        • Control de errores (número y ámbito)			2 puntos X
+        • Utilización de alguna función flecha			2 puntos -
+        • Continuidad del programa. Ejecución hasta salida       X
+        - mediante palabra pactada.				2 puntos         
+        */
+
+        //Hacer una solicitud que pida un número entre el 1 al 300
+        function numerointroducido () {
+            var usuario = Number(prompt("Dame un número del 1 al 300"));
+            console.log(usuario)
+            //No puede poner un número mayor de 300 y menor de 1. NO debe dejar la casilla vacia
+            if (isNaN(usuario) || usuario > 300 || usuario < 1) {
+                //Salto de error si el usuario introduce el numero equivocado
+                throw new Error("El número introducido" +usuario+ " no es correcto, asegurate de introducir un número");
+                console.error("No se han cumplido los requisitos, se introdujo:" +usuario);     
+                           
+            } else {
+                console.log("El número introducido es: " + usuario);
+                //llamamos a la función que hace el cambio y muestra el resultado por consola
+                console.log("El número: " +usuario+ " se escribe: " +numeroresultado(usuario)+ " en numeración romana" );
+                document.getElementById("resultado").innerHTML = "El número: " +usuario+ " se escribe: " +numeroresultado(usuario)+ " en numeración romana"  
+            }
+            return usuario
+        }
+        //función que realiza el cambio entre decimal a romanos
+        function numeroresultado(numero) {
+            //Dejamos ya declarados los valores de los números romanos.
+            const valores = [
+                ["C", 100], ["XC", 90], ["L", 50], ["XL", 40], ["X", 10],
+                ["IX", 9], ["V", 5], ["IV", 4], ["I", 1]
+            ];
+            //Resultado es la variable que vamos a estar mostrando por pantalla
+            let resultado = "";
+            //mira para cada valor en el número romano:
+            valores.forEach(([romano, valor]) => {
+                //Mientras el valor de usuario sea mayor igual que el numero del usuario, 
+                //el resultado será igual al número romano
+                while (numero >= valor) {
+                    resultado += romano; //Guarda la información recorriendo el bucle foreach
+                    numero   -= valor;
+                }
+            });
+            return resultado;
+        }
+        //Para iniciar el alert y la función de introducir número
+        numerointroducido();
+    </script>
+</html>

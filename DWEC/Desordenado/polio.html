@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con Validación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .success {
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Formulario de Registro</h2>
+        <form id="formRegistro">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required>
+            <span class="error" id="errorNombre">⚠️ El nombre es obligatorio y solo puede contener letras.</span>
+
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" required>
+            <span class="error" id="errorEmail">⚠️ Introduce un correo válido.</span>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" pattern="[0-9]{9}" required>
+            <span class="error" id="errorTelefono">⚠️ Introduce un teléfono válido (9 dígitos).</span>
+
+            <label>Intereses:</label>
+            <input type="checkbox" name="interes" value="Deporte"> Deporte
+            <input type="checkbox" name="interes" value="Música"> Música
+            <input type="checkbox" name="interes" value="Viajes"> Viajes
+            <span class="error" id="errorIntereses">⚠️ Selecciona al menos un interés.</span>
+
+            <label for="observaciones">Observaciones:</label>
+            <textarea id="observaciones" required></textarea>
+            <span class="error" id="errorObservaciones">⚠️ Este campo no puede estar vacío.</span>
+
+            <button type="submit" id="btnEnviar" disabled>Registrarse</button>
+        </form>
+        <div id="mensajeExito" class="success" style="display: none;">✅ ¡Registro exitoso!</div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("formRegistro");
+            const btnEnviar = document.getElementById("btnEnviar");
+            const mensajeExito = document.getElementById("mensajeExito");
+
+            const campos = {
+                nombre: document.getElementById("nombre"),
+                email: document.getElementById("email"),
+                telefono: document.getElementById("telefono"),
+                observaciones: document.getElementById("observaciones"),
+            };
+
+            const errores = {
+                nombre: document.getElementById("errorNombre"),
+                email: document.getElementById("errorEmail"),
+                telefono: document.getElementById("errorTelefono"),
+                intereses: document.getElementById("errorIntereses"),
+                observaciones: document.getElementById("errorObservaciones"),
+            };
+
+            const validarCampo = (campo, regex, error) => {
+                if (!regex.test(campo.value.trim())) {
+                    error.style.display = "block";
+                    campo.classList.add("error-input");
+                    return false;
+                } else {
+                    error.style.display = "none";
+                    campo.classList.remove("error-input");
+                    return true;
+                }
+            };
+
+            const validarIntereses = () => {
+                const seleccionados = document.querySelectorAll('input[name="interes"]:checked').length;
+                if (seleccionados > 0) {
+                    errores.intereses.style.display = "none";
+                    return true;
+                } else {
+                    errores.intereses.style.display = "block";
+                    return false;
+                }
+            };
+
+            const validarFormulario = () => {
+                let nombreValido = validarCampo(campos.nombre, /^[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\s]+$/, errores.nombre);
+                let emailValido = validarCampo(campos.email, /^\S+@\S+\.\S+$/, errores.email);
+                let telefonoValido = validarCampo(campos.telefono, /^[0-9]{9}$/, errores.telefono);
+                let interesesValidos = validarIntereses();
+                let observacionesValidas = validarCampo(campos.observaciones, /.+/, errores.observaciones);
+
+                let formularioValido = nombreValido && emailValido && telefonoValido && interesesValidos && observacionesValidas;
+                btnEnviar.disabled = !formularioValido;
+
+                return formularioValido;
+            };
+
+            Object.values(campos).forEach(campo => {
+                campo.addEventListener("input", validarFormulario);
+            });
+
+            document.querySelectorAll('input[name="interes"]').forEach(checkbox => {
+                checkbox.addEventListener("change", validarFormulario);
+            });
+
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                if (validarFormulario()) {
+                    mensajeExito.style.display = "block";
+                    form.reset();
+                    btnEnviar.disabled = true;
+                    setTimeout(() => mensajeExito.style.display = "none", 3000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title> Clase del día 11-02-2025 </title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="contenedor"> 
+            <button id="boton">Haz click</button> 
+        </div> 
+        <script> 
+            document.getElementById("contenedor").addEventListener("click", function() { 
+                console.log("Pulsado el div (captura)"); 
+            }, { capture: true } ); 
+            
+            document.getElementById("boton").addEventListener("click", function() { 
+                console.log("Pulsado el botón"); 
+            }); 
+        </script> 
+    </body>
+</html>
