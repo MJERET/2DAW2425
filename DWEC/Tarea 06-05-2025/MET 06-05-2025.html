@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <title> Tarea 1 Periodo extraordinario </title>
+        <meta charset="UTF-8">
+        <meta author="Mariano José Eret">
+    </head>
+    <body>
+        <!-- Día 06-05-2025 -->
+    </body>
+    <script> 
+        /* Mariano José Eret Torres*/
+        "use strict"; //Con esto obligamos a que todas las variables que escribamos tengan que ser declaradas, sino saltara fallo en nuestra consola y en nuestro programa
+
+    /*
+    - Alcance de variables
+    - Estructuras de control: if, switch, for, for-in, for-of, while, do-while, break, continue
+    - Funciones (declaración o expresión. Constructor)
+    - Funciones anónimas (expresión...) , callback
+    - Parámetros y argumentos
+    - Argumentos por exceso ( arguments()) y por defecto (NaN) 
+    - Funciones flecha
+    */
+
+    // ------------------ Alcance de las variables -------------------
+    /*Las variables pueden ser de alcance global o de alcance*/
+    var numero = 5;     
+        // var: Usaremos var para declarar variables de distinto tipo, ya sea number, String, etc.
+        // Tiene un alcance global si se declara fuera de una función, o de función si se declara dentro de una.
+        // Puede ser redeclarada y reasignada.
+
+    let numero2 = 5;    
+        // let: Usaremos let para declarar variables cuando no necesitamos que su valor sea constante.
+        // Tiene un alcance de bloque, lo que significa que solo es accesible dentro del bloque donde se declara.
+        // Puede ser reasignada, pero no redeclarada en el mismo ámbito.
+
+    const numero3 = 5;  
+        // const: Es una variable la cual no puede variar su valor, tiene que ser constante.
+        // Tiene un alcance de bloque, similar a let.
+        // No puede ser reasignada ni redeclarada en el mismo ámbito.
+        // Aunque el valor no puede cambiar, si es un objeto o array, sus propiedades o elementos pueden ser modificados.
+
+    /* Las variables pueden ser de tipo global o no, es decir, que tienen un alcance dentro de nuestro código un alcance que limita desde donde las podemos llamar.
+     declaramos una función: */
+    function rango() {
+        //declaramos una función:
+        var saludo ="Hola!";
+    }
+    /* console.log(saludo); este saludo dara error gracias a que para llamarlo tenemos que hacerlo mediante la function, es decir, no podemos porque solo está declarada dentro de la función.
+     Para que esto sea así tenemos que colocar dentro de la function un valor que devuelva es decir: */
+    function rango2() {
+        var saludo="HOLA!"
+        return saludo;
+    }
+    console.log(rango2()); //Con esto obtendremos HOLA dentro de la consola de nuestro navegador.
+
+    /*IMPORTANTE PODEMO HACER QUE JS TENGA LA OBLIGACIÓN DE DECLARAR SIEMPRE LAS VARIABLES, YA QUE NO ESTAMOS OBLIGADOS A PONER EL TIPO NI DECLARARLAS CON VAR, LET NI CONST
+      Para ello haremos uso del use strict con el fin de siempre tener que poner el tipo de variable correspondiente.*/
+
+    // ------------------ Estructuras de control. -------------------
+    /*for in for of for each.*/
+
+    // FOR. Consiste en tres expresiones opcionales entre paréntesis y separadas por punto y coma. La prima indica desde que número 
+    // debe cumplir dicho número y por ulitmo el incremento o decremento de cada iteración del bucle 
+    function caso() {
+        console.log("------ Caso de FOR ------")
+        var i;// Declaramos la variable i antes de usarla
+        for (i = 0; i <= 5; i++) {
+            console.log(i);
+        // Podemos asaltar el primer intervalo, es decir tener la declaración de i fuera del for 
+        // Esto es una mejor practica.   
+        }
+        return console.log("---- FIN ----");
+    }
+    console.log(caso());
+
+
+    // FOR IN. Lo utilizamos para movernos dentro de las propiedas de un objeto (MIRANDO LOS ELEMENTOS en ).
+    function caso1() {
+        //array que utilizamos para recorrer un objeto.  
+        var head = ["nariz", "ojos", "boca"];
+        let contar; //contar funciona como nuestro indice que va recorrer el objeto.
+        console.log("------ Caso de FOR IN ------");
+        for (contar in head) {
+            //Con esto recorremos los elementos que tiene head, es decir que nos va a mostrar nariz, ojos y boca.
+            console.log(head[contar]);
+        } //Siempre usaremos for in cuando queramos mostrar todas las propiedades de un objeto.
+        return console.log("---- FIN ----");
+    } //caso1
+    console.log(caso1());
+
+    /* FOR OF. Lo utilizamos para movernos por las propiedades de un objeto, es parecido al FOR IN pero la variable contador
+     toma como valor cada indice, toma cada valor como elemento. */
+    function caso2() {
+    //Se utiliza para recorrer una cadena
+	let datos = [5, 10, 15, 85]
+	let sumaDatos = 0; // Sumardatos funciona como nuestro contador que recorre el número de elementos que posee el objeto. 
+    console.log("------ Caso de FOR OF ------");
+    for (let valor of datos) {
+		sumaDatos += valor; 
+        // En este caso, estará recorriendo todos los elementos y lo estaremos sumando gracias a las +=
+        // Si solo pusieramos el =, nos mostrara el ultimo elemento, esto es grcias a como funciona el FOR OF y el tipo de dato que estamos utilizando que es un number
+	}	
+    return sumaDatos;
+    } //caso2
+    console.log(caso2());
+
+    /* FOR EACH.  Lo utilizamos para cuando queremos recorrer cada elemento de un array (METODO DE UN ARRAY), es decir, si tenemos un array a b c. recorrera el array hasta que no haya más elementos*/
+    function caso3(){
+        const array1 =["a", "b", "c"];
+        console.log("------ Caso de FOR EACH ------")
+        array1.forEach((element) => console.log(element));    
+    }    
+    console.log(caso3());
+    
+    /*funciones por declaración y por expresion. Una funcion callback */
+    // ------------------ Funciones por declaración y por expresión. -------------------
+    /*Son las funciones que consta de la palabra clave function seguido del nombre de la funcion, esas son las funciones declaradas.*/
+    function saludo() {
+        return console.log("saludo");
+    } saludo();
+    
+    // Las funciones por declaración pueden recibir un número de elementos:
+    var numero = prompt("Introduce un número");
+    function multi(valor) {
+        return valor * valor; // Llamada recursiva
+    }
+    console.log(multi(numero));
+
+    // Podemos escribir la misma función con el mismo nombre siempre y cuando cambiemos el número de parámetros que reciba ya sea 0 o varios parámetros.
+    function multi(valor1, valor2) {
+        return valor1 * valor2;
+    }
+    console.log(multi(4, 7));
+    
+    // Podemos declara una función sin nombre una función ANONIMA:
+    const cuadrado = function(number) {
+        return number * number;
+    };
+
+
+
+    /*funciones flecha y arguments. */
+    </script>
+</html>
